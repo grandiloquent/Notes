@@ -2,8 +2,13 @@
 
 ## Android Source Code
 
+- [Platform Packages Apps](https://android.googlesource.com/platform/packages/apps/)
 - [Platform Frameworks Base](https://github.com/aosp-mirror/platform_frameworks_base)
 - [bionic](https://github.com/aosp-mirror/platform_bionic)
+
+## AndroidX
+
+- https://developer.android.com/jetpack/androidx/migrate
 
 ## Glide
 
@@ -107,4 +112,10 @@ fun String.fetchHtml(): String? {
 
 - https://github.com/square/okhttp/wiki/Recipes
 - https://github.com/square/okhttp
+
+## Others
+
+- [VLC-Android](https://code.videolan.org/videolan/vlc-android)
+- [libretorrent](https://gitlab.com/proninyaroslav/libretorrent)
+- [Maven Repository](https://mvnrepository.com/)
 
