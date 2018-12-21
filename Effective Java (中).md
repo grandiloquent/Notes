@@ -1,36 +1,36 @@
 # Effective Java (中)
 
-- [Item 21: Use function objects to represent strategies](#section-1)
-- [Item 22: Favor static member classes over nonstatic](#section-2)
-- [Item 23: Don’t use raw types in new code](#section-3)
-- [Item 24: Eliminate unchecked warnings](#section-4)
-- [Item 25: Prefer lists to arrays](#section-5)
-- [Item 26: Favor generic types](#section-6)
-- [Item 27: Favor generic methods](#section-7)
-- [Item 28: Use bounded wildcards to increase API flexibility](#section-8)
-- [Item 29: Consider typesafe heterogeneous containers](#section-9)
-- [Item 30: Use enums instead of int constants](#section-10)
-- [Item 31: Use instance fields instead of ordinals](#section-11)
-- [Item 32: Use EnumSet instead of bit fields](#section-12)
-- [Item 33: Use EnumMap instead of ordinal indexing](#section-13)
-- [Item 34: Emulate extensible enums with interfaces](#section-14)
-- [Item 35: Prefer annotations to naming patterns](#section-15)
-- [Item 36: Consistently use the Override annotation](#section-16)
-- [Item 37: Use marker interfaces to define types](#section-17)
-- [Item 38: Check parameters for validity](#section-18)
-- [Item 39: Make defensive copies when needed](#section-19)
-- [Item 40: Design method signatures carefully](#section-20)
-- [Item 41: Use overloading judiciously](#section-21)
-- [Item 42: Use varargs judiciously](#section-22)
-- [Item 43: Return empty arrays or collections, not nulls](#section-23)
-- [Item 45: Minimize the scope of local variables](#section-24)
-- [Item 46: Prefer for-each loops to traditional for loops](#section-25)
+ - [Item 21: Use function objects to represent strategies](#item-21-use-function-objects-to-represent-strategies)
+- [Item 22: Favor static member classes over nonstatic](#item-22-favor-static-member-classes-over-nonstatic)
+- [Item 23: Don’t use raw types in new code](#item-23-dont-use-raw-types-in-new-code)
+- [Item 24: Eliminate unchecked warnings](#item-24-eliminate-unchecked-warnings)
+- [Item 25: Prefer lists to arrays](#item-25-prefer-lists-to-arrays)
+- [Item 26: Favor generic types](#item-26-favor-generic-types)
+- [Item 27: Favor generic methods](#item-27-favor-generic-methods)
+- [Item 28: Use bounded wildcards to increase API flexibility](#item-28-use-bounded-wildcards-to-increase-api-flexibility)
+- [Item 29: Consider typesafe heterogeneous containers](#item-29-consider-typesafe-heterogeneous-containers)
+- [Item 30: Use enums instead of int constants](#item-30-use-enums-instead-of-int-constants)
+- [Item 31: Use instance fields instead of ordinals](#item-31-use-instance-fields-instead-of-ordinals)
+- [Item 32: Use EnumSet instead of bit fields](#item-32-use-enumset-instead-of-bit-fields)
+- [Item 33: Use EnumMap instead of ordinal indexing](#item-33-use-enummap-instead-of-ordinal-indexing)
+- [Item 34: Emulate extensible enums with interfaces](#item-34-emulate-extensible-enums-with-interfaces)
+- [Item 35: Prefer annotations to naming patterns](#item-35-prefer-annotations-to-naming-patterns)
+- [Item 36: Consistently use the Override annotation](#item-36-consistently-use-the-override-annotation)
+- [Item 37: Use marker interfaces to define types](#item-37-use-marker-interfaces-to-define-types)
+- [Item 38: Check parameters for validity](#item-38-check-parameters-for-validity)
+- [Item 39: Make defensive copies when needed](#item-39-make-defensive-copies-when-needed)
+- [Item 40: Design method signatures carefully](#item-40-design-method-signatures-carefully)
+- [Item 41: Use overloading judiciously](#item-41-use-overloading-judiciously)
+- [Item 42: Use varargs judiciously](#item-42-use-varargs-judiciously)
+- [Item 43: Return empty arrays or collections, not nulls](#item-43-return-empty-arrays-or-collections-not-nulls)
+- [Item 45: Minimize the scope of local variables](#item-45-minimize-the-scope-of-local-variables)
+- [Item 46: Prefer for-each loops to traditional for loops](#item-46-prefer-for-each-loops-to-traditional-for-loops)
 
 ## Item 21: Use function objects to represent strategies
 
 ## Item 22: Favor static member classes over nonstatic
 
-```
+```java
 // Typical use of a nonstatic member class
 public class MySet<E> extends AbstractSet<E> {
     ... // Bulk of the class omitted
@@ -49,7 +49,7 @@ If you declare a member class that does not require access to an enclosing insta
 
 ## Item 23: Don’t use raw types in new code
 
-```
+```java
 // Now a raw collection type - don't do this!
 
 /**
@@ -58,12 +58,12 @@ If you declare a member class that does not require access to an enclosing insta
 private final Collection stamps = ... ;
 ```
 
-```
+```java
 // Erroneous insertion of coin into stamp collection
 stamps.add(new Coin( ... ));
 ```
 
-```
+```java
 // Now a raw iterator type - don't do this!
 for (Iterator i = stamps.iterator(); i.hasNext(); ) {
     Stamp s = (Stamp) i.next(); // Throws ClassCastException
@@ -71,19 +71,19 @@ for (Iterator i = stamps.iterator(); i.hasNext(); ) {
 }
 ```
 
-```
+```java
 // Parameterized collection type - typesafe
 private final Collection<Stamp> stamps = ... ;
 ```
 
-```
+```java
 // for-each loop over a parameterized collection - typesafe
 for (Stamp s : stamps) { // No cast
     ... // Do something with the stamp
 }
 ```
 
-```
+```java
 // for loop with parameterized iterator declaration - typesafe
 for (Iterator<Stamp> i = stamps.iterator(); i.hasNext(); ) {
     Stamp s = i.next(); // No cast necessary
@@ -95,7 +95,7 @@ If you use raw types, you lose all the safety and expressiveness benefits of gen
 
 As a consequence, you lose type safety if you use a raw type like List, but not if you use a parameterized type like  `List<Object>` .
 
-```
+```java
 // Uses raw type (List) - fails at runtime!
 public static void main(String[] args) {
     List<String> strings = new ArrayList<String>();
@@ -108,7 +108,7 @@ private static void unsafeAdd(List list, Object o) {
 }
 ```
 
-```
+```java
 // Use of raw type for unknown element type - don't do this!
 static int numElementsInCommon(Set s1, Set s2) {
     int result = 0;
@@ -119,7 +119,7 @@ static int numElementsInCommon(Set s1, Set s2) {
 }
 ```
 
-```
+```java
 // Unbounded wildcard type - typesafe and flexible
 static int numElementsInCommon(Set<?> s1, Set<?> s2){
     int result = 0;
@@ -134,7 +134,7 @@ You must use raw types in class literals.
 
 This is the preferred way to use the instanceof operator with generic types:
 
-```
+```java
 // Legitimate use of raw type - instanceof operator
 if (o instanceof Set) {       // Raw type
     Set<?> m = (Set<?>) o;    // Wildcard type
@@ -150,7 +150,7 @@ If you can’t eliminate a warning, and you can prove that the code that provoke
 
 Always use the SuppressWarnings annotation on the smallest scope possible.
 
-```
+```java
 // Adding local variable to reduce scope of @SuppressWarnings
 public <T> T[] toArray(T[] a) {
     if (a.length < size) {
@@ -171,19 +171,19 @@ Every time you use an @SuppressWarnings("unchecked") annotation, add a comment s
 
 ## Item 25: Prefer lists to arrays
 
-```
+```java
 // Fails at runtime!
 Object[] objectArray = new Long[1];
 objectArray[0] = "I don't fit in"; // Throws ArrayStoreException
 ```
 
-```
+```java
 // Won't compile!
 List<Object> ol = new ArrayList<Long>(); // Incompatible types
 ol.add("I don't fit in");
 ```
 
-```
+```java
 // Reduction without generics, and with concurrency flaw!
 static Object reduce(List list, Function f, Object initVal) {
     synchronized(list) {
@@ -199,7 +199,7 @@ interface Function {
 }
 ```
 
-```
+```java
 // Reduction without generics or concurrency flaw
 static Object reduce(List list, Function f, Object initVal) {
     Object[] snapshot = list.toArray(); // Locks list internally
@@ -210,7 +210,7 @@ static Object reduce(List list, Function f, Object initVal) {
 }
 ```
 
-```
+```java
 // List-based generic reduction
 static <E> E reduce(List<E> list, Function<E> f, E initVal) {
     List<E> snapshot;
@@ -226,7 +226,7 @@ static <E> E reduce(List<E> list, Function<E> f, E initVal) {
 
 ## Item 26: Favor generic types
 
-```
+```java
 // Object-based collection - a prime candidate for generics
 public class Stack {
     private Object[] elements;
@@ -261,7 +261,7 @@ public class Stack {
 }
 ```
 
-```
+```java
 // Initial attempt to generify Stack - won't compile!
 public class Stack<E> {
     private E[] elements;
@@ -288,7 +288,7 @@ public class Stack<E> {
 }
 ```
 
-```
+```java
 // Appropriate suppression of unchecked warning
 public E pop() {
     if (size == 0)
@@ -303,7 +303,7 @@ public E pop() {
 }
 ```
 
-```
+```java
 // Little program to exercise our generic Stack
 public static void main(String[] args) {
     Stack<String> stack = new Stack<String>();
@@ -316,7 +316,7 @@ public static void main(String[] args) {
 
 ## Item 27: Favor generic methods
 
-```
+```java
 // Uses raw types - unacceptable! (Item 23)
 public static Set union(Set s1, Set s2) {
     Set result = new HashSet(s1);
@@ -327,7 +327,7 @@ public static Set union(Set s1, Set s2) {
 
 The type parameter list, which declares the type parameter, goes between the method’s modifiers and its return type.
 
-```
+```java
 // Generic method
 public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
     Set<E> result = new HashSet<E>(s1);
@@ -336,7 +336,7 @@ public static <E> Set<E> union(Set<E> s1, Set<E> s2) {
 }
 ```
 
-```
+```java
 // Simple program to exercise generic method
 public static void main(String[] args) {
     Set<String> guys = new HashSet<String>(
@@ -348,18 +348,18 @@ public static void main(String[] args) {
 }
 ```
 
-```
+```java
 // Parameterized type instance creation with constructor
 Map<String, List<String>> anagrams =
     new HashMap<String, List<String>>();
 ```
 
-```
+```java
 // Parameterized type instance creation with static factory
 Map<String, List<String>> anagrams = newHashMap();
 ```
 
-```
+```java
 // Generic singleton factory pattern
 private static UnaryFunction<Object> IDENTITY_FUNCTION =
     new UnaryFunction<Object>() {
@@ -374,7 +374,7 @@ public static <T> UnaryFunction<T> identityFunction() {
 }
 ```
 
-```
+```java
 // Sample program to exercise generic singleton
 public static void main(String[] args) {
     String[] strings = { "jute", "hemp", "nylon" };
@@ -389,12 +389,12 @@ public static void main(String[] args) {
 }
 ```
 
-```
+```java
 // Using a recursive type bound to express mutual comparability
 public static <T extends Comparable<T>> T max(List<T> list) {...}
 ```
 
-```
+```java
 // Returns the maximum value in a list - uses recursive type bound
 public static <T extends Comparable<T>> T max(List<T> list) {
     Iterator<T> i = list.iterator();
@@ -410,7 +410,7 @@ public static <T extends Comparable<T>> T max(List<T> list) {
 
 ## Item 28: Use bounded wildcards to increase API flexibility
 
-```
+```java
 // pushAll method without wildcard type - deficient!
 public void pushAll(Iterable<E> src) {
     for (E e : src)
@@ -418,7 +418,7 @@ public void pushAll(Iterable<E> src) {
 }
 ```
 
-```
+```java
 // Wildcard type for parameter that serves as an E producer
 public void pushAll(Iterable<? extends E> src) {
     for (E e : src)
@@ -434,7 +434,7 @@ If the user of a class has to think about wildcard types, there is probably some
 
 Comparables are always consumers, so you should always use  `Comparable<? super T>`  in preference to  `Comparable<T>` . The same is true of comparators, so you should always use  `Comparator<? super T>`  in preference to  `Comparator<T>` .
 
-```
+```java
 // Won't compile - wildcards can require change in method body!
 public static <T extends Comparable<? super T>> T max(
         List<? extends T> list) {
@@ -451,7 +451,7 @@ public static <T extends Comparable<? super T>> T max(
 
 As a rule, if a type parameter appears only once in a method declaration, replace it with a wildcard.
 
-```
+```java
 public static void swap(List<?> list, int i, int j) {
     swapHelper(list, i, j);
 }
@@ -464,7 +464,7 @@ private static <E> void swapHelper(List<E> list, int i, int j) {
 
 ## Item 29: Consider typesafe heterogeneous containers
 
-```
+```java
 // Typesafe heterogeneous container pattern - API
 public class Favorites {
     public <T> void putFavorite(Class<T> type, T instance);
@@ -472,7 +472,7 @@ public class Favorites {
 }
 ```
 
-```
+```java
 // Typesafe heterogeneous container pattern - client
 public static void main(String[] args) {
     Favorites f = new Favorites();
@@ -487,7 +487,7 @@ public static void main(String[] args) {
 }
 ```
 
-```
+```java
 // Typesafe heterogeneous container pattern - implementation
 public class Favorites {
     private Map<Class<?>, Object> favorites =
@@ -505,14 +505,14 @@ public class Favorites {
 }
 ```
 
-```
+```java
 // Achieving runtime type safety with a dynamic cast
 public <T> void putFavorite(Class<T> type, T instance) {
     favorites.put(type, type.cast(instance));
 }
 ```
 
-```
+```java
 // Use of asSubclass to safely cast to a bounded type token
 static Annotation getAnnotation(AnnotatedElement element,
                                 String annotationTypeName) {
@@ -529,7 +529,7 @@ static Annotation getAnnotation(AnnotatedElement element,
 
 ## Item 30: Use enums instead of int constants
 
-```
+```java
 // The int enum pattern - severely deficient!
 public static final int APPLE_FUJI         = 0;
 public static final int APPLE_PIPPIN       = 1;
@@ -540,7 +540,7 @@ public static final int ORANGE_TEMPLE = 1;
 public static final int ORANGE_BLOOD  = 2;
 ```
 
-```
+```java
 // Enum type with data and behavior
 public enum Planet {
     MERCURY(3.302e+23, 2.439e6),
@@ -577,7 +577,7 @@ public enum Planet {
 
 To associate data with enum constants, declare instance fields and write a constructor that takes the data and stores it in the fields. 
 
-```
+```java
 // Enum type that switches on its own value - questionable
 public enum Operation {
     PLUS, MINUS, TIMES, DIVIDE;
@@ -595,7 +595,7 @@ public enum Operation {
 }
 ```
 
-```
+```java
 // Enum type with constant-specific method implementations
 public enum Operation {
     PLUS   { double apply(double x, double y){return x + y;} },
@@ -607,7 +607,7 @@ public enum Operation {
 }
 ```
 
-```
+```java
 // Enum type with constant-specific class bodies and data
 public enum Operation {
     PLUS("+") {
@@ -630,7 +630,7 @@ public enum Operation {
 }
 ```
 
-```
+```java
 // Implementing a fromString method on an enum type
 private static final Map<String, Operation> stringToEnum
     = new HashMap<String, Operation>();
@@ -644,7 +644,7 @@ public static Operation fromString(String symbol) {
 }
 ```
 
-```
+```java
 // Enum that switches on its value to share code - questionable
 enum PayrollDay {
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,
@@ -668,7 +668,7 @@ enum PayrollDay {
 }
 ```
 
-```
+```java
 // The strategy enum pattern
 enum PayrollDay {
     MONDAY(PayType.WEEKDAY), TUESDAY(PayType.WEEKDAY),
@@ -709,7 +709,7 @@ enum PayrollDay {
 
 Switches on enums are good for augmenting external enum types with constant-specific behavior. 
 
-```
+```java
 // Switch on an enum to simulate a missing method
 public static Operation inverse(Operation op) {
     switch(op) {
@@ -724,7 +724,7 @@ public static Operation inverse(Operation op) {
 
 ## Item 31: Use instance fields instead of ordinals
 
-```
+```java
 // Abuse of ordinal to derive an associated value - DON'T DO THIS
 public enum Ensemble {
     SOLO,   DUET,   TRIO, QUARTET, QUINTET,
@@ -736,7 +736,7 @@ public enum Ensemble {
 
 Never derive a value associated with an enum from its ordinal; store it in an instance field instead:
 
-```
+```java
 public enum Ensemble {
     SOLO(1), DUET(2), TRIO(3), QUARTET(4), QUINTET(5),
     SEXTET(6), SEPTET(7), OCTET(8), DOUBLE_QUARTET(8),
@@ -750,7 +750,7 @@ public enum Ensemble {
 
 ## Item 32: Use EnumSet instead of bit fields
 
-```
+```java
 // Bit field enumeration constants - OBSOLETE!
 public class Text {
     public static final int STYLE_BOLD          = 1 << 0;  // 1
@@ -763,7 +763,7 @@ public class Text {
 }
 ```
 
-```
+```java
 // EnumSet - a modern replacement for bit fields
 public class Text {
     public enum Style { BOLD, ITALIC, UNDERLINE, STRIKETHROUGH }
@@ -777,7 +777,7 @@ In summary, just because an enumerated type will be used in sets, there is no re
 
 ## Item 33: Use EnumMap instead of ordinal indexing
 
-```
+```java
 class Herb {
     enum Type { ANNUAL, PERENNIAL, BIENNIAL }
 
@@ -795,7 +795,7 @@ class Herb {
 }
 ```
 
-```
+```java
 // Using ordinal() to index an array - DON'T DO THIS!
 Herb[] garden = ... ;
 
@@ -814,7 +814,7 @@ for (int i = 0; i < herbsByType.length; i++) {
 }
 ```
 
-```
+```java
 // Using an EnumMap to associate data with an enum
 Map<Herb.Type, Set<Herb>> herbsByType =
     new EnumMap<Herb.Type, Set<Herb>>(Herb.Type.class);
@@ -825,7 +825,7 @@ for (Herb h : garden)
 System.out.println(herbsByType);
 ```
 
-```
+```java
 // Using ordinal() to index array of arrays - DON'T DO THIS!
 public enum Phase { SOLID, LIQUID, GAS;
     public enum Transition {
@@ -845,7 +845,7 @@ public enum Phase { SOLID, LIQUID, GAS;
 }
 ```
 
-```
+```java
 // Using a nested EnumMap to associate data with enum pairs
 public enum Phase {
    SOLID, LIQUID, GAS;
@@ -883,7 +883,7 @@ In summary, it is rarely appropriate to use ordinals to index arrays: use EnumMa
 
 ## Item 34: Emulate extensible enums with interfaces
 
-```
+```java
 // Emulated extensible enum using an interface
 public interface Operation {
     double apply(double x, double y);
@@ -916,7 +916,7 @@ In summary, while you cannot write an extensible enum type, you can emulate it b
 
 ## Item 35: Prefer annotations to naming patterns
 
-```
+```java
 // Program containing marker annotations
 public class Sample {
     @Test public static void m1() { }  // Test should pass
@@ -934,7 +934,7 @@ public class Sample {
 }
 ```
 
-```
+```java
 // Program containing annotations with a parameter
 public class Sample2 {
     @ExceptionTest(ArithmeticException.class)
@@ -958,7 +958,7 @@ All programmers should, however, use the predefined annotation types provided by
 
 ## Item 36: Consistently use the Override annotation
 
-```
+```java
 // Can you spot the bug?
 public class Bigram {
     private final char first;
@@ -994,7 +994,7 @@ If you find yourself writing a marker annotation type whose target is ElementTyp
 
 ## Item 38: Check parameters for validity
 
-```
+```java
 /**
  * Returns a BigInteger whose value is (this mod m). This method
  * differs from the remainder method in that it always returns a
@@ -1011,7 +1011,7 @@ public BigInteger mod(BigInteger m) {
 }
 ```
 
-```
+```java
 // Private helper function for a recursive sort
 private static void sort(long a[], int offset, int length) {
     assert a != null;
@@ -1025,7 +1025,7 @@ private static void sort(long a[], int offset, int length) {
 
 You must program defensively, with the assumption that clients of your class will do their best to destroy its invariants.
 
-```
+```java
 // Broken "immutable" time period class
 public final class Period {
     private final Date start;
@@ -1056,7 +1056,7 @@ public final class Period {
 }
 ```
 
-```
+```java
 // Attack the internals of a Period instance
 Date start = new Date();
 Date end = new Date();
@@ -1066,7 +1066,7 @@ end.setYear(78);  // Modifies internals of p!
 
 To protect the internals of a Period instance from this sort of attack, it is essential to make a defensive copy of each mutable parameter to the constructor and to use the copies as components of the Period instance in place of the originals:
 
-```
+```java
 // Repaired constructor - makes defensive copies of parameters
 public Period(Date start, Date end) {
     this.start = new Date(start.getTime());
@@ -1082,7 +1082,7 @@ Note that defensive copies are made before checking the validity of the paramete
 
 To prevent this sort of attack, do not use the clone method to make a defensive copy of a parameter whose type is subclassable by untrusted parties.
 
-```
+```java
 // Second attack on the internals of a Period instance
 Date start = new Date();
 Date end = new Date();
@@ -1092,7 +1092,7 @@ p.end().setYear(78);  // Modifies internals of p!
 
 To defend against the second attack, merely modify the accessors to return defensive copies of mutable internal fields:
 
-```
+```java
 // Repaired accessors - make defensive copies of internal fields
 public Date start() {
     return new Date(start.getTime());
@@ -1121,8 +1121,7 @@ Prefer two-element enum types to boolean parameters.
 
 ## Item 41: Use overloading judiciously
 
-
-```
+```java
 // Broken! - What does this program print?
 public class CollectionClassifier {
     public static String classify(Set<?> s) {
@@ -1160,8 +1159,7 @@ A safe, conservative policy is never to export two overloadings with the same nu
 
 ## Item 42: Use varargs judiciously
 
-
-```
+```java
 // Simple use of varargs
 static int sum(int... args) {
     int sum = 0;
@@ -1171,8 +1169,7 @@ static int sum(int... args) {
 }
 ```
 
-
-```
+```java
 // The WRONG way to use varargs to pass one or more arguments!
 static int min(int... args) {
     if (args.length == 0)
@@ -1185,7 +1182,7 @@ static int min(int... args) {
 }
 ```
 
-```
+```java
 // The right way to use varargs to pass one or more arguments
 static int min(int firstArg, int... remainingArgs) {
     int min = firstArg;
@@ -1196,12 +1193,12 @@ static int min(int firstArg, int... remainingArgs) {
 }
 ```
 
-```
+```java
 // Obsolete idiom to print an array!
 System.out.println(Arrays.asList(myArray));
 ```
 
-```
+```java
 // The right way to print an array
 System.out.println(Arrays.toString(myArray));
 ```
@@ -1210,9 +1207,7 @@ Don’t retrofit every method that has a final array parameter; use varargs only
 
 ## Item 43: Return empty arrays or collections, not nulls
 
-
-
-```
+```java
 // The right way to return an array from a collection
 private final List<Cheese> cheesesInStock = ...;
 
@@ -1226,7 +1221,7 @@ public Cheese[] getCheeses() {
 }
 ```
 
-```
+```java
 // The right way to return a copy of a collection
 public List<Cheese> getCheeseList() {
   if (cheesesInStock.isEmpty())
@@ -1250,8 +1245,7 @@ To avoid confusion, no two members or constructors in a class or interface shoul
 
 When documenting a generic type or method, be sure to document all type parameters:
 
-
-```
+```java
 /**
  * An object that maps keys to values. A map cannot contain
  * duplicate keys; each key can map to at most one value.
@@ -1268,8 +1262,7 @@ public interface Map<K, V> {
 
 When documenting an enum type, be sure to document the constants as well as the type and any public methods. Note that you can put an entire doc comment on one line if it’s short:
 
-
-```
+```java
 /**
  * An instrument section of a symphony orchestra.
  */
@@ -1290,8 +1283,7 @@ public enum OrchestraSection {
 
 When documenting an annotation type, be sure to document any members as well as the type itself. Document members with noun phrases, as if they were fields. For the summary description of the type, use a verb phrase that says what it means when a program element has an annotation of this type:
 
-
-```
+```java
 /**
  * Indicates that the annotated method is a test method that
  * must throw the designated exception to succeed.
@@ -1316,8 +1308,7 @@ Nearly every local variable declaration should contain an initializer.
 
 Therefore, prefer for loops to while loops, assuming the contents of the loop variable aren’t needed after the loop terminates.
 
-
-```
+```java
 // Preferred idiom for iterating over a collection
 for (Element e : c) {
     doSomething(e);
@@ -1326,29 +1317,28 @@ for (Element e : c) {
 
 ## Item 46: Prefer for-each loops to traditional for loops
 
-
-```
+```java
 // No longer the preferred idiom to iterate over a collection!
 for (Iterator i = c.iterator(); i.hasNext(); ) {
     doSomething((Element) i.next()); // (No generics before 1.5)
 }
 ```
 
-```
+```java
 // No longer the preferred idiom to iterate over an array!
 for (int i = 0; i < a.length; i++) {
     doSomething(a[i]);
 }
 ```
 
-```
+```java
 // The preferred idiom for iterating over collections and arrays
 for (Element e : elements) {
     doSomething(e);
 }
 ```
 
-```
+```java
 // Can you spot the bug?
 enum Suit { CLUB, DIAMOND, HEART, SPADE }
 enum Rank { ACE, DEUCE, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT,
@@ -1363,7 +1353,7 @@ for (Iterator<Suit> i = suits.iterator(); i.hasNext(); )
         deck.add(new Card(i.next(), j.next()));
 ```
 
-```
+```java
 // Same bug, different symptom!
 enum Face { ONE, TWO, THREE, FOUR, FIVE, SIX }
 ...
@@ -1374,7 +1364,7 @@ for (Iterator<Face> i = faces.iterator(); i.hasNext(); )
         System.out.println(i.next() + " "   + j.next());
 ```
 
-```
+```java
 // Fixed, but ugly - you can do better!
 for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
     Suit suit = i.next();
@@ -1383,7 +1373,7 @@ for (Iterator<Suit> i = suits.iterator(); i.hasNext(); ) {
 }
 ```
 
-```
+```java
 // Preferred idiom for nested iteration on collections and arrays
 for (Suit suit : suits)
     for (Rank rank : ranks)

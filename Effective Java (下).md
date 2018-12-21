@@ -1,40 +1,40 @@
 # Effective Java (下)
 
-- [Item 47: Know and use the libraries](#section-1)
-- [Item 48: Avoid float and double if exact answers are required](#section-2)
-- [Item 49: Prefer primitive types to boxed primitives](#section-3)
-- [Item 50: Avoid strings where other types are more appropriate](#section-4)
-- [Item 51: Beware the performance of string concatenation](#section-5)
-- [Item 52: Refer to objects by their interfaces](#section-6)
-- [Item 53: Prefer interfaces to reflection](#section-7)
-- [Item 54: Use native methods judiciously](#section-8)
-- [Item 55: Optimize judiciously](#section-9)
-- [Item 56: Adhere to generally accepted naming conventions](#section-10)
-- [Item 57: Use exceptions only for exceptional conditions](#section-11)
-- [Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors](#section-12)
-- [Item 59: Avoid unnecessary use of checked exceptions](#section-13)
-- [Item 60: Favor the use of standard exceptions](#section-14)
-- [Item 61: Throw exceptions appropriate to the abstraction](#section-15)
-- [Item 62: Document all exceptions thrown by each method](#section-16)
-- [Item 63: Include failure-capture information in detail messages](#section-17)
-- [Item 64: Strive for failure atomicity](#section-18)
-- [Item 65: Don’t ignore exceptions](#section-19)
-- [Item 66: Synchronize access to shared mutable data](#section-20)
-- [Item 67: Avoid excessive synchronization](#section-21)
-- [Item 68: Prefer executors and tasks to threads](#section-22)
-- [Item 69: Prefer concurrency utilities to wait and notify](#section-23)
-- [Item 70: Document thread safety](#section-24)
-- [Item 71: Use lazy initialization judiciously](#section-25)
-- [Item 72: Don’t depend on the thread scheduler](#section-26)
-- [Item 73: Avoid thread groups](#section-27)
-- [Item 74: Implement Serializable judiciously](#section-28)
-- [Item 75: Consider using a custom serialized form](#section-29)
-- [Item 76: Write readObject methods defensively](#section-30)
-- [Item 78: Consider serialization proxies instead of serialized instances](#section-31)
-
+- [Item 47: Know and use the libraries](#item-47-know-and-use-the-libraries)
+- [Item 48: Avoid float and double if exact answers are required](#item-48-avoid-float-and-double-if-exact-answers-are-required)
+- [Item 49: Prefer primitive types to boxed primitives](#item-49-prefer-primitive-types-to-boxed-primitives)
+- [Item 50: Avoid strings where other types are more appropriate](#item-50-avoid-strings-where-other-types-are-more-appropriate)
+- [Item 51: Beware the performance of string concatenation](#item-51-beware-the-performance-of-string-concatenation)
+- [Item 52: Refer to objects by their interfaces](#item-52-refer-to-objects-by-their-interfaces)
+- [Item 53: Prefer interfaces to reflection](#item-53-prefer-interfaces-to-reflection)
+- [Item 54: Use native methods judiciously](#item-54-use-native-methods-judiciously)
+- [Item 55: Optimize judiciously](#item-55-optimize-judiciously)
+- [Item 56: Adhere to generally accepted naming conventions](#item-56-adhere-to-generally-accepted-naming-conventions)
+- [Item 57: Use exceptions only for exceptional conditions](#item-57-use-exceptions-only-for-exceptional-conditions)
+- [Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors](#item-58-use-checked-exceptions-for-recoverable-conditions-and-runtime-exceptions-for-programming-errors)
+- [Item 59: Avoid unnecessary use of checked exceptions](#item-59-avoid-unnecessary-use-of-checked-exceptions)
+- [Item 60: Favor the use of standard exceptions](#item-60-favor-the-use-of-standard-exceptions)
+- [Item 61: Throw exceptions appropriate to the abstraction](#item-61-throw-exceptions-appropriate-to-the-abstraction)
+- [Item 62: Document all exceptions thrown by each method](#item-62-document-all-exceptions-thrown-by-each-method)
+- [Item 63: Include failure-capture information in detail messages](#item-63-include-failure-capture-information-in-detail-messages)
+- [Item 64: Strive for failure atomicity](#item-64-strive-for-failure-atomicity)
+- [Item 65: Don’t ignore exceptions](#item-65-dont-ignore-exceptions)
+- [Item 66: Synchronize access to shared mutable data](#item-66-synchronize-access-to-shared-mutable-data)
+- [Item 67: Avoid excessive synchronization](#item-67-avoid-excessive-synchronization)
+- [Item 68: Prefer executors and tasks to threads](#item-68-prefer-executors-and-tasks-to-threads)
+- [Item 69: Prefer concurrency utilities to wait and notify](#item-69-prefer-concurrency-utilities-to-wait-and-notify)
+- [Item 70: Document thread safety](#item-70-document-thread-safety)
+- [Item 71: Use lazy initialization judiciously](#item-71-use-lazy-initialization-judiciously)
+- [Item 72: Don’t depend on the thread scheduler](#item-72-dont-depend-on-the-thread-scheduler)
+- [Item 73: Avoid thread groups](#item-73-avoid-thread-groups)
+- [Item 74: Implement Serializable judiciously](#item-74-implement-serializable-judiciously)
+- [Item 75: Consider using a custom serialized form](#item-75-consider-using-a-custom-serialized-form)
+- [Item 76: Write readObject methods defensively](#item-76-write-readobject-methods-defensively)
+- [Item 78: Consider serialization proxies instead of serialized instances](#item-78-consider-serialization-proxies-instead-of-serialized-instances)
+ 
 ## Item 47: Know and use the libraries
 
-```
+```java
 private static final Random rnd = new Random();
 
 // Common but deeply flawed!
@@ -53,7 +53,7 @@ The libraries are too big to study all the documentation [JavaSE6], but every pr
 
 The float and double types are particularly ill-suited for monetary calculations because it is impossible to represent 0.1 (or any other negative power of ten) as a float or double exactly.
 
-```
+```java
 // Broken - uses floating point for monetary calculation!
 public static void main(String[] args) {
     double funds = 1.00;
@@ -71,7 +71,7 @@ The right way to solve this problem is to use BigDecimal, int, or long for monet
 
 ## Item 49: Prefer primitive types to boxed primitives
 
-```
+```java
 // Broken comparator - can you spot the flaw?
 Comparator<Integer> naturalOrder = new Comparator<Integer>() {
     public int compare(Integer first, Integer second) {
@@ -84,7 +84,7 @@ Applying the  `==`  operator to boxed primitives is almost always wrong.
 
 In nearly every case when you mix primitives and boxed primitives in a single operation, the boxed primitive is auto-unboxed, and this case is no exception.
 
-```
+```java
 // Hideously slow program! Can you spot the object creation?
 public static void main(String[] args) {
     Long sum = 0L;
@@ -109,7 +109,7 @@ Strings are poor substitutes for aggregate types.
 
 Strings are poor substitutes for capabilities.
 
-```
+```java
 // Broken - inappropriate use of string as capability!
 public class ThreadLocal {
     private ThreadLocal() { } // Noninstantiable
@@ -126,7 +126,7 @@ public class ThreadLocal {
 
 Using the string concatenation operator repeatedly to concatenate n strings requires time quadratic in n.
 
-```
+```java
 // Inappropriate use of string concatenation - Performs horribly!
 public String statement() {
     String result = "";
@@ -138,7 +138,7 @@ public String statement() {
 
 To achieve acceptable performance, use a StringBuilder in place of a String to store the statement under construction. 
 
-```
+```java
 public String statement() {
     StringBuilder b = new StringBuilder(numItems() * LINE_WIDTH);
     for (int i = 0; i < numItems(); i++)
@@ -151,12 +151,12 @@ public String statement() {
 
 If appropriate interface types exist, then parameters, return values, variables, and fields should all be declared using interface types.
 
-```
+```java
     // Good - uses interface as type
     List<Subscriber> subscribers = new Vector<Subscriber>();
 ```
 
-```
+```java
  // Bad - uses class as type!
     Vector<Subscriber> subscribers = new Vector<Subscriber>();
 ```
@@ -177,7 +177,7 @@ You can obtain many of the benefits of reflection while incurring few of its cos
 
 If this is the case, you can create instances reflectively and access them normally via their interface or superclass. 
 
-```
+```java
 // Reflective instantiation with interface access
 public static void main(String[] args) {
     // Translate the class name into a Class object
@@ -227,7 +227,7 @@ He could have added one more: measure performance before and after each attempte
 
 ## Item 57: Use exceptions only for exceptional conditions
 
-```
+```java
 // Horrible abuse of exceptions. Don't ever do this!
 try {
     int i = 0;
@@ -241,7 +241,7 @@ The moral of this story is simple: exceptions are, as their name implies, to be 
 
 A well-designed API must not force its clients to use exceptions for ordinary control flow.
 
-```
+```java
 // Do not use this hideous code for iteration over a collection!
 try {
     Iterator<Foo> i = collection.iterator();
@@ -263,7 +263,7 @@ Therefore, all of the unchecked throwables you implement should subclass Runtime
 
 ## Item 59: Avoid unnecessary use of checked exceptions
 
-```
+```java
 // Invocation with checked exception
 try {
     obj.action(args);
@@ -273,7 +273,7 @@ try {
 }
 ```
 
-```
+```java
 // Invocation with state-testing method and unchecked exception
 if (obj.actionPermitted(args)) {
     obj.action(args);
@@ -289,7 +289,7 @@ if (obj.actionPermitted(args)) {
 
 To avoid this problem, higher layers should catch lower-level exceptions and, in their place, throw exceptions that can be explained in terms of the higher-level abstraction. 
 
-```
+```java
 // Exception Translation
 try {
     // Use lower-level abstraction to do our bidding
@@ -299,7 +299,7 @@ try {
 }
 ```
 
-```
+```java
 // Exception Chaining
 try {
     ...  // Use lower-level abstraction to do our bidding
@@ -308,7 +308,7 @@ try {
 }
 ```
 
-```
+```java
 // Exception with chaining-aware constructor
 class HigherLevelException extends Exception {
     HigherLevelException(Throwable cause) {
@@ -331,7 +331,7 @@ If an exception is thrown by many methods in a class for the same reason, it is 
 
 To capture the failure, the detail message of an exception should contain the values of all parameters and fields that “contributed to the exception.
 
-```
+```java
 /**
  * Construct an IndexOutOfBoundsException.
  *
@@ -357,7 +357,7 @@ public IndexOutOfBoundsException(int lowerBound, int upperBound,
 
 Generally speaking, a failed method invocation should leave the object in the state that it was in prior to the invocation.
 
-```
+```java
 public Object pop() {
     if (size == 0)
         throw new EmptyStackException();
@@ -369,7 +369,7 @@ public Object pop() {
 
 ## Item 65: Don’t ignore exceptions
 
-```
+```java
 // Empty catch block ignores exception - Highly suspect!
 try {
     ...
@@ -387,7 +387,7 @@ Synchronization is required for reliable communication between threads as well a
 
 Do not use Thread.stop. 
 
-```
+```java
 // Broken! - How long would you expect this program to run?
 public class StopThread {
     private static boolean stopRequested;
@@ -409,7 +409,7 @@ public class StopThread {
 }
 ```
 
-```
+```java
 // Properly synchronized cooperative thread termination
 public class StopThread {
     private static boolean stopRequested;
@@ -439,7 +439,7 @@ public class StopThread {
 
 In fact, synchronization has no effect unless both read and write operations are synchronized.
 
-```
+```java
 // Cooperative thread termination with a volatile field
 public class StopThread {
     private static volatile boolean stopRequested;
@@ -461,7 +461,7 @@ public class StopThread {
 }
 ```
 
-```
+```java
 // Broken - requires synchronization!
 private static volatile int nextSerialNumber = 0;
 
@@ -478,7 +478,7 @@ In summary, when multiple threads share mutable data, each thread that reads or 
 
 To avoid liveness and safety failures, never cede control to the client within a synchronized method or block.
 
-```
+```java
 // Broken - invokes alien method from synchronized block!
 public class ObservableSet<E> extends ForwardingSet<E> {
     public ObservableSet(Set<E> set) { super(set); }
@@ -518,7 +518,7 @@ public class ObservableSet<E> extends ForwardingSet<E> {
 }
 ```
 
-```
+```java
 // Observer that uses a background thread needlessly
 set.addObserver(new SetObserver<Integer>() {
     public void added(final ObservableSet<Integer> s, Integer e) {
@@ -545,7 +545,7 @@ set.addObserver(new SetObserver<Integer>() {
 });
 ```
 
-```
+```java
 // Alien method moved outside of synchronized block - open calls
 private void notifyElementAdded(E element) {
     List<SetObserver<E>> snapshot = null;
@@ -557,7 +557,7 @@ private void notifyElementAdded(E element) {
 }
 ```
 
-```
+```java
 // Thread-safe observable set with CopyOnWriteArrayList
 private final List<SetObserver<E>> observers =
     new CopyOnWriteArrayList<SetObserver<E>>();
@@ -584,7 +584,7 @@ Given the difficulty of using wait and notify correctly, you should use the high
 
 Therefore, it is impossible to exclude concurrent activity from a concurrent collection; locking it will have no effect but to slow the program.
 
-```
+```java
 // Concurrent canonicalizing map atop ConcurrentMap - not optimal
 private static final ConcurrentMap<String, String> map =
     new ConcurrentHashMap<String, String>();
@@ -595,7 +595,7 @@ public static String intern(String s) {
 }
 ```
 
-```
+```java
 // Concurrent canonicalizing map atop ConcurrentMap - faster!
 public static String intern(String s) {
     String result = map.get(s);
@@ -608,7 +608,7 @@ public static String intern(String s) {
 }
 ```
 
-```
+```java
 // Simple framework for timing concurrent execution
 public static long time(Executor executor, int concurrency,
         final Runnable action) throws InterruptedException {
@@ -640,7 +640,7 @@ public static long time(Executor executor, int concurrency,
 
 For interval timing, always use System.nanoTime in preference to System.currentTimeMillis.
 
-```
+```java
 // The standard idiom for using the wait method
 synchronized (obj) {
     while (<condition does not hold>)
@@ -660,7 +660,7 @@ The presence of the synchronized modifier in a method declaration is an implemen
 
 To enable safe concurrent use, a class must clearly document what level of thread safety it supports.
 
-```
+```java
 // Private lock object idiom - thwarts denial-of-service attack
 private final Object lock = new Object();
 
@@ -675,14 +675,14 @@ public void foo() {
 
 Under most circumstances, normal initialization is preferable to lazy initialization.
 
-```
+```java
 // Normal initialization of an instance field
 private final FieldType field = computeFieldValue();
 ```
 
 If you use lazy initialization to break an initialization circularity, use a synchronized accessor, as it is the simplest, clearest alternative:
 
-```
+```java
 // Lazy initialization of instance field - synchronized accessor
 private FieldType field;
 
@@ -695,7 +695,7 @@ synchronized FieldType getField() {
 
 If you need to use lazy initialization for performance on a static field, use the lazy initialization holder class idiom. 
 
-```
+```java
 // Lazy initialization holder class idiom for static fields
 private static class FieldHolder {
     static final FieldType field = computeFieldValue();
@@ -705,7 +705,7 @@ static FieldType getField() { return FieldHolder.field; }
 
 If you need to use lazy initialization for performance on an instance field, use the double-check idiom. 
 
-```
+```java
 // Double-check idiom for lazy initialization of instance fields
 private volatile FieldType field;
 FieldType getField() {
@@ -721,7 +721,7 @@ FieldType getField() {
 }
 ```
 
-```
+```java
 // Single-check idiom - can cause repeated initialization!
 private volatile FieldType field;
 
@@ -739,7 +739,7 @@ Any program that relies on the thread scheduler for correctness or performance i
 
 Threads should not run if they aren’t doing useful work.
 
-```
+```java
 // Awful CountDownLatch implementation - busy-waits incessantly!
 public class SlowCountDownLatch {
     private int count;
@@ -785,7 +785,7 @@ Implementing the Serializable interface is not a decision to be undertaken light
 
 Classes designed for inheritance should rarely implement Serializable, and interfaces should rarely extend it.
 
-```
+```java
 // readObjectNoData for stateful extendable serializable classes
 private void readObjectNoData() throws InvalidObjectException {
     throw new InvalidObjectException("Stream data required");
@@ -794,7 +794,7 @@ private void readObjectNoData() throws InvalidObjectException {
 
 Therefore, you should consider providing a parameterless constructor on nonserializable classes designed for inheritance.
 
-```
+```java
 // Nonserializable stateful class allowing serializable subclass
 public abstract class AbstractFoo {
     private int x, y;  // Our state
@@ -833,7 +833,7 @@ public abstract class AbstractFoo {
 }
 ```
 
-```
+```java
 // Serializable subclass of nonserializable stateful class
 public class Foo extends AbstractFoo implements Serializable {
     private void readObject(ObjectInputStream s)
@@ -869,7 +869,7 @@ Do not accept the default serialized form without first considering whether it i
 
 The default serialized form is likely to be appropriate if an object’s physical representation is identical to its logical content.
 
-```
+```java
 // Good candidate for default serialized form
 public class Name implements Serializable {
     /**
@@ -896,7 +896,7 @@ public class Name implements Serializable {
 
 Even if you decide that the default serialized form is appropriate, you often must provide a readObject method to ensure invariants and security.
 
-```
+```java
 // Awful candidate for default serialized form
 public final class StringList implements Serializable {
     private int size = 0;
@@ -919,7 +919,7 @@ Using the default serialized form when an object’s physical representation dif
 - It can consume excessive time.
 - It can cause stack overflows.
 
-```
+```java
 // StringList with a reasonable custom serialized form
 public final class StringList implements Serializable {
     private transient int size   = 0;
@@ -973,7 +973,7 @@ Before deciding to make a field nontransient, convince yourself that its value i
 
 Whether or not you use the default serialized form, you must impose any synchronization on object serialization that you would impose on any other method that reads the entire state of the object.
 
-```
+```java
 // writeObject for synchronized class with default serialized form
 private synchronized void writeObject(ObjectOutputStream s)
         throws IOException {
@@ -985,7 +985,7 @@ Regardless of what serialized form you choose, declare an explicit serial versio
 
 ## Item 76: Write readObject methods defensively
 
-```
+```java
 // Immutable class that uses defensive copying
 public final class Period {
     private final Date start;
@@ -1015,7 +1015,7 @@ public final class Period {
 }
 ```
 
-```
+```java
 public class BogusPeriod {
     // Byte stream could not have come from real Period instance!
     private static final byte[] serializedForm = new byte[] {
@@ -1052,7 +1052,7 @@ public class BogusPeriod {
 }
 ```
 
-```
+```java
 // readObject method with validity checking
 private void readObject(ObjectInputStream s)
         throws IOException, ClassNotFoundException {
@@ -1064,7 +1064,7 @@ private void readObject(ObjectInputStream s)
 }
 ```
 
-```
+```java
 public class MutablePeriod {
     // A period instance
     public final Period period;
@@ -1107,7 +1107,7 @@ public class MutablePeriod {
 }
 ```
 
-```
+```java
 public static void main(String[] args) {
     MutablePeriod mp = new MutablePeriod();
     Period p = mp.period;
@@ -1125,7 +1125,7 @@ public static void main(String[] args) {
 
 When an object is deserialized, it is critical to defensively copy any field containing an object reference that a client must not possess. 
 
-```
+```java
 // readObject method with defensive copying and validity checking
 private void readObject(ObjectInputStream s)
         throws IOException, ClassNotFoundException {
@@ -1145,7 +1145,7 @@ Do not use the writeUnshared and readUnshared methods.
 
 Item 77: For instance control, prefer enum types to readResolve
 
-```
+```java
 public class Elvis {
     public static final Elvis INSTANCE = new Elvis();
     private Elvis() { ... }
@@ -1154,7 +1154,7 @@ public class Elvis {
 }
 ```
 
-```
+```java
 // readResolve for instance control - you can do better!
 private Object readResolve() {
     // Return the one true Elvis and let the garbage collector
@@ -1165,7 +1165,7 @@ private Object readResolve() {
 
 In fact, if you depend on readResolve for instance control, all instance fields with object reference types must be declared transient. 
 
-```
+```java
 // Broken singleton - has nontransient object reference field!
 public class Elvis implements Serializable {
     public static final Elvis INSTANCE = new Elvis();
@@ -1183,7 +1183,7 @@ public class Elvis implements Serializable {
 }
 ```
 
-```
+```java
 public class ElvisStealer implements Serializable {
     static Elvis impersonator;
     private Elvis payload;
@@ -1199,7 +1199,7 @@ public class ElvisStealer implements Serializable {
 }
 ```
 
-```
+```java
 public class ElvisImpersonator {
     // Byte stream could not have come from real Elvis instance!
     private static final byte[] serializedForm = new byte[] {
@@ -1229,7 +1229,7 @@ public class ElvisImpersonator {
 }
 ```
 
-```
+```java
 // Enum singleton - the preferred approach
 public enum Elvis {
     INSTANCE;
@@ -1245,7 +1245,7 @@ The accessibility of readResolve is significant.
 
 ## Item 78: Consider serialization proxies instead of serialized instances
 
-```
+```java
 // Serialization proxy for Period class
 private static class SerializationProxy implements Serializable {
     private final Date start;
@@ -1261,14 +1261,14 @@ private static class SerializationProxy implements Serializable {
 }
 ```
 
-```
+```java
 // writeReplace method for the serialization proxy pattern
 private Object writeReplace() {
     return new SerializationProxy(this);
 }
 ```
 
-```
+```java
 // readObject method for the serialization proxy pattern
 private void readObject(ObjectInputStream stream)
         throws InvalidObjectException {
@@ -1276,14 +1276,14 @@ private void readObject(ObjectInputStream stream)
 }
 ```
 
-```
+```java
 // readResolve method for Period.SerializationProxy
 private Object readResolve() {
     return new Period(start, end);   // Uses public constructor
 }
 ```
 
-```
+```java
 // EnumSet's serialization proxy
 private static class SerializationProxy <E extends Enum<E>>
         implements Serializable {
@@ -1308,4 +1308,5 @@ private static class SerializationProxy <E extends Enum<E>>
         362491234563181265L;
 }
 ```
+
 
