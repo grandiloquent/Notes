@@ -1,4 +1,4 @@
-# C/C++ string
+# C string
 
 - [memchr](#memchr)
 - [memrchr](#memrchr)
