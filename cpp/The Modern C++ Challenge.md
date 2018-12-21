@@ -2,11 +2,6 @@
 
 - [Math Problems](#math-problems)
 	- [1. Sum of naturals divisible by 3 and 5](#1-sum-of-naturals-divisible-by-3-and-5)
-	- [10. Gray code](#10-gray-code)
-	- [11. Converting numerical values to Roman](#11-converting-numerical-values-to-roman)
-	- [12. Largest Collatz sequence](#12-largest-collatz-sequence)
-	- [13. Computing the value of Pi](#13-computing-the-value-of-pi)
-	- [14. Validating ISBNs](#14-validating-isbns)
 	- [2. Greatest common divisor](#2-greatest-common-divisor)
 	- [3. Least common multiple](#3-least-common-multiple)
 	- [4. Largest prime smaller than given number](#4-largest-prime-smaller-than-given-number)
@@ -15,6 +10,11 @@
 	- [7. Amicable numbers](#7-amicable-numbers)
 	- [8. Armstrong numbers](#8-armstrong-numbers)
 	- [9. Prime factors of a number](#9-prime-factors-of-a-number)
+	- [10. Gray code](#10-gray-code)
+	- [11. Converting numerical values to Roman](#11-converting-numerical-values-to-roman)
+	- [12. Largest Collatz sequence](#12-largest-collatz-sequence)
+	- [13. Computing the value of Pi](#13-computing-the-value-of-pi)
+	- [14. Validating ISBNs](#14-validating-isbns)
 - [Language Features](#language-features)
 	- [15. IPv4 data type](#15-ipv4-data-type)
 	- [16. Enumerating IPv4 addresses in a range](#16-enumerating-ipv4-addresses-in-a-range)
@@ -34,7 +34,14 @@
 	- [29. License plate validation](#29-license-plate-validation)
 	- [30. Extracting URL parts](#30-extracting-url-parts)
 	- [31. Transforming dates in strings](#31-transforming-dates-in-strings)
-
+- [Streams and Filesystems](#streams-and-filesystems)
+	- [32. Pascal's triangle](#32-pascals-triangle)
+	- [33. Tabular printing of a list of processes](#33-tabular-printing-of-a-list-of-processes)
+	- [34. Removing empty lines from a text file](#34-removing-empty-lines-from-a-text-file)
+	- [35. Computing the size of a directory](#35-computing-the-size-of-a-directory)
+	- [36. Deleting files older than a given date](#36-deleting-files-older-than-a-given-date)
+	- [37. Finding files in a directory that match a regular expression](#37-finding-files-in-a-directory-that-match-a-regular-expression)
+	- [38. Temporary log files](#38-temporary-log-files)
 
 ## Math Problems
 
@@ -54,216 +61,6 @@ int main() {
       sum += i;
   }
   std::cout << "sum=" << sum << std::endl;
-}
-```
-
-### 10. Gray code
-
-
-```c++
-
-#include <iostream>
-#include <bitset>
-#include <string>
-unsigned int gray_encode(unsigned int const num) { return num ^ (num >> 1); }
-unsigned int gray_decode(unsigned int gray) {
-  for (unsigned int bit = 1U << 31; bit > 1; bit >>= 1) {
-    if (gray & bit)
-      gray ^= bit >> 1;
-  }
-  return gray;
-}
-std::string to_binary(unsigned int value, int const digits) {
-  return std::bitset<32>(value).to_string().substr(32 - digits, digits);
-}
-int main() {
-  std::cout << "Number\tBinary\tGray\tDecoded\n";
-  std::cout << "------\t------\t----\t-------\n";
-  for (unsigned int n = 0; n < 32; ++n) {
-    auto encg = gray_encode(n);
-    auto decg = gray_decode(encg);
-    std::cout << n << "\t" << to_binary(n, 5) << "\t" << to_binary(encg, 5)
-              << "\t" << decg << "\n";
-  }
-}
-```
-
-### 11. Converting numerical values to Roman
-
-
-```c++
-
-#include <iostream>
-#include <string>
-#include <vector>
-std::string to_roman(unsigned int value) {
-  std::vector<std::pair<unsigned int, char const *>> roman{
-      {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
-      {90, "XC"},  {50, "L"},   {40, "XL"}, {10, "X"},   {9, "IX"},
-      {5, "V"},    {4, "IV"},   {1, "I"}};
-  std::string result;
-  for (auto const &kvp : roman) {
-    while (value >= kvp.first) {
-      result += kvp.second;
-      value -= kvp.first;
-    }
-  }
-  return result;
-}
-int main() {
-  for (int i = 1; i <= 100; ++i) {
-    std::cout << i << "\t" << to_roman(i) << std::endl;
-  }
-  int number = 0;
-  std::cout << "number:";
-  std::cin >> number;
-  std::cout << to_roman(number) << std::endl;
-}
-```
-
-### 12. Largest Collatz sequence
-
-
-```c++
-
-#include <iostream>
-#include <vector>
-std::pair<unsigned long long, long>
-longest_collatz_uncached(unsigned long long const limit) {
-  long length = 0;
-  unsigned long long number = 0;
-  for (unsigned long long i = 2; i <= limit; i++) {
-    auto n = i;
-    long steps = 0;
-    while (n != 1) {
-      if ((n % 2) == 0)
-        n = n / 2;
-      else
-        n = n * 3 + 1;
-      steps++;
-    }
-    if (steps > length) {
-      length = steps;
-      number = i;
-    }
-  }
-  return std::make_pair(number, length);
-}
-std::pair<unsigned long long, long>
-longest_collatz(unsigned long long const limit) {
-  long length = 0;
-  unsigned long long number = 0;
-  std::vector<int> cache(limit + 1, 0);
-  for (unsigned long long i = 2; i <= limit; i++) {
-    auto n = i;
-    long steps = 0;
-    while (n != 1 && n >= i) {
-      if ((n % 2) == 0)
-        n = n / 2;
-      else
-        n = n * 3 + 1;
-      steps++;
-    }
-    cache[i] = steps + cache[n];
-    if (cache[i] > length) {
-      length = cache[i];
-      number = i;
-    }
-  }
-  return std::make_pair(number, length);
-}
-int main() {
-  struct test_data {
-    unsigned long long limit;
-    unsigned long long start;
-    long steps;
-  };
-  std::vector<test_data> data{{10ULL, 9ULL, 19},
-                              {100ULL, 97ULL, 118},
-                              {1000ULL, 871ULL, 178},
-                              {10000ULL, 6171ULL, 263},
-                              {100000ULL, 77031ULL, 350},
-                              {1000000ULL, 837799ULL, 524},
-                              {10000000ULL, 8400511ULL, 685},
-                              {100000000ULL, 63728127ULL, 949}};
-  for (auto const &d : data) {
-    auto result = longest_collatz(d.limit);
-    if (result.first != d.start || result.second != d.steps)
-      std::cout << "error on limit " << d.limit << std::endl;
-    else
-      std::cout << "less than      : " << d.limit << std::endl
-                << "starting number: " << result.first << std::endl
-                << "sequence length: " << result.second << std::endl;
-  }
-}
-```
-
-### 13. Computing the value of Pi
-
-
-```c++
-
-#include <iostream>
-#include <random>
-#include <algorithm>
-#include <array>
-#include <functional>
-template <typename E = std::mt19937,
-          typename D = std::uniform_real_distribution<>>
-double compute_pi(E &engine, D &dist, int const samples = 1000000) {
-  auto hit = 0;
-  for (auto i = 0; i < samples; i++) {
-    auto x = dist(engine);
-    auto y = dist(engine);
-    if (y <= std::sqrt(1 - std::pow(x, 2)))
-      hit += 1;
-  }
-  return 4.0 * hit / samples;
-}
-int main() {
-  std::random_device rd;
-  auto seed_data = std::array<int, std::mt19937::state_size>{};
-  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
-  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
-  auto eng = std::mt19937{seq};
-  auto dist = std::uniform_real_distribution<>{0, 1};
-  for (auto j = 0; j < 10; j++) {
-    std::cout << compute_pi(eng, dist) << std::endl;
-  }
-}
-```
-
-### 14. Validating ISBNs
-
-
-```c++
-
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <numeric>
-#include <string_view>
-#include <assert.h>
-bool validate_isbn_10(std::string_view isbn) {
-  auto valid = false;
-  if (isbn.size() == 10 &&
-      std::count_if(std::begin(isbn), std::end(isbn), isdigit) == 10) {
-    auto w = 10;
-    auto sum = std::accumulate(std::begin(isbn), std::end(isbn), 0,
-                               [&w](int const total, char const c) {
-                                 return total + w-- * (c - '0');
-                               });
-    valid = !(sum % 11);
-  }
-  return valid;
-}
-int main() {
-  assert(validate_isbn_10("0306406152"));
-  assert(!validate_isbn_10("0306406151"));
-  std::string isbn;
-  std::cout << "isbn:";
-  std::cin >> isbn;
-  std::cout << "valid: " << validate_isbn_10(isbn) << std::endl;
 }
 ```
 
@@ -601,6 +398,216 @@ int main() {
             std::ostream_iterator<unsigned long long>(std::cout, " "));
 }
 ```
+### 10. Gray code
+
+
+```c++
+
+#include <iostream>
+#include <bitset>
+#include <string>
+unsigned int gray_encode(unsigned int const num) { return num ^ (num >> 1); }
+unsigned int gray_decode(unsigned int gray) {
+  for (unsigned int bit = 1U << 31; bit > 1; bit >>= 1) {
+    if (gray & bit)
+      gray ^= bit >> 1;
+  }
+  return gray;
+}
+std::string to_binary(unsigned int value, int const digits) {
+  return std::bitset<32>(value).to_string().substr(32 - digits, digits);
+}
+int main() {
+  std::cout << "Number\tBinary\tGray\tDecoded\n";
+  std::cout << "------\t------\t----\t-------\n";
+  for (unsigned int n = 0; n < 32; ++n) {
+    auto encg = gray_encode(n);
+    auto decg = gray_decode(encg);
+    std::cout << n << "\t" << to_binary(n, 5) << "\t" << to_binary(encg, 5)
+              << "\t" << decg << "\n";
+  }
+}
+```
+
+### 11. Converting numerical values to Roman
+
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <vector>
+std::string to_roman(unsigned int value) {
+  std::vector<std::pair<unsigned int, char const *>> roman{
+      {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
+      {90, "XC"},  {50, "L"},   {40, "XL"}, {10, "X"},   {9, "IX"},
+      {5, "V"},    {4, "IV"},   {1, "I"}};
+  std::string result;
+  for (auto const &kvp : roman) {
+    while (value >= kvp.first) {
+      result += kvp.second;
+      value -= kvp.first;
+    }
+  }
+  return result;
+}
+int main() {
+  for (int i = 1; i <= 100; ++i) {
+    std::cout << i << "\t" << to_roman(i) << std::endl;
+  }
+  int number = 0;
+  std::cout << "number:";
+  std::cin >> number;
+  std::cout << to_roman(number) << std::endl;
+}
+```
+
+### 12. Largest Collatz sequence
+
+
+```c++
+
+#include <iostream>
+#include <vector>
+std::pair<unsigned long long, long>
+longest_collatz_uncached(unsigned long long const limit) {
+  long length = 0;
+  unsigned long long number = 0;
+  for (unsigned long long i = 2; i <= limit; i++) {
+    auto n = i;
+    long steps = 0;
+    while (n != 1) {
+      if ((n % 2) == 0)
+        n = n / 2;
+      else
+        n = n * 3 + 1;
+      steps++;
+    }
+    if (steps > length) {
+      length = steps;
+      number = i;
+    }
+  }
+  return std::make_pair(number, length);
+}
+std::pair<unsigned long long, long>
+longest_collatz(unsigned long long const limit) {
+  long length = 0;
+  unsigned long long number = 0;
+  std::vector<int> cache(limit + 1, 0);
+  for (unsigned long long i = 2; i <= limit; i++) {
+    auto n = i;
+    long steps = 0;
+    while (n != 1 && n >= i) {
+      if ((n % 2) == 0)
+        n = n / 2;
+      else
+        n = n * 3 + 1;
+      steps++;
+    }
+    cache[i] = steps + cache[n];
+    if (cache[i] > length) {
+      length = cache[i];
+      number = i;
+    }
+  }
+  return std::make_pair(number, length);
+}
+int main() {
+  struct test_data {
+    unsigned long long limit;
+    unsigned long long start;
+    long steps;
+  };
+  std::vector<test_data> data{{10ULL, 9ULL, 19},
+                              {100ULL, 97ULL, 118},
+                              {1000ULL, 871ULL, 178},
+                              {10000ULL, 6171ULL, 263},
+                              {100000ULL, 77031ULL, 350},
+                              {1000000ULL, 837799ULL, 524},
+                              {10000000ULL, 8400511ULL, 685},
+                              {100000000ULL, 63728127ULL, 949}};
+  for (auto const &d : data) {
+    auto result = longest_collatz(d.limit);
+    if (result.first != d.start || result.second != d.steps)
+      std::cout << "error on limit " << d.limit << std::endl;
+    else
+      std::cout << "less than      : " << d.limit << std::endl
+                << "starting number: " << result.first << std::endl
+                << "sequence length: " << result.second << std::endl;
+  }
+}
+```
+
+### 13. Computing the value of Pi
+
+
+```c++
+
+#include <iostream>
+#include <random>
+#include <algorithm>
+#include <array>
+#include <functional>
+template <typename E = std::mt19937,
+          typename D = std::uniform_real_distribution<>>
+double compute_pi(E &engine, D &dist, int const samples = 1000000) {
+  auto hit = 0;
+  for (auto i = 0; i < samples; i++) {
+    auto x = dist(engine);
+    auto y = dist(engine);
+    if (y <= std::sqrt(1 - std::pow(x, 2)))
+      hit += 1;
+  }
+  return 4.0 * hit / samples;
+}
+int main() {
+  std::random_device rd;
+  auto seed_data = std::array<int, std::mt19937::state_size>{};
+  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+  auto eng = std::mt19937{seq};
+  auto dist = std::uniform_real_distribution<>{0, 1};
+  for (auto j = 0; j < 10; j++) {
+    std::cout << compute_pi(eng, dist) << std::endl;
+  }
+}
+```
+
+### 14. Validating ISBNs
+
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include <string_view>
+#include <assert.h>
+bool validate_isbn_10(std::string_view isbn) {
+  auto valid = false;
+  if (isbn.size() == 10 &&
+      std::count_if(std::begin(isbn), std::end(isbn), isdigit) == 10) {
+    auto w = 10;
+    auto sum = std::accumulate(std::begin(isbn), std::end(isbn), 0,
+                               [&w](int const total, char const c) {
+                                 return total + w-- * (c - '0');
+                               });
+    valid = !(sum % 11);
+  }
+  return valid;
+}
+int main() {
+  assert(validate_isbn_10("0306406152"));
+  assert(!validate_isbn_10("0306406151"));
+  std::string isbn;
+  std::cout << "isbn:";
+  std::cin >> isbn;
+  std::cout << "valid: " << validate_isbn_10(isbn) << std::endl;
+}
+```
+
 
 ## Language Features
 
@@ -1678,6 +1685,361 @@ std::string transform_date(std::string_view text) {
 int main() {
   using namespace std::string_literals;
   assert(transform_date("today is 01.12.2017!"s) == "today is 2017-12-01!"s);
+}
+```
+
+## Streams and Filesystems
+
+### 32. Pascal's triangle
+
+
+```
+
+#include <string>
+#include <iostream>
+#include <cmath>
+unsigned int number_of_digits(unsigned int const i) {
+  return i > 0 ? (int)log10((double)i) + 1 : 1;
+}
+void print_pascal_triangle(int const n) {
+  for (int i = 0; i < n; i++) {
+    auto x = 1;
+    std::cout << std::string((n - i - 1) * (n / 2), ' ');
+    for (int j = 0; j <= i; j++) {
+      auto y = x;
+      x = x * (i - j) / (j + 1);
+      auto maxlen = number_of_digits(x) - 1;
+      std::cout << y << std::string(n - 1 - maxlen - n % 2, ' ');
+    }
+    std::cout << std::endl;
+  }
+}
+int main() {
+  int n = 0;
+  std::cout << "Levels (up to 10): ";
+  std::cin >> n;
+  if (n > 10)
+    std::cout << "Value too large" << std::endl;
+  else
+    print_pascal_triangle(n);
+}
+```
+
+### 33. Tabular printing of a list of processes
+
+
+```
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
+#include <algorithm>
+enum class procstatus { suspended, running };
+std::string status_to_string(procstatus const status) {
+  if (status == procstatus::suspended)
+    return "suspended";
+  else
+    return "running";
+}
+enum class platforms { p32bit, p64bit };
+std::string platform_to_string(platforms const platform) {
+  if (platform == platforms::p32bit)
+    return "32-bit";
+  else
+    return "64-bit";
+}
+struct procinfo {
+  int id;
+  std::string name;
+  procstatus status;
+  std::string account;
+  size_t memory;
+  platforms platform;
+};
+void print_processes(std::vector<procinfo> processes) {
+  std::sort(
+      std::begin(processes), std::end(processes),
+      [](procinfo const &p1, procinfo const &p2) { return p1.name < p2.name; });
+  for (auto const &pi : processes) {
+    std::cout << std::left << std::setw(25) << std::setfill(' ') << pi.name;
+    std::cout << std::left << std::setw(8) << std::setfill(' ') << pi.id;
+    std::cout << std::left << std::setw(12) << std::setfill(' ')
+              << status_to_string(pi.status);
+    std::cout << std::left << std::setw(15) << std::setfill(' ') << pi.account;
+    std::cout << std::right << std::setw(10) << std::setfill(' ')
+              << (int)(pi.memory / 1024);
+    std::cout << std::left << ' ' << platform_to_string(pi.platform);
+    std::cout << std::endl;
+  }
+}
+int main() {
+  using namespace std::string_literals;
+  std::vector<procinfo> processes{
+      {512, "cmd.exe"s, procstatus::running, "SYSTEM"s, 148293,
+       platforms::p64bit},
+      {1044, "chrome.exe"s, procstatus::running, "marius.bancila"s, 25180454,
+       platforms::p32bit},
+      {7108, "explorer.exe"s, procstatus::running, "marius.bancila"s, 2952943,
+       platforms::p64bit},
+      {10100, "chrome.exe"s, procstatus::running, "marius.bancila"s, 227756123,
+       platforms::p32bit},
+      {22456, "skype.exe"s, procstatus::suspended, "marius.bancila"s, 16870123,
+       platforms::p64bit},
+  };
+  print_processes(processes);
+}
+```
+
+### 34. Removing empty lines from a text file
+
+
+```
+
+// -lstdc++fs
+#include <fstream>
+#include <string> 
+#ifdef USE_BOOST_FILESYSTEM
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#include <filesystem>
+#ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
+#endif
+void remove_empty_lines(fs::path filepath) {
+  std::ifstream filein(filepath.native(), std::ios::in);
+  if (!filein.is_open())
+    throw std::runtime_error("cannot open input file");
+  auto temppath = fs::temp_directory_path() / "temp.txt";
+  std::ofstream fileout(temppath.native(), std::ios::out | std::ios::trunc);
+  if (!fileout.is_open())
+    throw std::runtime_error("cannot create temporary file");
+  std::string line;
+  while (std::getline(filein, line)) {
+    if (line.length() > 0 && line.find_first_not_of(' ') != line.npos) {
+      fileout << line << '\n';
+    }
+  }
+  filein.close();
+  fileout.close();
+  fs::remove(filepath);
+  fs::rename(temppath, filepath);
+}
+int main() { remove_empty_lines("sample34.txt"); }
+```
+
+### 35. Computing the size of a directory
+
+
+```
+
+#include <iostream>
+#include <numeric>
+#include <string>
+#ifdef USE_BOOST_FILESYSTEM
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#include <filesystem>
+#ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
+#endif
+std::uintmax_t get_directory_size(fs::path const &dir,
+                                  bool const follow_symlinks = false) {
+#ifdef USE_BOOST_FILESYSTEM
+  auto iterator = fs::recursive_directory_iterator(
+      dir,
+      follow_symlinks ? fs::symlink_option::recurse : fs::symlink_option::none);
+#else
+  auto iterator = fs::recursive_directory_iterator(
+      dir, follow_symlinks ? fs::directory_options::follow_directory_symlink
+                           : fs::directory_options::none);
+#endif
+  return std::accumulate(
+      fs::begin(iterator), fs::end(iterator), 0ull,
+      [](std::uintmax_t const total, fs::directory_entry const &entry) {
+        return total +
+               (fs::is_regular_file(entry) ? fs::file_size(entry.path()) : 0);
+      });
+}
+int main() {
+  std::string path;
+  std::cout << "Path: ";
+  std::cin >> path;
+  std::cout << "Size: " << get_directory_size(path) << std::endl;
+}
+```
+
+### 36. Deleting files older than a given date
+
+
+```
+
+#include <iostream>
+#include <chrono>
+#ifdef USE_BOOST_FILESYSTEM
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#include <filesystem>
+#ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
+#endif
+namespace ch = std::chrono;
+template <typename Duration>
+bool is_older_than(fs::path const &path, Duration const duration) {
+  auto lastwrite = fs::last_write_time(path);
+#ifdef USE_BOOST_FILESYSTEM
+  auto ftimeduration =
+      ch::system_clock::from_time_t(lastwrite).time_since_epoch();
+#else
+  auto ftimeduration = lastwrite.time_since_epoch();
+#endif
+  auto nowduration = (ch::system_clock::now() - duration).time_since_epoch();
+  return ch::duration_cast<Duration>(nowduration - ftimeduration).count() > 0;
+}
+template <typename Duration>
+void remove_files_older_than(fs::path const &path, Duration const duration) {
+  try {
+    if (fs::exists(path)) {
+      if (is_older_than(path, duration)) {
+        fs::remove(path);
+      } else if (fs::is_directory(path)) {
+        for (auto const &entry : fs::directory_iterator(path)) {
+          remove_files_older_than(entry.path(), duration);
+        }
+      }
+    }
+  } catch (std::exception const &ex) {
+    std::cerr << ex.what() << std::endl;
+  }
+}
+int main() {
+  using namespace std::chrono_literals;
+#ifdef _WIN32
+  auto path = R"(..\Test\)";
+#else
+  auto path = R"(../Test/)";
+#endif
+  remove_files_older_than(path, 1h + 20min);
+}
+```
+
+### 37. Finding files in a directory that match a regular expression
+
+
+```
+
+#include <iostream>
+#include <regex>
+#include <vector>
+#include <string>
+#include <string_view>
+#include <functional>
+#ifdef USE_BOOST_FILESYSTEM
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#include <filesystem>
+#ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
+#endif
+std::vector<fs::directory_entry> find_files(fs::path const &path,
+                                            std::string_view regex) {
+  std::vector<fs::directory_entry> result;
+  std::regex rx(regex.data());
+  std::copy_if(fs::recursive_directory_iterator(path),
+               fs::recursive_directory_iterator(), std::back_inserter(result),
+               [&rx](fs::directory_entry const &entry) {
+                 return fs::is_regular_file(entry.path()) &&
+                        std::regex_match(entry.path().filename().string(), rx);
+               });
+  return result;
+}
+int main() {
+  auto dir = fs::temp_directory_path();
+  auto pattern = R"(wct[0-9a-zA-Z]{3}\.tmp)";
+  auto result = find_files(dir, pattern);
+  for (auto const &entry : result) {
+    std::cout << entry.path().string() << std::endl;
+  }
+}
+```
+
+### 38. Temporary log files
+
+
+```
+
+#include <iostream>
+#include <fstream>
+#include "uuid.h"
+#ifdef USE_BOOST_FILESYSTEM
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#include <filesystem>
+#ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
+#endif
+class logger {
+  fs::path logpath;
+  std::ofstream logfile;
+public:
+  logger() {
+    auto name = uuids::to_string(uuids::uuid_random_generator{}());
+    logpath = fs::temp_directory_path() / (name + ".tmp");
+    logfile.open(logpath.c_str(), std::ios::out | std::ios::trunc);
+  }
+  ~logger() noexcept {
+    try {
+      if (logfile.is_open())
+        logfile.close();
+      if (!logpath.empty())
+        fs::remove(logpath);
+    } catch (...) {
+    }
+  }
+  void persist(fs::path const &path) {
+    logfile.close();
+    fs::rename(logpath, path);
+    logpath.clear();
+  }
+  logger &operator<<(std::string_view message) {
+    logfile << message.data() << '\n';
+    return *this;
+  }
+};
+int main() {
+  logger log;
+  try {
+    log << "this is a line"
+        << "and this is another one";
+    throw std::runtime_error("error");
+  } catch (...) {
+    log.persist(R"(lastlog.txt)");
+  }
 }
 ```
 
