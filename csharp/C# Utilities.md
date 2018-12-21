@@ -11,7 +11,7 @@ namespace Common
 	using System.Text;
 	using System.Text.RegularExpressions;
 	
-	public static class Utilities
+	public static  class Utilities
 	{
 		public static void CreateDirectoryIfNotExists(this String path)
 		{
@@ -96,11 +96,103 @@ namespace Common
 			using (StreamReader sr = new StreamReader(path, encoding, true))
 				return sr.ReadToEnd();
 		}
+		public static string SubstringAfter(this string value, char delimiter)
+		{
+			var index = value.IndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(index + 1);
+		}
+		public static string SubstringAfter(this string value, string delimiter)
+		{
+			var index = value.IndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(index + delimiter.Length);
+		}
+		public static string SubstringAfterLast(this string value, char delimiter)
+		{
+			var index = value.LastIndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(index + 1);
+		}
+		public static string SubstringAfterLast(this string value, string delimiter)
+		{
+			var index = value.LastIndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(index + 1);
+		}
+		
+		public static string SubstringBefore(this string value, char delimiter)
+		{
+			var index = value.IndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(0, index);
+		}
+		public static string SubstringBefore(this string value, string delimiter)
+		{
+			var index = value.IndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(0, index);
+		}
+		public static string SubstringBeforeLast(this string value, char delimiter)
+		{
+			var index = value.LastIndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(0, index);
+		}
+		public static string SubstringBeforeLast(this string value, string delimiter)
+		{
+			var index = value.LastIndexOf(delimiter);
+			if (index == -1)
+				return value;
+			else
+				return value.Substring(0, index);
+		}
+		
+		public static IEnumerable<string> ToBlocks(this string value)
+		{
+			var count = 0;
+			var sb = new StringBuilder();
+			var ls = new List<string>();
+			for (int i = 0; i < value.Length; i++) {
+				sb.Append(value[i]);
+
+				if (value[i] == '{') {
+					count++;
+				} else if (value[i] == '}') {
+					count--;
+					if (count == 0) {
+						ls.Add(sb.ToString());
+						sb.Clear();
+					}
+				}
+
+			}
+			return ls;
+
+		}
 		public static string ToLine(this IEnumerable<string> value, string separator = "\r\n")
 		{
 			return string.Join(separator, value);
 		}
-	
+		public	static string TrimComments(this string code)
+		{
+			var re = @"(@(?:""[^""]*"")+|""(?:[^""\n\\]+|\\.)*""|'(?:[^'\n\\]+|\\.)*')|//.*|/\*(?s:.*?)\*/";
+			return Regex.Replace(code, re, "$1");
+		}
 		public static void WriteAllLines(this String path, IEnumerable<String> contents)
 		{
 		
@@ -119,5 +211,6 @@ namespace Common
 	}
 }
 ```
+
 
 
