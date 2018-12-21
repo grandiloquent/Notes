@@ -1,25 +1,25 @@
 # Effective Java (上)
 
-- [Item 1: Consider static factory methods instead of constructors](#section-1)
-- [Item 2: Consider a builder when faced with many constructor parameters](#section-2)
-- [Item 3: Enforce the singleton property with a private constructor or an enum type](#section-3)
-- [Item 4: Enforce noninstantiability with a private constructor](#section-4)
-- [Item 5: Avoid creating unnecessary objects](#section-5)
-- [Item 6: Eliminate obsolete object references](#section-6)
-- [Item 7: Avoid finalizers](#section-7)
-- [Item 8: Obey the general contract when overriding equals](#section-8)
-- [Item 9: Always override hashCode when you override equals](#section-9)
-- [Item 10: Always override toString](#section-10)
-- [Item 11: Override clone judiciously](#section-11)
-- [Item 12: Consider implementing Comparable](#section-12)
-- [Item 13: Minimize the accessibility of classes and members](#section-13)
-- [Item 14: In public classes, use accessor methods, not public fields](#section-14)
-- [Item 15: Minimize mutability](#section-15)
-- [Item 16: Favor composition over inheritance](#section-16)
-- [Item 17: Design and document for inheritance or else prohibit it](#section-17)
-- [Item 18: Prefer interfaces to abstract classes](#section-18)
-- [Item 19: Use interfaces only to define types](#section-19)
-- [Item 20: Prefer class hierarchies to tagged classes](#section-20)
+- [Item 1: Consider static factory methods instead of constructors](#item-1-consider-static-factory-methods-instead-of-constructors)
+- [Item 2: Consider a builder when faced with many constructor parameters](#item-2-consider-a-builder-when-faced-with-many-constructor-parameters)
+- [Item 3: Enforce the singleton property with a private constructor or an enum type](#item-3-enforce-the-singleton-property-with-a-private-constructor-or-an-enum-type)
+- [Item 4: Enforce noninstantiability with a private constructor](#item-4-enforce-noninstantiability-with-a-private-constructor)
+- [Item 5: Avoid creating unnecessary objects](#item-5-avoid-creating-unnecessary-objects)
+- [Item 6: Eliminate obsolete object references](#item-6-eliminate-obsolete-object-references)
+- [Item 7: Avoid finalizers](#item-7-avoid-finalizers)
+- [Item 8: Obey the general contract when overriding equals](#item-8-obey-the-general-contract-when-overriding-equals)
+- [Item 9: Always override hashCode when you override equals](#item-9-always-override-hashcode-when-you-override-equals)
+- [Item 10: Always override toString](#item-10-always-override-tostring)
+- [Item 11: Override clone judiciously](#item-11-override-clone-judiciously)
+- [Item 12: Consider implementing Comparable](#item-12-consider-implementing-comparable)
+- [Item 13: Minimize the accessibility of classes and members](#item-13-minimize-the-accessibility-of-classes-and-members)
+- [Item 14: In public classes, use accessor methods, not public fields](#item-14-in-public-classes-use-accessor-methods-not-public-fields)
+- [Item 15: Minimize mutability](#item-15-minimize-mutability)
+- [Item 16: Favor composition over inheritance](#item-16-favor-composition-over-inheritance)
+- [Item 17: Design and document for inheritance or else prohibit it](#item-17-design-and-document-for-inheritance-or-else-prohibit-it)
+- [Item 18: Prefer interfaces to abstract classes](#item-18-prefer-interfaces-to-abstract-classes)
+- [Item 19: Use interfaces only to define types](#item-19-use-interfaces-only-to-define-types)
+- [Item 20: Prefer class hierarchies to tagged classes](#item-20-prefer-class-hierarchies-to-tagged-classes)
 
 ## Item 1: Consider static factory methods instead of constructors
 
@@ -29,7 +29,7 @@ A second advantage of static factory methods is that, unlike constructors, they 
 
 A third advantage of static factory methods is that, unlike constructors, they can return an object of any subtype of their return type. 
 
-```// Service provider framework sketch
+```java
 
 // Service interface
 public interface Service {
@@ -80,7 +80,7 @@ A second disadvantage of static factory methods is that they are not readily dis
 
 ## Item 2: Consider a builder when faced with many constructor parameters
 
-```
+```java
 // Telescoping constructor pattern - does not scale well!
 public class NutritionFacts {
     private final int servingSize;  // (mL)            required
@@ -123,7 +123,7 @@ public class NutritionFacts {
 
 In short, the telescoping constructor pattern works, but it is hard to write client code when there are many parameters, and harder still to read it.
 
-```
+```java
 // JavaBeans Pattern - allows inconsistency, mandates mutability
 public class NutritionFacts {
     // Parameters initialized to default values (if any)
@@ -145,7 +145,7 @@ public class NutritionFacts {
 }
 ```
 
-```
+```java
 // Builder Pattern
 public class NutritionFacts {
     private final int servingSize;
@@ -200,7 +200,7 @@ public class NutritionFacts {
 
 Making a class a singleton can make it difficult to test its clients, as it’s impossible to substitute a mock implementation for a singleton unless it implements an interface that serves as its type.
 
-```
+```java
 // Singleton with static factory
 public class Elvis {
     private static final Elvis INSTANCE = new Elvis();
@@ -211,7 +211,7 @@ public class Elvis {
 }
 ```
 
-```
+```java
 // Enum singleton - the preferred approach
 public enum Elvis {
     INSTANCE;
@@ -228,7 +228,7 @@ Attempting to enforce noninstantiability by making a class abstract does not wor
 
 A default constructor is generated only if a class contains no explicit constructors, so a class can be made noninstantiable by including a private constructor:
 
-```
+```java
 // Noninstantiable utility class
 public class UtilityClass {
     // Suppress default constructor for noninstantiability
@@ -241,11 +241,11 @@ public class UtilityClass {
 
 ## Item 5: Avoid creating unnecessary objects
 
-```
+```java
 String s = new String("stringette");  // DON'T DO THIS!
 ```
 
-```
+```java
 public class Person {
     private final Date birthDate;
 
@@ -265,7 +265,7 @@ public class Person {
 }
 ```
 
-```
+```java
 public class Person {
     private final Date birthDate;
     // Other fields, methods, and constructor omitted
@@ -292,7 +292,7 @@ public class Person {
 }
 ```
 
-```
+```java
 // Hideously slow program! Can you spot the object creation?
 public static void main(String[] args) {
     Long sum = 0L;
@@ -307,7 +307,7 @@ The lesson is clear: prefer primitives to boxed primitives, and watch out for un
 
 ## Item 6: Eliminate obsolete object references
 
-```
+```java
 // Can you spot the "memory leak"?
 public class Stack {
     private Object[] elements;
@@ -340,7 +340,7 @@ public class Stack {
 }
 ```
 
-```
+```java
 public Object pop() {
     if (size == 0)
         throw new EmptyStackException();
@@ -372,7 +372,7 @@ Just provide an explicit termination method, and require clients of the class to
 
 Explicit termination methods are typically used in combination with the try-finally construct to ensure termination. 
 
-```
+```java
 // try-finally block guarantees execution of termination method
 Foo foo = new Foo(...);
 try {
@@ -385,7 +385,7 @@ try {
 
 But the finalizer should log a warning if it finds that the resource has not been terminated, 
 
-```
+```java
 // Finalizer Guardian idiom
 public class Foo {
    // Sole purpose of this object is to finalize outer Foo object
@@ -408,13 +408,13 @@ A superclass has already overridden equals, and the superclass behavior is appro
 
 The class is private or package-private, and you are certain that its equals method will never be invoked. 
 
-```
+```java
 @Override public boolean equals(Object o) {
     throw new AssertionError(); // Method is never called
 }
 ```
 
-```
+```java
 // Broken - violates symmetry!
 public final class CaseInsensitiveString {
     private final String s;
@@ -460,12 +460,12 @@ Don’t substitute another type for Object in the equals declaration.
 
 The key provision that is violated when you fail to override hashCode is the second one: equal objects must have equal hash codes. 
 
-```
+```java
 // The worst possible legal hash function - never use!
 @Override public int hashCode() { return 42; }
 ```
 
-```
+```java
     @Override public int hashCode() {
         int result = 17;
         result = 31 * result + areaCode;
@@ -475,7 +475,7 @@ The key provision that is violated when you fail to override hashCode is the sec
     }
 ```
 
-```
+```java
 // Lazily initialized, cached hashCode
 private volatile int hashCode;  // (See Item 71)
 
@@ -520,13 +520,13 @@ Otherwise, you are better off providing an alternative means of object copying, 
 
 A fine approach to object copying is to provide a copy constructor or copy factory. 
 
-```
+```java
 public static Yum newInstance(Yum yum);
 ```
 
 ## Item 12: Consider implementing Comparable
 
-```
+```java
 public int compareTo(PhoneNumber pn) {
     // Compare area codes
     if (areaCode < pn.areaCode)
@@ -564,14 +564,14 @@ Also, you give up the ability to take any action when the field is modified, so 
 
 Note that a nonzero-length array is always mutable, so it is wrong for a class to have a public static final array field, or an accessor that returns such a field.
 
-```
+```java
 // Potential security hole!
 public static final Thing[] VALUES =  { ... };
 ```
 
 ## Item 14: In public classes, use accessor methods, not public fields
 
-```
+```java
 // Degenerate classes like this should not be public!
 class Point {
     public double x;
@@ -579,7 +579,7 @@ class Point {
 }
 ```
 
-```
+```java
 // Encapsulation of data by accessor methods and mutators
 class Point {
     private double x;
@@ -602,7 +602,7 @@ Certainly, the hard-liners are correct when it comes to public classes: if a cla
 
 However, if a class is package-private or is a private nested class, there is nothing inherently wrong with exposing its data fields—assuming they do an adequate job of describing the abstraction provided by the class. 
 
-```
+```java
 // Public class with exposed immutable fields - questionable
 public final class Time {
     private static final int HOURS_PER_DAY    = 24;
@@ -631,7 +631,7 @@ public final class Time {
 4. Make all fields private. 
 5. Ensure exclusive access to any mutable components.
 
-```
+```java
 public final class Complex {
     private final double re;
     private final double im;
@@ -705,7 +705,7 @@ Immutable objects make great building blocks for other objects,
 
 The only real disadvantage of immutable classes is that they require a separate object for each distinct value.
 
-```
+```java
 // Immutable class with static factories instead of constructors
 public class Complex {
     private final double re;
@@ -734,7 +734,7 @@ Therefore, make every field final unless there is a compelling reason to make it
 
 Unlike method invocation, inheritance violates encapsulation. 
 
-```
+```java
 // Broken - Inappropriate use of inheritance!
 public class InstrumentedHashSet<E> extends HashSet<E> {
     // The number of attempted element insertions
@@ -760,7 +760,7 @@ public class InstrumentedHashSet<E> extends HashSet<E> {
 }
 ```
 
-```
+```java
 // Wrapper class - uses composition in place of inheritance
 public class InstrumentedSet<E> extends ForwardingSet<E> {
     private int addCount = 0;
@@ -823,7 +823,7 @@ Therefore, you must test your class by writing subclasses before you release it.
 
 Constructors must not invoke overridable methods, directly or indirectly.
 
-```
+```java
 public class Super {
     // Broken - constructor invokes an overridable method
     public Super() {
@@ -852,7 +852,7 @@ Interfaces enable safe, powerful functionality enhancements via the wrapper clas
 
 You can combine the virtues of interfaces and abstract classes by providing an abstract skeletal implementation class to go with each nontrivial interface that you export. 
 
-```
+```java
 // Concrete implementation built atop skeletal implementation
 static List<Integer> intArrayAsList(final int[] a) {
     if (a == null)
@@ -876,7 +876,7 @@ static List<Integer> intArrayAsList(final int[] a) {
 }
 ```
 
-```
+```java
 // Skeletal Implementation
 public abstract class AbstractMapEntry<K,V>
         implements Map.Entry<K,V> {
@@ -919,7 +919,7 @@ Once an interface is released and widely implemented, it is almost impossible to
 
 ## Item 19: Use interfaces only to define types
 
-```
+```java
  // Constant interface antipattern - do not use!
 public interface PhysicalConstants {
     // Avogadro's number (1/mol)
@@ -935,7 +935,7 @@ public interface PhysicalConstants {
 
 The constant interface pattern is a poor use of interfaces.
 
-```
+```java
 // Constant utility class
 package com.effectivejava.science;
 
@@ -948,7 +948,7 @@ public class PhysicalConstants {
 }
 ```
 
-```
+```java
 // Use of static import to avoid qualifying constants
 import static com.effectivejava.science.PhysicalConstants.*;
 
@@ -963,7 +963,7 @@ public class Test {
 
 ## Item 20: Prefer class hierarchies to tagged classes
 
-```
+```java
 // Tagged class - vastly inferior to a class hierarchy!
 class Figure {
     enum Shape { RECTANGLE, CIRCLE };
@@ -1008,7 +1008,7 @@ Finally, the data type of an instance gives no clue as to its flavor. In short, 
 
 A tagged class is just a pallid imitation of a class hierarchy.
 
-```
+```java
 // Class hierarchy replacement for a tagged class
 abstract class Figure {
     abstract double area();
@@ -1033,4 +1033,5 @@ class Rectangle extends Figure {
     double area() { return length * width; }
 }
 ```
+
 
