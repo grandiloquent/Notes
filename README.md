@@ -5,6 +5,12 @@
 - [Android Packages](/android/Android%20Packages.md)
 - [Head First Android Development](/android/Head%20First%20Android%20Development.md)
 
+## C
+
+- Sample
+
+	- [string](/c/C%20string.md)
+
 ## C#
 
 - [C# Utilities](/csharp/C%23%20Utilities.md)
