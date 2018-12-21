@@ -2,7 +2,7 @@
 
 - https://github.com/PacktPublishing/Modern-C-plus-plus-Efficient-and-Scalable-Application-Development
 
-- [Math Problems](#math-problems)
+ - [Math Problems](#math-problems)
 	- [1. Sum of naturals divisible by 3 and 5](#1-sum-of-naturals-divisible-by-3-and-5)
 	- [2. Greatest common divisor](#2-greatest-common-divisor)
 	- [3. Least common multiple](#3-least-common-multiple)
@@ -68,14 +68,56 @@
 	- [58. The shortest path between nodes](#58-the-shortest-path-between-nodes)
 	- [59. The Weasel program](#59-the-weasel-program)
 	- [60. The Game of Life](#60-the-game-of-life)
-
-
-
+- [Concurrency](#concurrency)
+	- [61. Parallel transform algorithm](#61-parallel-transform-algorithm)
+	- [62. Parallel min and max element algorithms using threads](#62-parallel-min-and-max-element-algorithms-using-threads)
+	- [63. Parallel min and max element algorithms using asynchronous functions](#63-parallel-min-and-max-element-algorithms-using-asynchronous-functions)
+	- [64. Parallel sort algorithm](#64-parallel-sort-algorithm)
+	- [65. Thread-safe logging to the console](#65-thread-safe-logging-to-the-console)
+	- [66. Customer service system](#66-customer-service-system)
+- [Design Patterns](#design-patterns)
+	- [67. Validating passwords](#67-validating-passwords)
+	- [68. Generating random passwords](#68-generating-random-passwords)
+	- [69. Generating social security numbers](#69-generating-social-security-numbers)
+	- [70. Approval system](#70-approval-system)
+	- [71. Observable vector container](#71-observable-vector-container)
+	- [72. Computing order price with discounts](#72-computing-order-price-with-discounts)
+- [Data Serialization](#data-serialization)
+	- [73. Serializing and deserializing data to or from XML](#73-serializing-and-deserializing-data-to-or-from-xml)
+	- [74. Selecting data from XML using XPath](#74-selecting-data-from-xml-using-xpath)
+	- [75. Serializing data to JSON](#75-serializing-data-to-json)
+	- [76. Deserializing data from JSON](#76-deserializing-data-from-json)
+	- [77. Printing a list of movies to a PDF](#77-printing-a-list-of-movies-to-a-pdf)
+	- [78. Creating a PDF from a collection of images](#78-creating-a-pdf-from-a-collection-of-images)
+- [Archives, Images, and Databases](#archives-images-and-databases)
+	- [79. Finding files in a ZIP archive](#79-finding-files-in-a-zip-archive)
+	- [80. Compressing and decompressing files to or from a ZIP archive](#80-compressing-and-decompressing-files-to-or-from-a-zip-archive)
+	- [81. Compressing and decompressing files to or from a ZIP archive with a password](#81-compressing-and-decompressing-files-to-or-from-a-zip-archive-with-a-password)
+	- [82. Creating a PNG that represents a national flag](#82-creating-a-png-that-represents-a-national-flag)
+	- [83. Creating verification text PNG images](#83-creating-verification-text-png-images)
+	- [84. EAN-13 barcode generator](#84-ean-13-barcode-generator)
+	- [85. Reading movies from an SQLite database](#85-reading-movies-from-an-sqlite-database)
+	- [86. Inserting movies into an SQLite database transactionally](#86-inserting-movies-into-an-sqlite-database-transactionally)
+	- [87. Handling movie images in an SQLite database](#87-handling-movie-images-in-an-sqlite-database)
+- [Cryptography](#cryptography)
+	- [88. Caesar cipher](#88-caesar-cipher)
+	- [89. Vigenère cipher](#89-vigenère-cipher)
+	- [90. Base64 encoding and decoding](#90-base64-encoding-and-decoding)
+	- [91. Validating user credentials](#91-validating-user-credentials)
+	- [92. Computing file hashes](#92-computing-file-hashes)
+	- [93. Encrypting and decrypting files](#93-encrypting-and-decrypting-files)
+	- [94. File signing](#94-file-signing)
+- [Networking and Services](#networking-and-services)
+	- [95. Finding the IP address of a host](#95-finding-the-ip-address-of-a-host)
+	- [96. Client-server Fizz-Buzz](#96-client-server-fizz-buzz)
+	- [97. Bitcoin exchange rates](#97-bitcoin-exchange-rates)
+	- [98. Fetching emails using IMAP](#98-fetching-emails-using-imap)
+	- [99. Translating text to any language](#99-translating-text-to-any-language)
+	- [100. Detecting faces in a picture](#100-detecting-faces-in-a-picture)
 
 ## Math Problems
 
 ### 1. Sum of naturals divisible by 3 and 5
-
 
 ```c++
 
@@ -94,7 +136,6 @@ int main() {
 ```
 
 ### 2. Greatest common divisor
-
 
 ```c++
 
@@ -120,7 +161,6 @@ int main() {
 ```
 
 ### 3. Least common multiple
-
 
 ```c++
 
@@ -151,7 +191,6 @@ int main() {
 ```
 
 ### 4. Largest prime smaller than given number
-
 
 ```c++
 
@@ -185,7 +224,6 @@ int main() {
 
 ### 5. Sexy prime pairs
 
-
 ```c++
 
 #include <iostream>
@@ -217,7 +255,6 @@ int main() {
 
 ### 6. Abundant numbers
 
-
 ```c++
 
 #include <iostream>
@@ -248,7 +285,6 @@ int main() {
 ```
 
 ### 7. Amicable numbers
-
 
 ```c++
 
@@ -298,7 +334,6 @@ int main() {
 ```
 
 ### 8. Armstrong numbers
-
 
 ```c++
 
@@ -394,7 +429,6 @@ int main() {
 
 ### 9. Prime factors of a number
 
-
 ```c++
 
 #include <iostream>
@@ -429,7 +463,6 @@ int main() {
 ```
 ### 10. Gray code
 
-
 ```c++
 
 #include <iostream>
@@ -459,7 +492,6 @@ int main() {
 ```
 
 ### 11. Converting numerical values to Roman
-
 
 ```c++
 
@@ -492,7 +524,6 @@ int main() {
 ```
 
 ### 12. Largest Collatz sequence
-
 
 ```c++
 
@@ -570,7 +601,6 @@ int main() {
 
 ### 13. Computing the value of Pi
 
-
 ```c++
 
 #include <iostream>
@@ -605,7 +635,6 @@ int main() {
 
 ### 14. Validating ISBNs
 
-
 ```c++
 
 #include <iostream>
@@ -637,11 +666,9 @@ int main() {
 }
 ```
 
-
 ## Language Features
 
 ### 15. IPv4 data type
-
 
 ```c++
 
@@ -710,7 +737,6 @@ int main() {
 ```
 
 ### 16. Enumerating IPv4 addresses in a range
-
 
 ```c++
 
@@ -820,7 +846,6 @@ int main() {
 ```
 
 ### 17. Creating a 2D array with basic operations
-
 
 ```c++
 
@@ -934,7 +959,6 @@ int main() {
 
 ### 18. Minimum function with any number of arguments
 
-
 ```c++
 
 #include <iostream>
@@ -961,7 +985,6 @@ int main() {
 
 ### 19. Adding a range of values to a container
 
-
 ```c++
 
 #include <iostream>
@@ -985,7 +1008,6 @@ int main() {
 ```
 
 ### 20. Container any, all, none
-
 
 ```c++
 
@@ -1039,7 +1061,6 @@ int main() {
 ```
 
 ### 21. System handle wrapper
-
 
 ```c++
 
@@ -1210,7 +1231,6 @@ int main() {
 
 ### 22. Literals of various temperature scales
 
-
 ```c++
 
 #include <cmath>
@@ -1341,7 +1361,6 @@ int main() {
 
 ### 23. Binary to string conversion
 
-
 ```c++
 
 #include <string>
@@ -1380,7 +1399,6 @@ int main() {
 
 ### 24. String to binary conversion
 
-
 ```c++
 
 #include <string>
@@ -1414,7 +1432,6 @@ int main() {
 ```
 
 ### 25. Capitalizing an article title
-
 
 ```c++
 
@@ -1457,7 +1474,6 @@ int main() {
 
 ### 26. Joining strings together separated by a delimiter
 
-
 ```c++
 
 #include <string>
@@ -1498,7 +1514,6 @@ int main() {
 ```
 
 ### 27. Splitting a string into tokens with a list of possible delimiters
-
 
 ```c++
 
@@ -1549,7 +1564,6 @@ int main() {
 
 ### 28. Longest palindromic substring
 
-
 ```c++
 
 #include <string>
@@ -1599,7 +1613,6 @@ int main() {
 
 ### 29. License plate validation
 
-
 ```c++
 
 #include <string>
@@ -1633,7 +1646,6 @@ int main() {
 ```
 
 ### 30. Extracting URL parts
-
 
 ```c++
 
@@ -1700,7 +1712,6 @@ int main() {
 
 ### 31. Transforming dates in strings
 
-
 ```c++
 
 #include <string>
@@ -1720,7 +1731,6 @@ int main() {
 ## Streams and Filesystems
 
 ### 32. Pascal's triangle
-
 
 ```c++
 
@@ -1755,7 +1765,6 @@ int main() {
 ```
 
 ### 33. Tabular printing of a list of processes
-
 
 ```c++
 
@@ -1822,7 +1831,6 @@ int main() {
 
 ### 34. Removing empty lines from a text file
 
-
 ```c++
 
 // -lstdc++fs
@@ -1863,7 +1871,6 @@ int main() { remove_empty_lines("sample34.txt"); }
 ```
 
 ### 35. Computing the size of a directory
-
 
 ```c++
 
@@ -1909,7 +1916,6 @@ int main() {
 ```
 
 ### 36. Deleting files older than a given date
-
 
 ```c++
 
@@ -1969,7 +1975,6 @@ int main() {
 
 ### 37. Finding files in a directory that match a regular expression
 
-
 ```c++
 
 #include <iostream>
@@ -2013,7 +2018,6 @@ int main() {
 ```
 
 ### 38. Temporary log files
-
 
 ```c++
 
@@ -2076,7 +2080,6 @@ int main() {
 
 ### 39. Measuring function execution time
 
-
 ```c++
 
 #include <iostream>
@@ -2112,7 +2115,6 @@ int main() {
 ```
 
 ### 40. Number of days between two dates
-
 
 ```c++
 
@@ -2158,7 +2160,6 @@ int main() {
 
 ### 41. Day of the week
 
-
 ```c++
 
 // -I "C:\Codes\Codes\C++\Module 3_TheModernCppChallenge_Code\libs\date\include\date"
@@ -2187,7 +2188,6 @@ int main() {
 ```
 
 ### 42. Day and week of the year
-
 
 ```c++
 
@@ -2226,7 +2226,6 @@ int main() {
 ```
 
 ### 43. Meeting time for multiple time zones
-
 
 ```c++
 
@@ -2275,7 +2274,6 @@ int main() {
 
 ### 44. Monthly calendar
 
-
 ```c++
 
 // -I "C:\Codes\Codes\C++\Module 3_TheModernCppChallenge_Code\libs\date\include\date"
@@ -2322,7 +2320,6 @@ int main() {
 ## Algorithms and Data Structures
 
 ### 45. Priority queue
-
 
 ```c++
 
@@ -2377,7 +2374,6 @@ int main() {
 ```
 
 ### 46. Circular buffer
-
 
 ```c++
 
@@ -2551,7 +2547,6 @@ int main()
 
 ### 47. Double buffer
 
-
 ```c++
 
 #include <vector>
@@ -2629,7 +2624,6 @@ int main() {
 
 ### 48. The most frequent element in a range
 
-
 ```c++
 
 #include <iostream>
@@ -2661,7 +2655,6 @@ int main() {
 ```
 
 ### 49. Text histogram
-
 
 ```c++
 
@@ -2703,7 +2696,6 @@ int main() {
 
 ### 50. Filtering a list of phone numbers
 
-
 ```c++
 
 #include <string>
@@ -2741,7 +2733,6 @@ int main() {
 ```
 
 ### 51. Transforming a list of phone numbers
-
 
 ```c++
 
@@ -2787,7 +2778,6 @@ int main() {
 
 ### 52. Generating all the permutations of a string
 
-
 ```c++
 
 #include <iostream>
@@ -2827,7 +2817,6 @@ int main()
 ```
 
 ### 53. Average rating of movies
-
 
 ```c++
 
@@ -2869,7 +2858,6 @@ int main() {
 
 ### 54. Pairwise algorithm
 
-
 ```c++
 
 #include <iostream>
@@ -2901,7 +2889,6 @@ int main() {
 ```
 
 ### 55. Zip algorithm
-
 
 ```c++
 
@@ -2935,7 +2922,6 @@ int main() {
 ```
 
 ### 56. Select algorithm
-
 
 ```c++
 
@@ -2971,7 +2957,6 @@ int main() {
 ```
 
 ### 57. Sort algorithm
-
 
 ```c++
 
@@ -3120,7 +3105,6 @@ int main() {
 ```
 
 ### 58. The shortest path between nodes
-
 
 ```c++
 
@@ -3305,7 +3289,6 @@ int main() {
 
 ### 59. The Weasel program
 
-
 ```c++
 
 #include <iostream>
@@ -3383,7 +3366,6 @@ int main() {
 ```
 
 ### 60. The Game of Life
-
 
 ```c++
 
@@ -3550,14 +3532,4526 @@ int main() {
 }
 ```
 
+## Concurrency
 
+### 61. Parallel transform algorithm
 
+```c++
 
+#include <iostream>
+#include <vector>
+#include <array>
+#include <algorithm>
+#include <functional>
+#include <random>
+#include <chrono>
+#include <thread>
+#include <assert.h>
+template <typename T, typename F>
+std::vector<T> alter(std::vector<T> data, F &&f) {
+  std::transform(std::begin(data), std::end(data), std::begin(data),
+                 std::forward<F>(f));
+  return data;
+}
+template <typename T, typename F>
+std::vector<T> palter(std::vector<T> data, F &&f) {
+  if (data.size() <= 10000) {
+    std::transform(std::begin(data), std::end(data), std::begin(data),
+                   std::forward<F>(f));
+  } else {
+    std::vector<std::thread> threads;
+    int thread_count = std::thread::hardware_concurrency();
+    auto first = std::begin(data);
+    auto last = first;
+    auto size = data.size() / thread_count;
+    for (int i = 0; i < thread_count; ++i) {
+      first = last;
+      last = i == thread_count - 1 ? std::end(data) : first + size;
+      threads.emplace_back([first, last, &f]() {
+        std::transform(first, last, first, std::forward<F>(f));
+      });
+    }
+    for (int i = 0; i < thread_count; ++i)
+      threads[i].join();
+  }
+  return data;
+}
+template <typename RandomAccessIterator, typename F>
+void ptransform(RandomAccessIterator begin, RandomAccessIterator end, F &&f) {
+  auto size = std::distance(begin, end);
+  if (size <= 10000) {
+    std::transform(begin, end, begin, std::forward<F>(f));
+  } else {
+    std::vector<std::thread> threads;
+    int thread_count = 10;
+    auto first = begin;
+    auto last = first;
+    size /= thread_count;
+    for (int i = 0; i < thread_count; ++i) {
+      first = last;
+      if (i == thread_count - 1)
+        last = end;
+      else
+        std::advance(last, size);
+      threads.emplace_back([first, last, &f]() {
+        std::transform(first, last, first, std::forward<F>(f));
+      });
+    }
+    for (auto &t : threads)
+      t.join();
+  }
+}
+template <typename T, typename F>
+std::vector<T> palter2(std::vector<T> data, F &&f) {
+  ptransform(std::begin(data), std::end(data), std::forward<F>(f));
+  return data;
+}
+int main() {
+  const size_t count = 10000000;
+  std::vector<int> data(count);
+  std::random_device rd;
+  std::mt19937 mt;
+  auto seed_data = std::array<int, std::mt19937::state_size>{};
+  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+  mt.seed(seq);
+  std::uniform_int_distribution<> ud(1, 100);
+  std::generate_n(std::begin(data), count, [&mt, &ud]() { return ud(mt); });
+  auto start = std::chrono::system_clock::now();
+  auto r1 = alter(data, [](int const e) { return e * e; });
+  auto end = std::chrono::system_clock::now();
+  auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << "time: " << t1.count() << "ms" << std::endl;
+  start = std::chrono::system_clock::now();
+  auto r2 = palter(data, [](int const e) { return e * e; });
+  end = std::chrono::system_clock::now();
+  auto t2 = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << "time: " << t2.count() << "ms" << std::endl;
+  start = std::chrono::system_clock::now();
+  auto r3 = palter2(data, [](int const e) { return e * e; });
+  end = std::chrono::system_clock::now();
+  auto t3 = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << "time: " << t3.count() << "ms" << std::endl;
+  assert(r1 == r2);
+  assert(r1 == r3);
+}
+```
 
+### 62. Parallel min and max element algorithms using threads
 
+```c++
 
+#include <iostream>
+#include <vector>
+#include <array>
+#include <algorithm>
+#include <functional>
+#include <random>
+#include <chrono>
+#include <thread>
+#include <assert.h>
+template <typename Iterator, typename F>
+auto sprocess(Iterator begin, Iterator end, F &&f) {
+  return std::forward<F>(f)(begin, end);
+}
+template <typename Iterator> auto smin(Iterator begin, Iterator end) {
+  return sprocess(begin, end,
+                  [](auto b, auto e) { return *std::min_element(b, e); });
+}
+template <typename Iterator> auto smax(Iterator begin, Iterator end) {
+  return sprocess(begin, end,
+                  [](auto b, auto e) { return *std::max_element(b, e); });
+}
+template <typename Iterator, typename F>
+auto pprocess(Iterator begin, Iterator end, F &&f) {
+  auto size = std::distance(begin, end);
+  if (size <= 10000) {
+    return std::forward<F>(f)(begin, end);
+  } else {
+    int thread_count = std::thread::hardware_concurrency();
+    std::vector<std::thread> threads;
+    std::vector<typename std::iterator_traits<Iterator>::value_type> mins(
+        thread_count);
+    auto first = begin;
+    auto last = first;
+    size /= thread_count;
+    for (int i = 0; i < thread_count; ++i) {
+      first = last;
+      if (i == thread_count - 1)
+        last = end;
+      else
+        std::advance(last, size);
+      threads.emplace_back([first, last, &f, &r = mins[i]]() {
+        r = std::forward<F>(f)(first, last);
+      });
+    }
+    for (auto &t : threads)
+      t.join();
+    return std::forward<F>(f)(std::begin(mins), std::end(mins));
+  }
+}
+template <typename Iterator> auto pmin(Iterator begin, Iterator end) {
+  return pprocess(begin, end,
+                  [](auto b, auto e) { return *std::min_element(b, e); });
+}
+template <typename Iterator> auto pmax(Iterator begin, Iterator end) {
+  return pprocess(begin, end,
+                  [](auto b, auto e) { return *std::max_element(b, e); });
+}
+int main() {
+  const size_t count = 10000000;
+  std::vector<int> data(count);
+  std::random_device rd;
+  std::mt19937 mt;
+  auto seed_data = std::array<int, std::mt19937::state_size>{};
+  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+  mt.seed(seq);
+  std::uniform_int_distribution<> ud(1, 1000);
+  std::generate_n(std::begin(data), count, [&mt, &ud]() { return ud(mt); });
+  {
+    std::cout << "minimum element" << std::endl;
+    auto start = std::chrono::system_clock::now();
+    auto r1 = smin(std::begin(data), std::end(data));
+    auto end = std::chrono::system_clock::now();
+    auto t1 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "seq time: " << t1.count() << "ms" << std::endl;
+    start = std::chrono::system_clock::now();
+    auto r2 = pmin(std::begin(data), std::end(data));
+    end = std::chrono::system_clock::now();
+    auto t2 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "par time: " << t2.count() << "ms" << std::endl;
+    assert(r1 == r2);
+  }
+  {
+    std::cout << "maximum element" << std::endl;
+    auto start = std::chrono::system_clock::now();
+    auto r1 = smax(std::begin(data), std::end(data));
+    auto end = std::chrono::system_clock::now();
+    auto t1 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "seq time: " << t1.count() << "ms" << std::endl;
+    start = std::chrono::system_clock::now();
+    auto r2 = pmax(std::begin(data), std::end(data));
+    end = std::chrono::system_clock::now();
+    auto t2 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "par time: " << t2.count() << "ms" << std::endl;
+    assert(r1 == r2);
+  }
+}
+```
 
+### 63. Parallel min and max element algorithms using asynchronous functions
 
+```c++
 
+#include <iostream>
+#include <vector>
+#include <array>
+#include <algorithm>
+#include <functional>
+#include <random>
+#include <chrono>
+#include <future>
+#include <assert.h>
+template <typename Iterator, typename F>
+auto sprocess(Iterator begin, Iterator end, F &&f) {
+  return std::forward<F>(f)(begin, end);
+}
+template <typename Iterator> auto smin(Iterator begin, Iterator end) {
+  return sprocess(begin, end,
+                  [](auto b, auto e) { return *std::min_element(b, e); });
+}
+template <typename Iterator> auto smax(Iterator begin, Iterator end) {
+  return sprocess(begin, end,
+                  [](auto b, auto e) { return *std::max_element(b, e); });
+}
+template <typename Iterator, typename F>
+auto pprocess(Iterator begin, Iterator end, F &&f) {
+  auto size = std::distance(begin, end);
+  if (size <= 10000) {
+    return std::forward<F>(f)(begin, end);
+  } else {
+    int task_count = std::thread::hardware_concurrency();
+    std::vector<
+        std::future<typename std::iterator_traits<Iterator>::value_type>>
+        tasks;
+    auto first = begin;
+    auto last = first;
+    size /= task_count;
+    for (int i = 0; i < task_count; ++i) {
+      first = last;
+      if (i == task_count - 1)
+        last = end;
+      else
+        std::advance(last, size);
+      tasks.emplace_back(std::async(std::launch::async, [first, last, &f]() {
+        return std::forward<F>(f)(first, last);
+      }));
+    }
+    std::vector<typename std::iterator_traits<Iterator>::value_type> mins;
+    for (auto &t : tasks)
+      mins.push_back(t.get());
+    return std::forward<F>(f)(std::begin(mins), std::end(mins));
+  }
+}
+template <typename Iterator> auto pmin(Iterator begin, Iterator end) {
+  return pprocess(begin, end,
+                  [](auto b, auto e) { return *std::min_element(b, e); });
+}
+template <typename Iterator> auto pmax(Iterator begin, Iterator end) {
+  return pprocess(begin, end,
+                  [](auto b, auto e) { return *std::max_element(b, e); });
+}
+int main() {
+  const size_t count = 10000000;
+  std::vector<int> data(count);
+  std::random_device rd;
+  std::mt19937 mt;
+  auto seed_data = std::array<int, std::mt19937::state_size>{};
+  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+  mt.seed(seq);
+  std::uniform_int_distribution<> ud(1, 1000);
+  std::generate_n(std::begin(data), count, [&mt, &ud]() { return ud(mt); });
+  {
+    std::cout << "minimum element" << std::endl;
+    auto start = std::chrono::system_clock::now();
+    auto r1 = smin(std::begin(data), std::end(data));
+    auto end = std::chrono::system_clock::now();
+    auto t1 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "seq time: " << t1.count() << "ms" << std::endl;
+    start = std::chrono::system_clock::now();
+    auto r2 = pmin(std::begin(data), std::end(data));
+    end = std::chrono::system_clock::now();
+    auto t2 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "par time: " << t2.count() << "ms" << std::endl;
+    assert(r1 == r2);
+  }
+  {
+    std::cout << "maximum element" << std::endl;
+    auto start = std::chrono::system_clock::now();
+    auto r1 = smax(std::begin(data), std::end(data));
+    auto end = std::chrono::system_clock::now();
+    auto t1 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "seq time: " << t1.count() << "ms" << std::endl;
+    start = std::chrono::system_clock::now();
+    auto r2 = pmax(std::begin(data), std::end(data));
+    end = std::chrono::system_clock::now();
+    auto t2 =
+        std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    std::cout << "par time: " << t2.count() << "ms" << std::endl;
+    assert(r1 == r2);
+  }
+}
+```
 
+### 64. Parallel sort algorithm
 
+```c++
+
+#include <iostream>
+#include <vector>
+#include <array>
+#include <functional>
+#include <chrono>
+#include <assert.h>
+#include <random>
+#include <future>
+template <class RandomIt> RandomIt partition(RandomIt first, RandomIt last) {
+  auto pivot = *first;
+  auto i = first + 1;
+  auto j = last - 1;
+  while (i <= j) {
+    while (i <= j && *i <= pivot)
+      i++;
+    while (i <= j && *j > pivot)
+      j--;
+    if (i < j)
+      std::iter_swap(i, j);
+  }
+  std::iter_swap(i - 1, first);
+  return i - 1;
+}
+template <class RandomIt, class Compare>
+RandomIt partitionc(RandomIt first, RandomIt last, Compare comp) {
+  auto pivot = *first;
+  auto i = first + 1;
+  auto j = last - 1;
+  while (i <= j) {
+    while (i <= j && comp(*i, pivot))
+      i++;
+    while (i <= j && !comp(*j, pivot))
+      j--;
+    if (i < j)
+      std::iter_swap(i, j);
+  }
+  std::iter_swap(i - 1, first);
+  return i - 1;
+}
+template <class RandomIt> void quicksort(RandomIt first, RandomIt last) {
+  if (first < last) {
+    auto p = partition(first, last);
+    quicksort(first, p);
+    quicksort(p + 1, last);
+  }
+}
+template <class RandomIt, class Compare>
+void quicksort(RandomIt first, RandomIt last, Compare comp) {
+  if (first < last) {
+    auto p = partitionc(first, last, comp);
+    quicksort(first, p, comp);
+    quicksort(p + 1, last, comp);
+  }
+}
+template <class RandomIt> void pquicksort(RandomIt first, RandomIt last) {
+  if (first < last) {
+    auto p = partition(first, last);
+    if (last - first <= 100000) {
+      pquicksort(first, p);
+      pquicksort(p + 1, last);
+    } else {
+      auto f1 = std::async(std::launch::async,
+                           [first, p]() { pquicksort(first, p); });
+      auto f2 = std::async(std::launch::async,
+                           [last, p]() { pquicksort(p + 1, last); });
+      f1.wait();
+      f2.wait();
+    }
+  }
+}
+int main() {
+  const size_t count = 1000000;
+  std::vector<int> data(count);
+  std::random_device rd;
+  std::mt19937 mt;
+  auto seed_data = std::array<int, std::mt19937::state_size>{};
+  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+  mt.seed(seq);
+  std::uniform_int_distribution<> ud(1, 1000);
+  std::cout << "generating..." << std::endl;
+  std::generate_n(std::begin(data), count, [&mt, &ud]() { return ud(mt); });
+  auto d1 = data;
+  auto d2 = data;
+  std::cout << "sorting..." << std::endl;
+  auto start = std::chrono::system_clock::now();
+  quicksort(std::begin(d1), std::end(d1));
+  auto end = std::chrono::system_clock::now();
+  auto t1 = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << "time: " << t1.count() << "ms" << std::endl;
+  start = std::chrono::system_clock::now();
+  pquicksort(std::begin(d2), std::end(d2));
+  end = std::chrono::system_clock::now();
+  auto t2 = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+  std::cout << "time: " << t2.count() << "ms" << std::endl;
+  std::cout << "verifying..." << std::endl;
+  assert(d1 == d2);
+}
+```
+
+### 65. Thread-safe logging to the console
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <random>
+#include <thread>
+#include <string_view>
+#include <mutex>
+#include <string>
+class logger {
+protected:
+  logger() {}
+public:
+  static logger &instance() {
+    static logger lg;
+    return lg;
+  }
+  logger(logger const &) = delete;
+  logger &operator=(logger const &) = delete;
+  void log(std::string_view message) {
+    std::lock_guard<std::mutex> lock(mt);
+    std::cout << "LOG: " << message << std::endl;
+  }
+private:
+  std::mutex mt;
+};
+int main() {
+  std::vector<std::thread> modules;
+  for (int id = 1; id <= 5; ++id) {
+    modules.emplace_back([id]() {
+      std::random_device rd;
+      std::mt19937 mt(rd());
+      std::uniform_int_distribution<> ud(100, 1000);
+      logger::instance().log("module " + std::to_string(id) + " started");
+      std::this_thread::sleep_for(std::chrono::milliseconds(ud(mt)));
+      logger::instance().log("module " + std::to_string(id) + " finished");
+    });
+  }
+  for (auto &m : modules)
+    m.join();
+}
+```
+
+### 66. Customer service system
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include <chrono>
+#include <random>
+#include <thread>
+#include <string_view>
+#include <mutex>
+#include <condition_variable>
+#include <queue>
+#include <string>
+#include <array>
+#include <functional>
+class logger {
+protected:
+  logger() {}
+public:
+  static logger &instance() {
+    static logger lg;
+    return lg;
+  }
+  logger(logger const &) = delete;
+  logger &operator=(logger const &) = delete;
+  void log(std::string_view message) {
+    std::lock_guard<std::mutex> lock(mt);
+    std::cout << "LOG: " << message << std::endl;
+  }
+private:
+  std::mutex mt;
+};
+class ticketing_machine {
+public:
+  ticketing_machine(int const start)
+      : last_ticket(start), first_ticket(start) {}
+  int next() { return last_ticket++; }
+  int last() const { return last_ticket - 1; }
+  void reset() { last_ticket = first_ticket; }
+private:
+  int first_ticket;
+  int last_ticket;
+};
+class customer {
+public:
+  customer(int const no) : number(no) {}
+  int ticket_number() const noexcept { return number; }
+private:
+  int number;
+  friend bool operator<(customer const &l, customer const &r);
+};
+bool operator<(customer const &l, customer const &r) {
+  return l.number > r.number;
+}
+int main() {
+  std::priority_queue<customer> customers;
+  bool store_open = true;
+  std::mutex mt;
+  std::condition_variable cv;
+  std::vector<std::thread> desks;
+  for (int i = 1; i <= 3; ++i) {
+    desks.emplace_back([i, &store_open, &mt, &cv, &customers]() {
+      std::random_device rd;
+      auto seed_data = std::array<int, std::mt19937::state_size>{};
+      std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+      std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+      std::mt19937 eng(seq);
+      std::uniform_int_distribution<> ud(2000, 3000);
+      logger::instance().log("desk " + std::to_string(i) + " open");
+      while (store_open || !customers.empty()) {
+        std::unique_lock<std::mutex> locker(mt);
+        cv.wait_for(locker, std::chrono::seconds(1),
+                    [&customers]() { return !customers.empty(); });
+        if (!customers.empty()) {
+          auto const c = customers.top();
+          customers.pop();
+          logger::instance().log("[-] desk " + std::to_string(i) +
+                                 " handling customer " +
+                                 std::to_string(c.ticket_number()));
+          logger::instance().log("[=] queue size: " +
+                                 std::to_string(customers.size()));
+          locker.unlock();
+          cv.notify_one();
+          std::this_thread::sleep_for(std::chrono::milliseconds(ud(eng)));
+          logger::instance().log("[ ] desk " + std::to_string(i) +
+                                 " done with customer " +
+                                 std::to_string(c.ticket_number()));
+        }
+      }
+      logger::instance().log("desk " + std::to_string(i) + " closed");
+    });
+  }
+  std::thread store([&store_open, &customers, &mt, &cv]() {
+    ticketing_machine tm(100);
+    std::random_device rd;
+    auto seed_data = std::array<int, std::mt19937::state_size>{};
+    std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+    std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+    std::mt19937 eng(seq);
+    std::uniform_int_distribution<> ud(200, 500);
+    for (int i = 1; i <= 25; ++i) {
+      customer c(tm.next());
+      customers.push(c);
+      logger::instance().log("[+] new customer with ticket " +
+                             std::to_string(c.ticket_number()));
+      logger::instance().log("[=] queue size: " +
+                             std::to_string(customers.size()));
+      cv.notify_one();
+      std::this_thread::sleep_for(std::chrono::milliseconds(ud(eng)));
+    }
+    store_open = false;
+  });
+  store.join();
+  for (auto &desk : desks)
+    desk.join();
+}
+```
+
+## Design Patterns
+
+### 67. Validating passwords
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <memory>
+#include <assert.h>
+class password_validator {
+public:
+  virtual bool validate(std::string_view password) = 0;
+  virtual ~password_validator() {}
+};
+class length_validator final : public password_validator {
+public:
+  length_validator(unsigned int min_length) : length(min_length) {}
+  virtual bool validate(std::string_view password) override {
+    return password.length() >= length;
+  }
+private:
+  unsigned int length;
+};
+class password_validator_decorator : public password_validator {
+public:
+  explicit password_validator_decorator(
+      std::unique_ptr<password_validator> validator)
+      : inner(std::move(validator)) {}
+  virtual bool validate(std::string_view password) override {
+    return inner->validate(password);
+  }
+private:
+  std::unique_ptr<password_validator> inner;
+};
+class digit_password_validator final : public password_validator_decorator {
+public:
+  explicit digit_password_validator(
+      std::unique_ptr<password_validator> validator)
+      : password_validator_decorator(std::move(validator)) {}
+  virtual bool validate(std::string_view password) override {
+    if (!password_validator_decorator::validate(password))
+      return false;
+    return password.find_first_of("0123456789") != std::string::npos;
+  }
+};
+class case_password_validator final : public password_validator_decorator {
+public:
+  explicit case_password_validator(
+      std::unique_ptr<password_validator> validator)
+      : password_validator_decorator(std::move(validator)) {}
+  virtual bool validate(std::string_view password) override {
+    if (!password_validator_decorator::validate(password))
+      return false;
+    bool haslower = false;
+    bool hasupper = false;
+    for (size_t i = 0; i < password.length() && !(hasupper && haslower); ++i) {
+      if (islower(password[i]))
+        haslower = true;
+      else if (isupper(password[i]))
+        hasupper = true;
+    }
+    return haslower && hasupper;
+  }
+};
+class symbol_password_validator final : public password_validator_decorator {
+public:
+  explicit symbol_password_validator(
+      std::unique_ptr<password_validator> validator)
+      : password_validator_decorator(std::move(validator)) {}
+  virtual bool validate(std::string_view password) override {
+    if (!password_validator_decorator::validate(password))
+      return false;
+    return password.find_first_of("!@#$%^&*(){}[]?<>") != std::string::npos;
+  }
+};
+int main() {
+  {
+    auto validator = std::make_unique<length_validator>(8);
+    assert(validator->validate("abc123!@#"));
+    assert(!validator->validate("abc123"));
+  }
+  {
+    auto validator = std::make_unique<digit_password_validator>(
+        std::make_unique<length_validator>(8));
+    assert(validator->validate("abc123!@#"));
+    assert(!validator->validate("abcde!@#"));
+  }
+  {
+    auto validator = std::make_unique<case_password_validator>(
+        std::make_unique<digit_password_validator>(
+            std::make_unique<length_validator>(8)));
+    assert(validator->validate("Abc123!@#"));
+    assert(!validator->validate("abc123!@#"));
+  }
+  {
+    auto validator = std::make_unique<symbol_password_validator>(
+        std::make_unique<case_password_validator>(
+            std::make_unique<digit_password_validator>(
+                std::make_unique<length_validator>(8))));
+    assert(validator->validate("Abc123!@#"));
+    assert(!validator->validate("Abc123567"));
+  }
+}
+```
+
+### 68. Generating random passwords
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <memory>
+#include <random>
+#include <array>
+#include <algorithm>
+class password_generator {
+public:
+  virtual std::string generate() = 0;
+  virtual std::string allowed_chars() const = 0;
+  virtual size_t length() const = 0;
+  virtual void add(std::unique_ptr<password_generator> generator) = 0;
+  virtual ~password_generator() {}
+};
+class basic_password_generator : public password_generator {
+  size_t len;
+public:
+  explicit basic_password_generator(size_t const len) noexcept : len(len) {}
+  virtual std::string generate() override {
+    throw std::runtime_error("not implemented");
+  }
+  virtual void add(std::unique_ptr<password_generator>) override {
+    throw std::runtime_error("not implemented");
+  }
+  virtual size_t length() const noexcept override final { return len; }
+};
+class digit_generator : public basic_password_generator {
+public:
+  explicit digit_generator(size_t const len) noexcept
+      : basic_password_generator(len) {}
+  virtual std::string allowed_chars() const override { return "0123456789"; }
+};
+class symbol_generator : public basic_password_generator {
+public:
+  explicit symbol_generator(size_t const len) noexcept
+      : basic_password_generator(len) {}
+  virtual std::string allowed_chars() const override {
+    return "!@#$%^&*(){}[]?<>";
+  }
+};
+class upper_letter_generator : public basic_password_generator {
+public:
+  explicit upper_letter_generator(size_t const len) noexcept
+      : basic_password_generator(len) {}
+  virtual std::string allowed_chars() const override {
+    return "ABCDEFGHIJKLMNOPQRSTUVXYWZ";
+  }
+};
+class lower_letter_generator : public basic_password_generator {
+public:
+  explicit lower_letter_generator(size_t const len) noexcept
+      : basic_password_generator(len) {}
+  virtual std::string allowed_chars() const override {
+    return "abcdefghijklmnopqrstuvxywz";
+  }
+};
+class composite_password_generator : public password_generator {
+  virtual std::string allowed_chars() const override {
+    throw std::runtime_error("not implemented");
+  };
+  virtual size_t length() const override {
+    throw std::runtime_error("not implemented");
+  };
+public:
+  composite_password_generator() {
+    auto seed_data = std::array<int, std::mt19937::state_size>{};
+    std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+    std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+    eng.seed(seq);
+  }
+  virtual std::string generate() override {
+    std::string password;
+    for (auto &generator : generators) {
+      std::string chars = generator->allowed_chars();
+      std::uniform_int_distribution<> ud(0,
+                                         static_cast<int>(chars.length() - 1));
+      for (size_t i = 0; i < generator->length(); ++i)
+        password += chars[ud(eng)];
+    }
+    std::shuffle(std::begin(password), std::end(password), eng);
+    return password;
+  }
+  virtual void add(std::unique_ptr<password_generator> generator) override {
+    generators.push_back(std::move(generator));
+  }
+private:
+  std::random_device rd;
+  std::mt19937 eng;
+  std::vector<std::unique_ptr<password_generator>> generators;
+};
+int main() {
+  composite_password_generator generator;
+  generator.add(std::make_unique<symbol_generator>(2));
+  generator.add(std::make_unique<digit_generator>(2));
+  generator.add(std::make_unique<upper_letter_generator>(2));
+  generator.add(std::make_unique<lower_letter_generator>(4));
+  auto password = generator.generate();
+  std::cout << password << std::endl;
+}
+```
+
+### 69. Generating social security numbers
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <string_view>
+#include <random>
+#include <array>
+#include <map>
+#include <memory>
+#include <algorithm>
+#include <numeric>
+#include <assert.h>
+enum class sex_type { female, male };
+class social_number_generator {
+protected:
+  virtual int sex_digit(sex_type const sex) const noexcept = 0;
+  virtual int next_random(unsigned const year, unsigned const month,
+                          unsigned const day) = 0;
+  virtual int modulo_value() const noexcept = 0;
+  social_number_generator(int const min, int const max) : ud(min, max) {
+    std::random_device rd;
+    auto seed_data = std::array<int, std::mt19937::state_size>{};
+    std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+    std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+    eng.seed(seq);
+  }
+public:
+  std::string generate(sex_type const sex, unsigned const year,
+                       unsigned const month, unsigned const day) {
+    std::stringstream snumber;
+    snumber << sex_digit(sex);
+    snumber << year << month << day;
+    snumber << next_random(year, month, day);
+    auto number = snumber.str();
+    auto index = number.length();
+    auto sum = std::accumulate(std::begin(number), std::end(number), 0u,
+                               [&index](unsigned int const s, char const c) {
+                                 return s + static_cast<unsigned int>(
+                                                index-- * (c - '0'));
+                               });
+    auto rest = sum % modulo_value();
+    snumber << modulo_value() - rest;
+    return snumber.str();
+  }
+  virtual ~social_number_generator() {}
+protected:
+  std::map<unsigned, int> cache;
+  std::mt19937 eng;
+  std::uniform_int_distribution<> ud;
+};
+class southeria_social_number_generator final : public social_number_generator {
+public:
+  southeria_social_number_generator() : social_number_generator(1000, 9999) {}
+protected:
+  virtual int sex_digit(sex_type const sex) const noexcept override {
+    if (sex == sex_type::female)
+      return 1;
+    else
+      return 2;
+  }
+  virtual int next_random(unsigned const year, unsigned const month,
+                          unsigned const day) override {
+    auto key = year * 10000 + month * 100 + day;
+    while (true) {
+      auto number = ud(eng);
+      auto pos = cache.find(number);
+      if (pos == std::end(cache)) {
+        cache[key] = number;
+        return number;
+      }
+    }
+  }
+  virtual int modulo_value() const noexcept override { return 11; }
+};
+class northeria_social_number_generator final : public social_number_generator {
+public:
+  northeria_social_number_generator() : social_number_generator(10000, 99999) {}
+protected:
+  virtual int sex_digit(sex_type const sex) const noexcept override {
+    if (sex == sex_type::female)
+      return 9;
+    else
+      return 7;
+  }
+  virtual int next_random(unsigned const year, unsigned const month,
+                          unsigned const day) override {
+    auto key = year * 10000 + month * 100 + day;
+    while (true) {
+      auto number = ud(eng);
+      auto pos = cache.find(number);
+      if (pos == std::end(cache)) {
+        cache[key] = number;
+        return number;
+      }
+    }
+  }
+  virtual int modulo_value() const noexcept override { return 11; }
+};
+class social_number_generator_factory {
+public:
+  social_number_generator_factory() {
+    generators["northeria"] =
+        std::make_unique<northeria_social_number_generator>();
+    generators["southeria"] =
+        std::make_unique<southeria_social_number_generator>();
+  }
+  social_number_generator *get_generator(std::string_view country) const {
+    auto it = generators.find(country.data());
+    if (it != std::end(generators))
+      return it->second.get();
+    throw std::runtime_error("invalid country");
+  }
+private:
+  std::map<std::string, std::unique_ptr<social_number_generator>> generators;
+};
+int main() {
+  social_number_generator_factory factory;
+  auto sn1 = factory.get_generator("northeria")
+                 ->generate(sex_type::female, 2017, 12, 25);
+  auto sn2 = factory.get_generator("northeria")
+                 ->generate(sex_type::female, 2017, 12, 25);
+  auto sn3 = factory.get_generator("northeria")
+                 ->generate(sex_type::male, 2017, 12, 25);
+  auto ss1 = factory.get_generator("southeria")
+                 ->generate(sex_type::female, 2017, 12, 25);
+  auto ss2 = factory.get_generator("southeria")
+                 ->generate(sex_type::female, 2017, 12, 25);
+  auto ss3 = factory.get_generator("southeria")
+                 ->generate(sex_type::male, 2017, 12, 25);
+}
+```
+
+### 70. Approval system
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <memory>
+class role {
+public:
+  virtual double approval_limit() const noexcept = 0;
+  virtual ~role() {}
+};
+class employee_role : public role {
+public:
+  virtual double approval_limit() const noexcept override { return 1000; }
+};
+class team_manager_role : public role {
+public:
+  virtual double approval_limit() const noexcept override { return 10000; }
+};
+class department_manager_role : public role {
+public:
+  virtual double approval_limit() const noexcept override { return 100000; }
+};
+class president_role : public role {
+public:
+  virtual double approval_limit() const noexcept override {
+    return std::numeric_limits<double>::max();
+  }
+};
+struct expense {
+  double amount;
+  std::string description;
+  expense(double const amount, std::string_view desc)
+      : amount(amount), description(desc) {}
+};
+class employee {
+public:
+  explicit employee(std::string_view name, std::unique_ptr<role> ownrole)
+      : name(name), own_role(std::move(ownrole)) {}
+  void set_direct_manager(std::shared_ptr<employee> manager) {
+    direct_manager = manager;
+  }
+  void approve(expense const &e) {
+    if (e.amount <= own_role->approval_limit())
+      std::cout << name << " approved expense '" << e.description
+                << "', cost=" << e.amount << std::endl;
+    else if (direct_manager != nullptr)
+      direct_manager->approve(e);
+  }
+private:
+  std::string name;
+  std::unique_ptr<role> own_role;
+  std::shared_ptr<employee> direct_manager;
+};
+int main() {
+  auto john = std::make_shared<employee>("john smith",
+                                         std::make_unique<employee_role>());
+  auto robert = std::make_shared<employee>(
+      "robert booth", std::make_unique<team_manager_role>());
+  auto david = std::make_shared<employee>(
+      "david jones", std::make_unique<department_manager_role>());
+  auto cecil = std::make_shared<employee>("cecil williamson",
+                                          std::make_unique<president_role>());
+  john->set_direct_manager(robert);
+  robert->set_direct_manager(david);
+  david->set_direct_manager(cecil);
+  john->approve(expense{500, "magazins"});
+  john->approve(expense{5000, "hotel accomodation"});
+  john->approve(expense{50000, "conference costs"});
+  john->approve(expense{200000, "new lorry"});
+}
+```
+
+### 71. Observable vector container
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <vector>
+#include <algorithm>
+enum class collection_action { add, remove, clear, assign };
+std::string to_string(collection_action const action) {
+  switch (action) {
+  case collection_action::add:
+    return "add";
+  case collection_action::remove:
+    return "remove";
+  case collection_action::clear:
+    return "clear";
+  case collection_action::assign:
+    return "assign";
+  }
+}
+struct collection_change_notification {
+  collection_action action;
+  std::vector<size_t> item_indexes;
+};
+class collection_observer {
+public:
+  virtual void
+  collection_changed(collection_change_notification notification) = 0;
+  virtual ~collection_observer() {}
+};
+template <typename T, class Allocator = std::allocator<T>>
+class observable_vector final {
+  typedef typename std::vector<T, Allocator>::size_type size_type;
+public:
+  observable_vector() noexcept(noexcept(Allocator()))
+      : observable_vector(Allocator()) {}
+  explicit observable_vector(const Allocator &alloc) noexcept : data(alloc) {}
+  observable_vector(size_type count, const T &value,
+                    const Allocator &alloc = Allocator())
+      : data(count, value, alloc) {}
+  explicit observable_vector(size_type count,
+                             const Allocator &alloc = Allocator())
+      : data(count, alloc) {}
+  observable_vector(observable_vector &&other) noexcept : data(other.data) {}
+  observable_vector(observable_vector &&other, const Allocator &alloc)
+      : data(other.data, alloc) {}
+  observable_vector(std::initializer_list<T> init,
+                    const Allocator &alloc = Allocator())
+      : data(init, alloc) {}
+  template <class InputIt>
+  observable_vector(InputIt first, InputIt last,
+                    const Allocator &alloc = Allocator())
+      : data(first, last, alloc) {}
+  observable_vector &operator=(observable_vector const &other) {
+    if (this != &other) {
+      data = other.data;
+      for (auto o : observers) {
+        if (o != nullptr) {
+          o->collection_changed(
+              {collection_action::assign, std::vector<size_t>{}});
+        }
+      }
+    }
+    return *this;
+  }
+  observable_vector &operator=(observable_vector &&other) {
+    if (this != &other) {
+      data = std::move(other.data);
+      for (auto o : observers) {
+        if (o != nullptr) {
+          o->collection_changed(
+              {collection_action::assign, std::vector<size_t>{}});
+        }
+      }
+    }
+    return *this;
+  }
+  void push_back(T &&value) {
+    data.push_back(value);
+    for (auto o : observers) {
+      if (o != nullptr) {
+        o->collection_changed(
+            {collection_action::add, std::vector<size_t>{data.size() - 1}});
+      }
+    }
+  }
+  void pop_back() {
+    data.pop_back();
+    for (auto o : observers) {
+      if (o != nullptr) {
+        o->collection_changed(
+            {collection_action::remove, std::vector<size_t>{data.size() + 1}});
+      }
+    }
+  }
+  void clear() noexcept {
+    data.clear();
+    for (auto o : observers) {
+      if (o != nullptr) {
+        o->collection_changed(
+            {collection_action::clear, std::vector<size_t>{}});
+      }
+    }
+  }
+  size_type size() const noexcept { return data.size(); }
+  [[nodiscard]] bool empty() const noexcept { return data.empty(); }
+  void add_observer(collection_observer *const o) { observers.push_back(o); }
+  void remove_observer(collection_observer const *const o) {
+    observers.erase(std::remove(std::begin(observers), std::end(observers), o),
+                    std::end(observers));
+  }
+private:
+  std::vector<T, Allocator> data;
+  std::vector<collection_observer *> observers;
+};
+class observer : public collection_observer {
+public:
+  virtual void
+  collection_changed(collection_change_notification notification) override {
+    std::cout << "action: " << to_string(notification.action);
+    if (!notification.item_indexes.empty()) {
+      std::cout << ", indexes: ";
+      for (auto i : notification.item_indexes)
+        std::cout << i << ' ';
+    }
+    std::cout << std::endl;
+  }
+};
+int main() {
+  observable_vector<int> v;
+  observer o;
+  v.add_observer(&o);
+  v.push_back(1);
+  v.push_back(2);
+  v.pop_back();
+  v.clear();
+  v.remove_observer(&o);
+  v.push_back(3);
+  v.push_back(4);
+  v.add_observer(&o);
+  observable_vector<int> v2{1, 2, 3};
+  v = v2;
+  v = observable_vector<int>{7, 8, 9};
+}
+```
+
+### 72. Computing order price with discounts
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <vector>
+#include <cmath>
+#include <assert.h>
+inline bool are_equal(double const d1, double const d2,
+                      double const diff = 0.001) {
+  return std::abs(d1 - d2) <= diff;
+}
+struct discount_type {
+  virtual double discount_percent(double const price,
+                                  double const quantity) const noexcept = 0;
+  virtual ~discount_type() {}
+};
+struct fixed_discount final : public discount_type {
+  explicit fixed_discount(double const discount) noexcept
+      : discount(discount) {}
+  virtual double discount_percent(double const, double const) const noexcept {
+    return discount;
+  }
+private:
+  double discount;
+};
+struct volume_discount final : public discount_type {
+  explicit volume_discount(double const quantity,
+                           double const discount) noexcept
+      : discount(discount), min_quantity(quantity) {}
+  virtual double discount_percent(double const, double const quantity) const
+      noexcept {
+    return quantity >= min_quantity ? discount : 0;
+  }
+private:
+  double discount;
+  double min_quantity;
+};
+struct price_discount : public discount_type {
+  explicit price_discount(double const price, double const discount) noexcept
+      : discount(discount), min_total_price(price) {}
+  virtual double discount_percent(double const price,
+                                  double const quantity) const noexcept {
+    return price * quantity >= min_total_price ? discount : 0;
+  }
+private:
+  double discount;
+  double min_total_price;
+};
+struct amount_discount : public discount_type {
+  explicit amount_discount(double const price, double const discount) noexcept
+      : discount(discount), min_total_price(price) {}
+  virtual double discount_percent(double const price, double const) const
+      noexcept {
+    return price >= min_total_price ? discount : 0;
+  }
+private:
+  double discount;
+  double min_total_price;
+};
+struct customer {
+  std::string name;
+  discount_type *discount;
+};
+enum class article_unit { piece, kg, meter, sqmeter, cmeter, liter };
+struct article {
+  int id;
+  std::string name;
+  double price;
+  article_unit unit;
+  discount_type *discount;
+};
+struct order_line {
+  article product;
+  int quantity;
+  discount_type *discount;
+};
+struct order {
+  int id;
+  customer *buyer;
+  std::vector<order_line> lines;
+  discount_type *discount;
+};
+struct price_calculator {
+  virtual double calculate_price(order const &o) = 0;
+};
+struct cumulative_price_calculator : public price_calculator {
+  virtual double calculate_price(order const &o) override {
+    double price = 0;
+    for (auto ol : o.lines) {
+      double line_price = ol.product.price * ol.quantity;
+      if (ol.product.discount != nullptr)
+        line_price *= (1.0 - ol.product.discount->discount_percent(
+                                 ol.product.price, ol.quantity));
+      if (ol.discount != nullptr)
+        line_price *= (1.0 - ol.discount->discount_percent(ol.product.price,
+                                                           ol.quantity));
+      if (o.buyer != nullptr && o.buyer->discount != nullptr)
+        line_price *= (1.0 - o.buyer->discount->discount_percent(
+                                 ol.product.price, ol.quantity));
+      price += line_price;
+    }
+    if (o.discount != nullptr)
+      price *= (1.0 - o.discount->discount_percent(price, 0));
+    return price;
+  }
+};
+int main() {
+  fixed_discount d1(0.1);
+  volume_discount d2(10, 0.15);
+  price_discount d3(100, 0.05);
+  amount_discount d4(100, 0.05);
+  customer c1{"default", nullptr};
+  customer c2{"john", &d1};
+  customer c3{"joane", &d3};
+  article a1{1, "pen", 5, article_unit::piece, nullptr};
+  article a2{2, "expensive pen", 15, article_unit::piece, &d1};
+  article a3{3, "scissors", 10, article_unit::piece, &d2};
+  cumulative_price_calculator calc;
+  order o1{101, &c1, {{a1, 1, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o1), 5));
+  order o2{102, &c2, {{a1, 1, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o2), 4.5));
+  order o3{103, &c1, {{a2, 1, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o3), 13.5));
+  order o4{104, &c2, {{a2, 1, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o4), 12.15));
+  order o5{105, &c1, {{a3, 1, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o5), 10));
+  order o6{106, &c1, {{a3, 15, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o6), 127.5));
+  order o7{107, &c3, {{a3, 15, nullptr}}, nullptr};
+  assert(are_equal(calc.calculate_price(o7), 121.125));
+  order o8{108, &c3, {{a2, 20, &d1}}, nullptr};
+  assert(are_equal(calc.calculate_price(o8), 230.85));
+  order o9{109, &c3, {{a2, 20, &d1}}, &d4};
+  assert(are_equal(calc.calculate_price(o9), 219.3075));
+}
+```
+
+## Data Serialization
+
+### 73. Serializing and deserializing data to or from XML
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <assert.h>
+#include "pugixml.hpp"
+#include "movies.h"
+void serialize(movie_list const &movies, std::string_view filepath) {
+  pugi::xml_document doc;
+  auto root = doc.append_child("movies");
+  for (auto const &m : movies) {
+    auto movie_node = root.append_child("movie");
+    movie_node.append_attribute("id").set_value(m.id);
+    movie_node.append_attribute("title").set_value(m.title.c_str());
+    movie_node.append_attribute("year").set_value(m.year);
+    movie_node.append_attribute("length").set_value(m.length);
+    auto cast_node = movie_node.append_child("cast");
+    for (auto const &c : m.cast) {
+      auto node = cast_node.append_child("role");
+      node.append_attribute("star").set_value(c.actor.c_str());
+      node.append_attribute("name").set_value(c.role.c_str());
+    }
+    auto directors_node = movie_node.append_child("directors");
+    for (auto const &director : m.directors) {
+      directors_node.append_child("director")
+          .append_attribute("name")
+          .set_value(director.c_str());
+    }
+    auto writers_node = movie_node.append_child("writers");
+    for (auto const &writer : m.writers) {
+      writers_node.append_child("writer").append_attribute("name").set_value(
+          writer.c_str());
+    }
+  }
+  doc.save_file(filepath.data());
+}
+movie_list deserialize(std::string_view filepath) {
+  pugi::xml_document doc;
+  movie_list movies;
+  auto result = doc.load_file(filepath.data());
+  if (result) {
+    auto root = doc.child("movies");
+    for (auto movie_node = root.child("movie"); movie_node;
+         movie_node = movie_node.next_sibling("movie")) {
+      movie m;
+      m.id = movie_node.attribute("id").as_uint();
+      m.title = movie_node.attribute("title").as_string();
+      m.year = movie_node.attribute("year").as_uint();
+      m.length = movie_node.attribute("length").as_uint();
+      for (auto role_node : movie_node.child("cast").children("role")) {
+        m.cast.push_back(casting_role{role_node.attribute("star").as_string(),
+                                      role_node.attribute("name").as_string()});
+      }
+      for (auto director_node :
+           movie_node.child("directors").children("director")) {
+        m.directors.push_back(director_node.attribute("name").as_string());
+      }
+      for (auto writer_node : movie_node.child("writers").children("writer")) {
+        m.writers.push_back(writer_node.attribute("name").as_string());
+      }
+      movies.push_back(m);
+    }
+  }
+  return movies;
+}
+int main() {
+  movie_list movies{{
+                        11001,
+                        "The Matrix",
+                        1999,
+                        196,
+                        {{"Keanu Reeves", "Neo"},
+                         {"Laurence Fishburne", "Morpheus"},
+                         {"Carrie-Anne Moss", "Trinity"},
+                         {"Hugo Weaving", "Agent Smith"}},
+                        {"Lana Wachowski", "Lilly Wachowski"},
+                        {"Lana Wachowski", "Lilly Wachowski"},
+                    },
+                    {
+                        9871,
+                        "Forrest Gump",
+                        1994,
+                        202,
+                        {{"Tom Hanks", "Forrest Gump"},
+                         {"Sally Field", "Mrs. Gump"},
+                         {"Robin Wright", "Jenny Curran"},
+                         {"Mykelti Williamson", "Bubba Blue"}},
+                        {"Robert Zemeckis"},
+                        {"Winston Groom", "Eric Roth"},
+                    }};
+  serialize(movies, "movies.xml");
+  auto result = deserialize("movies.xml");
+  assert(result.size() == 2);
+  assert(result[0].title == "The Matrix");
+  assert(result[1].title == "Forrest Gump");
+}
+```
+
+### 74. Selecting data from XML using XPath
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include "pugixml.hpp"
+int main() {
+  std::string text = R"(
+<?xml version="1.0"?>
+<movies>
+	<movie id="11001" title="The Matrix" year="1999" length="196">
+		<cast>
+			<role star="Keanu Reeves" name="Neo" />
+			<role star="Laurence Fishburne" name="Morpheus" />
+			<role star="Carrie-Anne Moss" name="Trinity" />
+			<role star="Hugo Weaving" name="	Agent Smith" />
+		</cast>
+		<directors>
+			<director name="Lana Wachowski" />
+			<director name="Lilly Wachowski" />
+		</directors>
+		<writers>
+			<writer name="Lana Wachowski" />
+			<writer name="Lilly Wachowski" />
+		</writers>
+	</movie>
+	<movie id="9871" title="Forrest Gump" year="1994" length="202">
+		<cast>
+			<role star="Tom Hanks" name="Forrest Gump" />
+			<role star="Sally Field" name="Mrs. Gump" />
+			<role star="Robin Wright" name="Jenny Curran" />
+			<role star="Mykelti Williamson" name="Bubba Blue" />
+		</cast>
+		<directors>
+			<director name="Robert Zemeckis" />
+		</directors>
+		<writers>
+			<writer name="Winston Groom" />
+			<writer name="Eric Roth" />
+		</writers>
+	</movie>
+</movies>
+)";
+  pugi::xml_document doc;
+  if (doc.load_string(text.c_str())) {
+    try {
+      auto titles = doc.select_nodes("/movies/movie[@year>1995]");
+      for (auto it : titles) {
+        std::cout << it.node().attribute("title").as_string() << std::endl;
+      }
+    } catch (pugi::xpath_exception const &e) {
+      std::cout << e.result().description() << std::endl;
+    }
+    try {
+      auto titles = doc.select_nodes("/movies/movie/cast/role[last()]");
+      for (auto it : titles) {
+        std::cout << it.node().attribute("star").as_string() << std::endl;
+      }
+    } catch (pugi::xpath_exception const &e) {
+      std::cout << e.result().description() << std::endl;
+    }
+  }
+}
+```
+
+### 75. Serializing data to JSON
+
+```c++
+
+#include <iostream>
+#include <string_view>
+#include <fstream>
+#include "json.hpp"
+#include "movies.h"
+using json = nlohmann::json;
+void to_json(json &j, casting_role const &c) {
+  j = json{{"star", c.actor}, {"name", c.role}};
+}
+void to_json(json &j, movie const &m) {
+  j = json::object({{"id", m.id},
+                    {"title", m.title},
+                    {"year", m.year},
+                    {"length", m.length},
+                    {"cast", m.cast},
+                    {"directors", m.directors},
+                    {"writers", m.writers}});
+}
+void serialize(movie_list const &movies, std::string_view filepath) {
+  json jdata{{"movies", movies}};
+  std::ofstream ofile(filepath.data());
+  if (ofile.is_open()) {
+    ofile << std::setw(2) << jdata << std::endl;
+  }
+}
+int main() {
+  movie_list movies{{
+                        11001,
+                        "The Matrix",
+                        1999,
+                        196,
+                        {{"Keanu Reeves", "Neo"},
+                         {"Laurence Fishburne", "Morpheus"},
+                         {"Carrie-Anne Moss", "Trinity"},
+                         {"Hugo Weaving", "Agent Smith"}},
+                        {"Lana Wachowski", "Lilly Wachowski"},
+                        {"Lana Wachowski", "Lilly Wachowski"},
+                    },
+                    {
+                        9871,
+                        "Forrest Gump",
+                        1994,
+                        202,
+                        {{"Tom Hanks", "Forrest Gump"},
+                         {"Sally Field", "Mrs. Gump"},
+                         {"Robin Wright", "Jenny Curran"},
+                         {"Mykelti Williamson", "Bubba Blue"}},
+                        {"Robert Zemeckis"},
+                        {"Winston Groom", "Eric Roth"},
+                    }};
+  serialize(movies, "movies.json");
+}
+```
+
+### 76. Deserializing data from JSON
+
+```c++
+
+#include <iostream>
+#include <string_view>
+#include <fstream>
+#include <assert.h>
+#include "json.hpp"
+#include "movies.h"
+using json = nlohmann::json;
+movie_list deserialize(std::string_view filepath) {
+  movie_list movies;
+  std::ifstream ifile(filepath.data());
+  if (ifile.is_open()) {
+    json jdata;
+    try {
+      ifile >> jdata;
+      if (jdata.is_object()) {
+        for (auto &element : jdata.at("movies")) {
+          movie m;
+          m.id = element.at("id").get<unsigned int>();
+          m.title = element.at("title").get<std::string>();
+          m.year = element.at("year").get<unsigned int>();
+          m.length = element.at("length").get<unsigned int>();
+          for (auto &role : element.at("cast")) {
+            m.cast.push_back(casting_role{role.at("star").get<std::string>(),
+                                          role.at("name").get<std::string>()});
+          }
+          for (auto &director : element.at("directors")) {
+            m.directors.push_back(director);
+          }
+          for (auto &writer : element.at("writers")) {
+            m.writers.push_back(writer);
+          }
+          movies.push_back(std::move(m));
+        }
+      }
+    } catch (std::exception const &ex) {
+      std::cout << ex.what() << std::endl;
+    }
+  }
+  return movies;
+}
+int main() {
+  auto movies = deserialize("movies.json");
+  assert(movies.size() == 2);
+  assert(movies[0].title == "The Matrix");
+  assert(movies[1].title == "Forrest Gump");
+}
+```
+
+### 77. Printing a list of movies to a PDF
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <iomanip>
+#include "PDFWriter/PDFWriter.h"
+#include "PDFWriter/PDFPage.h"
+#include "PDFWriter/PageContentContext.h"
+#include "PDFWriter/PDFUsedFont.h"
+#include "movies.h"
+#ifdef _WIN32
+static const std::string fonts_dir = R"(c:\windows\fonts\)";
+#elif defined(__APPLE__)
+static const std::string fonts_dir = R"(/Library/Fonts/)";
+#else
+static const std::string fonts_dir = R"(/usr/share/fonts)";
+#endif
+void print_pdf(movie_list const &movies, std::string_view path) {
+  const int height = 842;
+  const int width = 595;
+  const int left = 60;
+  const int top = 770;
+  const int right = 535;
+  const int bottom = 60;
+  const int line_height = 28;
+  PDFWriter pdf;
+  pdf.StartPDF(path.data(), ePDFVersion13);
+  auto font = pdf.GetFontForFile(fonts_dir + "Arial.ttf");
+  AbstractContentContext::GraphicOptions pathStrokeOptions(
+      AbstractContentContext::eStroke, AbstractContentContext::eRGB, 0xff000000,
+      1);
+  PDFPage *page = nullptr;
+  PageContentContext *context = nullptr;
+  int index = 0;
+  for (size_t i = 0; i < movies.size(); ++i) {
+    index = i % 25;
+    if (index == 0) {
+      if (page != nullptr) {
+        DoubleAndDoublePairList pathPoints;
+        pathPoints.push_back(DoubleAndDoublePair(left, bottom));
+        pathPoints.push_back(DoubleAndDoublePair(right, bottom));
+        context->DrawPath(pathPoints, pathStrokeOptions);
+        pdf.EndPageContentContext(context);
+        pdf.WritePageAndRelease(page);
+      }
+      page = new PDFPage();
+      page->SetMediaBox(PDFRectangle(0, 0, width, height));
+      context = pdf.StartPageContentContext(page);
+      {
+        DoubleAndDoublePairList pathPoints;
+        pathPoints.push_back(DoubleAndDoublePair(left, top));
+        pathPoints.push_back(DoubleAndDoublePair(right, top));
+        context->DrawPath(pathPoints, pathStrokeOptions);
+      }
+    }
+    if (i == 0) {
+      AbstractContentContext::TextOptions const textOptions(
+          font, 26, AbstractContentContext::eGray, 0);
+      context->WriteText(left, top + 15, "List of movies", textOptions);
+    }
+    auto textw = 0;
+    {
+      AbstractContentContext::TextOptions const textOptions(
+          font, 20, AbstractContentContext::eGray, 0);
+      context->WriteText(left, top - 20 - line_height * index, movies[i].title,
+                         textOptions);
+      auto textDimensions = font->CalculateTextDimensions(movies[i].title, 20);
+      textw = textDimensions.width;
+    }
+    {
+      AbstractContentContext::TextOptions const textOptions(
+          font, 16, AbstractContentContext::eGray, 0);
+      context->WriteText(left + textw + 5, top - 20 - line_height * index,
+                         " (" + std::to_string(movies[i].year) + ")",
+                         textOptions);
+      std::stringstream s;
+      s << movies[i].length / 60 << ':' << std::setw(2) << std::setfill('0')
+        << movies[i].length % 60;
+      context->WriteText(right - 30, top - 20 - line_height * index, s.str(),
+                         textOptions);
+    }
+  }
+  DoubleAndDoublePairList pathPoints;
+  pathPoints.push_back(
+      DoubleAndDoublePair(left, top - line_height * (index + 1)));
+  pathPoints.push_back(
+      DoubleAndDoublePair(right, top - line_height * (index + 1)));
+  context->DrawPath(pathPoints, pathStrokeOptions);
+  if (page != nullptr) {
+    pdf.EndPageContentContext(context);
+    pdf.WritePageAndRelease(page);
+  }
+  pdf.EndPDF();
+}
+int main() {
+  movie_list movies{
+      {1, "The Matrix", 1999, 136},
+      {2, "Forrest Gump", 1994, 142},
+      {3, "The Truman Show", 1998, 103},
+      {4, "The Pursuit of Happyness", 2006, 117},
+      {5, "Fight Club", 1999, 139},
+      {6, "Inglourious Basterds", 2009, 153},
+      {7, "The Dark Knight Rises", 2012, 164},
+      {8, "The Dark Knight", 2008, 152},
+      {9, "Pulp Fiction", 1994, 154},
+      {10, "Inception", 2010, 148},
+      {11, "The Shawshank Redemption", 1994, 142},
+      {12, "The Silence of the Lambs", 1991, 118},
+      {13, "Philadelphia", 1993, 125},
+      {14, "One Flew Over the Cuckoo's Nest", 1975, 80},
+      {15, "Memento", 2000, 113},
+      {16, "Trainspotting", 1996, 94},
+      {17, "Fargo", 1998, 98},
+      {18, "Reservoir Dogs", 1992, 99},
+      {19, "The Departed", 2006, 151},
+      {20, "Se7en", 1995, 127},
+      {21, "American History X", 1998, 119},
+      {22, "Silver Linings Playbook", 2012, 122},
+      {23, "2001: A Space Odyssey", 1968, 149},
+      {24, "Monty Python and the Holy Grail", 1975, 91},
+      {25, "Life of Brian", 1979, 94},
+      {26, "Children of Men", 2006, 109},
+      {27, "Sin City", 2005, 124},
+      {28, "L.A. Confidential", 1997, 138},
+      {29, "Shutter Island", 2010, 138},
+  };
+  print_pdf(movies, "movies.pdf");
+}
+```
+
+### 78. Creating a PDF from a collection of images
+
+```c++
+
+#include <iostream>
+#include <string_view>
+#include "PDFWriter/PDFWriter.h"
+#include "PDFWriter/PDFPage.h"
+#include "PDFWriter/PageContentContext.h"
+#include "PDFWriter/PDFFormXObject.h"
+#ifdef USE_BOOST_FILESYSTEM
+#include <boost/filesystem/path.hpp>
+#include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#include <filesystem>
+#ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#else
+namespace fs = std::filesystem;
+#endif
+#endif
+std::vector<std::string> get_images(fs::path const &dirpath) {
+  std::vector<std::string> paths;
+  for (auto const &p : fs::directory_iterator(dirpath)) {
+    if (p.path().extension() == ".jpg")
+      paths.push_back(p.path().string());
+  }
+  return paths;
+}
+void print_pdf(fs::path const &pdfpath, fs::path const &dirpath) {
+  const int height = 842;
+  const int width = 595;
+  const int margin = 20;
+  auto image_paths = get_images(dirpath);
+  PDFWriter pdf;
+  pdf.StartPDF(pdfpath.string(), ePDFVersion13);
+  PDFPage *page = nullptr;
+  PageContentContext *context = nullptr;
+  auto top = height - margin;
+  for (size_t i = 0; i < image_paths.size(); ++i) {
+    auto dims = pdf.GetImageDimensions(image_paths[i]);
+    if (i == 0 || top - dims.second < margin) {
+      if (page != nullptr) {
+        pdf.EndPageContentContext(context);
+        pdf.WritePageAndRelease(page);
+      }
+      page = new PDFPage();
+      page->SetMediaBox(PDFRectangle(0, 0, width, height));
+      context = pdf.StartPageContentContext(page);
+      top = height - margin;
+    }
+    context->DrawImage(margin, top - dims.second, image_paths[i]);
+    top -= dims.second + margin;
+  }
+  if (page != nullptr) {
+    pdf.EndPageContentContext(context);
+    pdf.WritePageAndRelease(page);
+  }
+  pdf.EndPDF();
+}
+int main() { print_pdf("sample.pdf", "res"); }
+```
+
+## Archives, Images, and Databases
+
+### 79. Finding files in a ZIP archive
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <vector>
+#include <regex>
+#include "ZipFile.h"
+#include "ZipArchive.h"
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+std::vector<std::string> find_in_archive(
+   fs::path const & archivepath,
+   std::string_view pattern)
+{
+   std::vector<std::string> results;
+   if (fs::exists(archivepath))
+   {
+      try
+      {
+         auto archive = ZipFile::Open(archivepath.string());
+         for (size_t i = 0; i < archive->GetEntriesCount(); ++i)
+         {
+            auto entry = archive->GetEntry(i);
+            if (entry)
+            {
+               if (!entry->IsDirectory())
+               {
+                  auto name = entry->GetName();
+                  if (std::regex_match(name, std::regex{ pattern.data() }))
+                  {
+                     results.push_back(entry->GetFullName());
+                  }
+               }
+            }
+         }
+      }
+      catch (std::exception const & ex)
+      {
+         std::cout << ex.what() << std::endl;
+      }
+   }
+   return results;
+}
+int main()
+{
+   std::string archivepath;
+   std::cout << "Archive path:";
+   std::cin >> archivepath;
+   std::string pattern;
+   std::cout << "Pattern:";
+   std::cin >> pattern;
+   std::cout << "Results:" << std::endl;
+   for (auto const & name : find_in_archive(archivepath, pattern))
+   {
+      std::cout << name << std::endl;
+   }
+}
+```
+
+### 80. Compressing and decompressing files to or from a ZIP archive
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <fstream>
+#include "ZipFile.h"
+#include "utils/stream_utils.h"
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+void compress(
+   fs::path const & source,
+   fs::path const & archive,
+   std::function<void(std::string_view)> reporter)
+{
+   if (fs::is_regular_file(source))
+   {
+      if (reporter) reporter("Compressing " + source.string());
+      ZipFile::AddFile(archive.string(), source.string(), LzmaMethod::Create());
+   }
+   else
+   {
+      for (auto const & p : fs::recursive_directory_iterator(source))
+      {
+         if (reporter) reporter("Compressing " + p.path().string());
+         if (fs::is_directory(p))
+         {
+            auto zipArchive = ZipFile::Open(archive.string());
+            auto entry = zipArchive->CreateEntry(p.path().string());
+            entry->SetAttributes(ZipArchiveEntry::Attributes::Directory);
+            ZipFile::SaveAndClose(zipArchive, archive.string());
+         }
+         else if (fs::is_regular_file(p))
+         {
+            ZipFile::AddFile(archive.string(), p.path().string(), LzmaMethod::Create());
+         }
+      }
+   }
+}
+void ensure_directory_exists(fs::path const & dir)
+{
+   if (!fs::exists(dir))
+   {
+#ifdef USE_BOOST_FILESYSTEM
+      boost::system::error_code err;
+#else
+      std::error_code err;
+#endif
+      fs::create_directories(dir, err);
+   }
+}
+void decompress(
+   fs::path const & destination,
+   fs::path const & archive,
+   std::function<void(std::string_view)> reporter)
+{
+   ensure_directory_exists(destination);
+   auto zipArchive = ZipFile::Open(archive.string());
+   for (size_t i = 0; i < zipArchive->GetEntriesCount(); ++i)
+   {
+      auto entry = zipArchive->GetEntry(i);
+      if (entry)
+      {
+         auto filepath = destination / fs::path{ entry->GetFullName() }.relative_path();
+         if (reporter) reporter("Creating " + filepath.string());
+         if (entry->IsDirectory())
+         {
+            ensure_directory_exists(filepath);
+         }
+         else
+         {
+            ensure_directory_exists(filepath.parent_path());
+            std::ofstream destFile;
+            destFile.open(
+               filepath.string().c_str(),
+               std::ios::binary | std::ios::trunc);
+            if (!destFile.is_open())
+            {
+               if (reporter)
+                  reporter("Cannot create destination file!");
+            }
+            auto dataStream = entry->GetDecompressionStream();
+            if (dataStream)
+            {
+               utils::stream::copy(*dataStream, destFile);
+            }
+         }
+      }
+   }
+}
+int main()
+{
+   char option = 0;
+   std::cout << "Select [c]ompress/[d]ecompress?";
+   std::cin >> option;
+   if (option == 'c')
+   {
+      std::string archivepath;
+      std::string inputpath;
+      std::cout << "Enter file or dir to compress:";
+      std::cin >> inputpath;
+      std::cout << "Enter archive path:";
+      std::cin >> archivepath;
+      compress(inputpath, archivepath, [](std::string_view message) {std::cout << message << std::endl; });
+   }
+   else if (option == 'd')
+   {
+      std::string archivepath;
+      std::string outputpath;
+      std::cout << "Enter dir to decompress:";
+      std::cin >> outputpath;
+      std::cout << "Enter archive path:";
+      std::cin >> archivepath;
+      decompress(outputpath, archivepath, [](std::string_view message) {std::cout << message << std::endl; });
+   }
+   else
+   {
+      std::cout << "invalid option" << std::endl;
+   }
+}
+```
+
+### 81. Compressing and decompressing files to or from a ZIP archive with a password
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <fstream>
+#include "ZipFile.h"
+#include "utils/stream_utils.h"
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+void compress(
+   fs::path const & source,
+   fs::path const & archive,
+   std::string_view password,
+   std::function<void(std::string_view)> reporter)
+{
+   if (fs::is_regular_file(source))
+   {
+      if (reporter) reporter("Compressing " + source.string());
+      ZipFile::AddEncryptedFile(
+         archive.string(),
+         source.string(),
+         source.filename().string(),
+         password.data(),
+         LzmaMethod::Create());
+   }
+   else
+   {
+      for (auto const & p : fs::recursive_directory_iterator(source))
+      {
+         if (reporter) reporter("Compressing " + p.path().string());
+         if (fs::is_directory(p))
+         {
+            auto zipArchive = ZipFile::Open(archive.string());
+            auto entry = zipArchive->CreateEntry(p.path().string());
+            entry->SetAttributes(ZipArchiveEntry::Attributes::Directory);
+            ZipFile::SaveAndClose(zipArchive, archive.string());
+         }
+         else if (fs::is_regular_file(p))
+         {
+            ZipFile::AddEncryptedFile(
+               archive.string(),
+               p.path().string(),
+               p.path().filename().string(),
+               password.data(),
+               LzmaMethod::Create());
+         }
+      }
+   }
+}
+void ensure_directory_exists(fs::path const & dir)
+{
+   if (!fs::exists(dir))
+   {
+#ifdef USE_BOOST_FILESYSTEM
+      boost::system::error_code err;
+#else
+      std::error_code err;
+#endif
+      fs::create_directories(dir, err);
+   }
+}
+void decompress(
+   fs::path const & destination,
+   fs::path const & archive,
+   std::string_view password,
+   std::function<void(std::string_view)> reporter)
+{
+   ensure_directory_exists(destination);
+   auto zipArchive = ZipFile::Open(archive.string());
+   for (size_t i = 0; i < zipArchive->GetEntriesCount(); ++i)
+   {
+      auto entry = zipArchive->GetEntry(i);
+      if (entry)
+      {
+         auto filepath = destination / fs::path{ entry->GetFullName() }.relative_path();
+         if (reporter) reporter("Creating " + filepath.string());
+         if (entry->IsPasswordProtected())
+            entry->SetPassword(password.data());
+         if (entry->IsDirectory())
+         {
+            ensure_directory_exists(filepath);
+         }
+         else
+         {
+            ensure_directory_exists(filepath.parent_path());
+            std::ofstream destFile;
+            destFile.open(
+               filepath.string().c_str(),
+               std::ios::binary | std::ios::trunc);
+            if (!destFile.is_open())
+            {
+               if (reporter)
+                  reporter("Cannot create destination file!");
+            }
+            auto dataStream = entry->GetDecompressionStream();
+            if (dataStream)
+            {
+               utils::stream::copy(*dataStream, destFile);
+            }
+         }
+      }
+   }
+}
+int main()
+{
+   char option = 0;
+   std::cout << "Select [c]ompress/[d]ecompress?";
+   std::cin >> option;
+   if (option == 'c')
+   {
+      std::string archivepath;
+      std::string inputpath;
+      std::string password;
+      std::cout << "Enter file or dir to compress:";
+      std::cin >> inputpath;
+      std::cout << "Enter archive path:";
+      std::cin >> archivepath;
+      std::cout << "Enter password:";
+      std::cin >> password;
+      compress(inputpath, archivepath, password, [](std::string_view message) {std::cout << message << std::endl; });
+   }
+   else if (option == 'd')
+   {
+      std::string archivepath;
+      std::string outputpath;
+      std::string password;
+      std::cout << "Enter dir to decompress:";
+      std::cin >> outputpath;
+      std::cout << "Enter archive path:";
+      std::cin >> archivepath;
+      std::cout << "Enter password:";
+      std::cin >> password;
+      decompress(outputpath, archivepath, password, [](std::string_view message) {std::cout << message << std::endl; });
+   }
+   else
+   {
+      std::cout << "invalid option" << std::endl;
+   }
+}
+```
+
+### 82. Creating a PNG that represents a national flag
+
+```c++
+
+#include <iostream>
+#include <string_view>
+#include <string>
+#include "pngwriter.h"
+void create_flag(int const width, int const height, std::string_view filepath)
+{
+   pngwriter flag{ width, height, 0, filepath.data() };
+   int const size = width / 3;
+   // red rectangle
+   flag.filledsquare(0, 0, size, 2 * size, 65535, 0, 0);
+   // yellow rectangle
+   flag.filledsquare(size, 0, 2 * size, 2 * size, 65535, 65535, 0);
+   // blue rectangle
+   flag.filledsquare(2 * size, 0, 3 * size, 2 * size, 0, 0, 65535);
+   flag.close();
+}
+int main()
+{
+   int width = 0, height = 0;
+   std::string filepath;
+   std::cout << "Width: "; 
+   std::cin >> width;
+   std::cout << "Heigh: ";
+   std::cin >> height;
+   std::cout << "Output: ";
+   std::cin >> filepath;
+   create_flag(width, height, filepath);
+}
+```
+
+### 83. Creating verification text PNG images
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <random>
+#include <array>
+#include "pngwriter.h"
+void create_image(
+   int const width, int const height, 
+   std::string_view font, int const font_size,
+   std::string_view filepath)
+{
+   pngwriter image{ width, height, 0, filepath.data() };
+   std::random_device rd;
+   std::mt19937 mt;
+   auto seed_data = std::array<int, std::mt19937::state_size> {};
+   std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+   std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+   mt.seed(seq);
+   std::uniform_int_distribution<> udx(0, width);
+   std::uniform_int_distribution<> udy(0, height);
+   std::uniform_int_distribution<> udc(0, 65535);
+   std::uniform_int_distribution<> udt(0, 25);
+   // gradient background
+   for (int iter = 0; iter <= width; iter++)
+   {
+      image.line(
+         iter, 0, iter, height,
+         65535 - int(65535 * ((double)iter) / (width)),
+         int(65535 * ((double)iter) / (width)),
+         65535);
+   }
+   // random text
+   std::string font_family = font.data();
+   for (int i = 0; i < 6; ++i)
+   {
+      image.plot_text(
+         // font
+         font_family.data(), font_size,
+         // position
+         i*width / 6 + 10, height / 2 - 10,
+         // angle
+         (i % 2 == 0 ? -1 : 1)*(udt(mt) * 3.14) / 180,
+         // text
+         std::string(1, char('A' + udt(mt))).data(),
+         // color
+         0, 0, 0);
+   }
+   // random lines
+   for (int i = 0; i < 4; ++i)
+   {
+      image.line(udx(mt), 0, udx(mt), height,
+         udc(mt), udc(mt), udc(mt));
+      image.line(0, udy(mt), width, udy(mt),
+         udc(mt), udc(mt), udc(mt));
+   }
+   image.close();
+}
+int main()
+{
+   std::string font_path;
+#ifdef _WIN32
+      font_path = R"(c:\windows\fonts\arial.ttf)";
+#elif defined (__APPLE__)
+      font_path = R"(/Library/Fonts/Arial.ttf)";
+#else
+   std::cout << "Font path: ";
+   std::cin >> font_path;
+#endif
+   create_image(200, 50, 
+                font_path, 18,
+                "validation.png");
+}
+```
+
+### 84. EAN-13 barcode generator
+
+```c++
+
+#include <iostream>
+#include <string_view>
+#include <array>
+#include <algorithm>
+#include <numeric>
+#include <bitset>
+#include <assert.h>
+#include "pngwriter.h"
+struct ean13
+{
+public:
+   ean13(std::string_view code)
+   {
+      if (code.length() == 13)
+      {
+         if (code[12] != '0' + get_crc(code.substr(0,12)))
+            throw std::runtime_error("Not an EAN-13 format.");
+         number = code;
+      }
+      else if (code.length() == 12)
+      {
+         number = code.data() + std::string(1, '0' + get_crc(code));
+      }
+   }
+   ean13(unsigned long long code)
+      :ean13(std::to_string(code))
+   {
+   }
+   std::array<unsigned char, 13> to_array() const
+   {
+      std::array<unsigned char, 13> result;
+      for (int i = 0; i < 13; ++i)
+         result[i] = static_cast<unsigned char>(number[i] - '0');
+      return result;
+   }
+
+   std::string to_string() const noexcept
+   {
+      return number;
+   }
+private:
+   unsigned char get_crc(std::string_view code)
+   {
+      unsigned char weights[12] = { 1,3,1,3,1,3,1,3,1,3,1,3 };
+      size_t index = 0;
+      auto sum = std::accumulate(
+         std::begin(code), std::end(code), 0,
+         [&weights, &index](int const total, char const c) {
+         return total + weights[index++] * (c - '0'); });
+      return 10 - sum % 10;
+   }
+   std::string number;
+};
+struct ean13_barcode_generator
+{
+   void create(ean13 const & code,
+      std::string_view filename,
+      int const digit_width = 3,
+      int const height = 50,
+      int const margin = 10)
+   {
+      pngwriter image(
+         margin * 2 + 95 * digit_width,
+         height + margin * 2,
+         65535,
+         filename.data());
+      std::array<unsigned char, 13> digits = code.to_array();
+      int x = margin;
+      x = draw_digit(marker_start, 3, image, x, margin, digit_width, height);
+      for (int i = 0; i < 6; ++i)
+      {
+         int code = encodings[digits[1 + i]][eandigits[digits[0]][i]];
+         x = draw_digit(code, 7, image, x, margin, digit_width, height);
+      }
+      x = draw_digit(marker_center, 5, image, x, margin, digit_width, height);
+      for (int i = 0; i < 6; ++i)
+      {
+         int code = encodings[digits[7 + i]][2];
+         x = draw_digit(code, 7, image, x, margin, digit_width, height);
+      }
+      x = draw_digit(marker_end, 3, image, x, margin, digit_width, height);
+      image.close();
+   }
+private:
+   int draw_digit(
+      unsigned char code, unsigned int size,
+      pngwriter& image,
+      int const x, int const y,
+      int const digit_width, int const height)
+   {
+      std::bitset<7> bits(code);
+      int pos = x;
+      for (int i = size - 1; i >= 0; --i)
+      {
+         if (bits[i])
+         {
+            image.filledsquare(pos, y, pos + digit_width, y + height, 0, 0, 0);
+         }
+         pos += digit_width;
+      }
+      return pos;
+   }
+   unsigned char encodings[10][3] =
+   {
+      { 0b0001101, 0b0100111, 0b1110010 },
+      { 0b0011001, 0b0110011, 0b1100110 },
+      { 0b0010011, 0b0011011, 0b1101100 },
+      { 0b0111101, 0b0100001, 0b1000010 },
+      { 0b0100011, 0b0011101, 0b1011100 },
+      { 0b0110001, 0b0111001, 0b1001110 },
+      { 0b0101111, 0b0000101, 0b1010000 },
+      { 0b0111011, 0b0010001, 0b1000100 },
+      { 0b0110111, 0b0001001, 0b1001000 },
+      { 0b0001011, 0b0010111, 0b1110100 },
+   };
+   unsigned char eandigits[10][6] =
+   {
+      { 0,0,0,0,0,0 },
+      { 0,0,1,0,1,1 },
+      { 0,0,1,1,0,1 },
+      { 0,0,1,1,1,0 },
+      { 0,1,0,0,1,1 },
+      { 0,1,1,0,0,1 },
+      { 0,1,1,1,0,0 },
+      { 0,1,0,1,0,1 },
+      { 0,1,0,1,1,0 },
+      { 0,1,1,0,1,0 },
+   };
+   unsigned char marker_start = 0b101;
+   unsigned char marker_end = 0b101;
+   unsigned char marker_center = 0b01010;
+};
+int main()
+{
+   assert("4006381333931" == ean13("400638133393").to_string());
+   assert("0012345678905" == ean13("001234567890").to_string());
+   assert("0012345678905" == ean13("001234567890").to_string());
+   assert("8711253001202" == ean13("8711253001202").to_string());
+   assert("5901234123457" == ean13("5901234123457").to_string());
+   ean13_barcode_generator generator;
+   generator.create(
+      ean13("8711253001202"), 
+      "8711253001202.png", 
+      5, 150, 30);
+   generator.create(
+      ean13("5901234123457"),
+      "5901234123457.png",
+      5, 150, 30);
+}
+```
+
+### 85. Reading movies from an SQLite database
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include "sqlite3.h"
+#include "sqlite_modern_cpp.h"
+#include "movies.h"
+void print_movie(movie const & m)
+{
+   std::cout << "[" << m.id << "] "
+      << m.title << " (" << m.year << ") "
+      << m.length << "min" << std::endl;
+   std::cout << " directed by: ";
+   for (auto const & d : m.directors) std::cout << d << ",";
+   std::cout << std::endl;
+   std::cout << " written by: ";
+   for (auto const & w : m.writers) std::cout << w << ",";
+   std::cout << std::endl;
+   std::cout << " cast: ";
+   for (auto const & r : m.cast) std::cout << r.actor << " (" << r.role << "),";
+   std::cout << std::endl << std::endl;
+}
+std::vector<std::string> get_directors(sqlite3_int64 const movie_id, 
+                                       sqlite::database & db)
+{
+   std::vector<std::string> result;
+   db << R"(select p.name from directors as d 
+            join persons as p on d.personid = p.rowid 
+            where d.movieid = ?;)"
+      << movie_id
+      >> [&result](std::string const name)
+   {
+      result.emplace_back(name);
+   };
+   return result;
+}
+std::vector<std::string> get_writers(sqlite3_int64 const movie_id, 
+                                     sqlite::database & db)
+{
+   std::vector<std::string> result;
+   db << R"(select p.name from writers as w
+         join persons as p on w.personid = p.rowid 
+         where w.movieid = ?;)"
+      << movie_id
+      >> [&result](std::string const name)
+   {
+      result.emplace_back(name);
+   };
+   return result;
+}
+std::vector<casting_role> get_cast(sqlite3_int64 const movie_id, 
+                                   sqlite::database & db)
+{
+   std::vector<casting_role> result;
+   db << R"(select p.name, c.role from casting as c
+         join persons as p on c.personid = p.rowid
+         where c.movieid = ?;)"
+      << movie_id
+      >> [&result](std::string const name, std::string role)
+   {
+      result.emplace_back(casting_role{ name, role });
+   };
+   return result;
+}
+movie_list get_movies(sqlite::database & db)
+{
+   movie_list movies;
+   db << R"(select rowid, * from movies;)"
+      >> [&movies, &db](sqlite3_int64 const rowid, std::string const & title, 
+                        int const year, int const length)
+   {
+      movies.emplace_back(movie{
+         static_cast<unsigned int>(rowid),
+         title,
+         year,
+         static_cast<unsigned int>(length),
+         get_cast(rowid, db),
+         get_directors(rowid, db),
+         get_directors(rowid, db)
+         });
+   };
+   return movies;
+}
+int main()
+{
+   try
+   {
+      sqlite::database db(R"(cppchallenger85.db)");
+      auto movies = get_movies(db);
+      for (auto const & m : movies)
+         print_movie(m);
+   }
+   catch (sqlite::sqlite_exception const & e)
+   {
+      std::cerr << e.get_code() << ": " << e.what() << " during "
+                << e.get_sql() << std::endl;
+   }
+   catch (std::exception const & e)
+   {
+      std::cerr << e.what() << std::endl;
+   }
+}
+```
+
+### 86. Inserting movies into an SQLite database transactionally
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include "sqlite3.h"
+#include "sqlite_modern_cpp.h"
+#include "movies.h"
+std::vector<std::string> split(std::string text, char const delimiter)
+{
+   auto sstr = std::stringstream{ text };
+   auto tokens = std::vector<std::string>{};
+   auto token = std::string{};
+   while (std::getline(sstr, token, delimiter))
+   {
+      if (!token.empty()) tokens.push_back(token);
+   }
+   return tokens;
+}
+void print_movie(movie const & m)
+{
+   std::cout << "[" << m.id << "] "
+      << m.title << " (" << m.year << ") "
+      << m.length << "min" << std::endl;
+   std::cout << " directed by: ";
+   for (auto const & d : m.directors) std::cout << d << ",";
+   std::cout << std::endl;
+   std::cout << " written by: ";
+   for (auto const & w : m.writers) std::cout << w << ",";
+   std::cout << std::endl;
+   std::cout << " cast: ";
+   for (auto const & r : m.cast) std::cout << r.actor << " (" << r.role << "),";
+   std::cout << std::endl << std::endl;
+}
+movie read_movie()
+{
+   movie m;
+   std::cout << "Enter movie" << std::endl;
+   std::cout << "Title: ";
+   std::getline(std::cin, m.title);
+   std::cout << "Year: "; std::cin >> m.year;
+   std::cout << "Length: "; std::cin >> m.length;
+   std::cin.ignore();
+   std::string directors;
+   std::cout << "Directors: ";
+   std::getline(std::cin, directors);
+   m.directors = split(directors, ',');
+   std::string writers;
+   std::cout << "Writers: ";
+   std::getline(std::cin, writers);
+   m.writers = split(writers, ',');
+   std::string cast;
+   std::cout << "Cast: ";
+   std::getline(std::cin, cast);
+   auto roles = split(cast, ',');
+   for (auto const & r : roles)
+   {
+      auto pos = r.find_first_of('=');
+      casting_role cr;
+      cr.actor = r.substr(0, pos);
+      cr.role = r.substr(pos + 1, r.size() - pos - 1);
+      m.cast.push_back(cr);
+   }
+   return m;
+}
+std::vector<std::string> get_directors(sqlite3_int64 const movie_id, 
+                                       sqlite::database & db)
+{
+   std::vector<std::string> result;
+   db << R"(select p.name from directors as d 
+            join persons as p on d.personid = p.rowid 
+            where d.movieid = ?;)"
+      << movie_id
+      >> [&result](std::string const name)
+   {
+      result.emplace_back(name);
+   };
+   return result;
+}
+std::vector<std::string> get_writers(sqlite3_int64 const movie_id, 
+                                     sqlite::database & db)
+{
+   std::vector<std::string> result;
+   db << R"(select p.name from writers as w
+         join persons as p on w.personid = p.rowid 
+         where w.movieid = ?;)"
+      << movie_id
+      >> [&result](std::string const name)
+   {
+      result.emplace_back(name);
+   };
+   return result;
+}
+std::vector<casting_role> get_cast(sqlite3_int64 const movie_id, 
+                                   sqlite::database & db)
+{
+   std::vector<casting_role> result;
+   db << R"(select p.name, c.role from casting as c
+         join persons as p on c.personid = p.rowid
+         where c.movieid = ?;)"
+      << movie_id
+      >> [&result](std::string const name, std::string role)
+   {
+      result.emplace_back(casting_role{ name, role });
+   };
+   return result;
+}
+movie_list get_movies(sqlite::database & db)
+{
+   movie_list movies;
+   db << R"(select rowid, * from movies;)"
+      >> [&movies, &db](sqlite3_int64 const rowid, std::string const & title, 
+                        int const year, int const length)
+   {
+      movies.emplace_back(movie{
+         static_cast<unsigned int>(rowid),
+         title,
+         year,
+         static_cast<unsigned int>(length),
+         get_cast(rowid, db),
+         get_directors(rowid, db),
+         get_directors(rowid, db)
+         });
+   };
+   return movies;
+}
+sqlite_int64 get_person_id(std::string const & name, sqlite::database & db)
+{
+   sqlite_int64 id = 0;
+
+   db << "select rowid from persons where name=?;"
+      << name
+      >> [&id](sqlite_int64 const rowid) {id = rowid; };
+   return id;
+}
+sqlite_int64 insert_person(std::string_view name, sqlite::database & db)
+{
+   db << "insert into persons values(?);"
+      << name.data();
+   return db.last_insert_rowid();
+}
+void insert_directors(sqlite_int64 const movie_id, 
+                      std::vector<std::string> const & directors,
+                      sqlite::database & db)
+{
+   for (auto const & director : directors)
+   {
+      auto id = get_person_id(director, db);
+      if (id == 0)
+         id = insert_person(director, db);
+      db << "insert into directors values(?, ?);"
+         << movie_id
+         << id;
+   }
+}
+void insert_writers(sqlite_int64 const movie_id, 
+                    std::vector<std::string> const & writers,
+                    sqlite::database & db)
+{
+   for (auto const & writer : writers)
+   {
+      auto id = get_person_id(writer, db);
+      if (id == 0)
+         id = insert_person(writer, db);
+      db << "insert into writers values(?, ?);"
+         << movie_id
+         << id;
+   }
+}
+void insert_cast(sqlite_int64 const movie_id, 
+                 std::vector<casting_role> const & cast,
+                 sqlite::database & db)
+{
+   for (auto const & cr : cast)
+   {
+      auto id = get_person_id(cr.actor, db);
+      if (id == 0)
+         id = insert_person(cr.actor, db);
+      db << "insert into casting values(?,?,?);"
+         << movie_id
+         << id
+         << cr.role;
+   }
+}
+void insert_movie(movie& m, sqlite::database & db)
+{
+   try
+   {
+      db << "begin;";
+      db << "insert into movies values(?,?,?);"
+         << m.title
+         << m.year
+         << m.length;
+      auto movieid = db.last_insert_rowid();
+      insert_directors(movieid, m.directors, db);
+      insert_writers(movieid, m.writers, db);
+      insert_cast(movieid, m.cast, db);
+      m.id = static_cast<unsigned int>(movieid);
+      db << "commit;";
+   }
+   catch (std::exception const &)
+   {
+      db << "rollback;";
+   }
+}
+int main()
+{
+   try
+   {
+      sqlite::database db(R"(cppchallenger86.db)");
+      auto movie = read_movie();
+      insert_movie(movie, db);
+      auto movies = get_movies(db);
+      for (auto const & m : movies)
+         print_movie(m);
+   }
+   catch (sqlite::sqlite_exception const & e)
+   {
+      std::cerr << e.get_code() << ": " << e.what() << " during "
+                << e.get_sql() << std::endl;
+   }
+   catch (std::exception const & e)
+   {
+      std::cerr << e.what() << std::endl;
+   }
+}
+```
+
+### 87. Handling movie images in an SQLite database
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <fstream>
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+#ifdef USE_BOOST_OPTIONAL
+#  include <boost/optional.hpp>
+using boost::optional;
+#else
+#  include <optional>
+using std::optional;
+#endif
+#include "sqlite3.h"
+#define MODERN_SQLITE_STD_OPTIONAL_SUPPORT
+#include "sqlite_modern_cpp.h"
+#include "movies.h"
+movie_list get_movies(std::string_view title, sqlite::database & db)
+{
+   movie_list movies;
+   db << R"(select rowid, * from movies where title=?;)"
+      << title.data()
+      >> [&movies, &db](sqlite3_int64 const rowid, std::string const & title,
+         int const year, int const length)
+   {
+      movies.emplace_back(movie{
+         static_cast<unsigned int>(rowid),
+         title,
+         year,
+         static_cast<unsigned int>(length),
+         {},
+         {},
+         {}
+         });
+   };
+   return movies;
+}
+bool add_media(sqlite_int64 const movieid,
+               std::string_view name,
+               std::string_view description,
+               std::vector<char> content,
+               sqlite::database & db)
+{
+   try
+   {
+      db << "insert into media values(?,?,?,?)"
+         << movieid
+         << name.data()
+         << description.data()
+         << content;
+
+      return true;
+   }
+   catch (...) { return false; }
+}
+media_list get_media(sqlite_int64 const movieid,
+                     sqlite::database & db)
+{
+   media_list list;
+   db << "select rowid, * from media where movieid = ?;"
+      << movieid
+      >> [&list](sqlite_int64 const rowid, 
+            sqlite_int64 const movieid, 
+            std::string const & name,
+#ifdef USE_BOOST_OPTIONAL
+            std::unique_ptr<std::string> const text,
+#else
+            optional<std::string> const text,
+#endif
+            std::vector<char> const & blob
+         )
+         {
+      list.emplace_back(media{
+         static_cast<unsigned int>(rowid),
+         static_cast<unsigned int>(movieid),
+         name,
+#ifdef USE_BOOST_OPTIONAL
+               text != nullptr ? *text : optional<std::string>{},
+#else
+               text,
+#endif
+               blob});
+         };
+   return list;
+}
+bool delete_media(sqlite_int64 const mediaid,
+                  sqlite::database & db)
+{
+   try
+   {
+      db << "delete from media where rowid = ?;"
+         << mediaid;
+      return true;
+   }
+   catch (...) { return false; }
+}
+std::vector<std::string> split(std::string text, char const delimiter)
+{
+   auto sstr = std::stringstream{ text };
+   auto tokens = std::vector<std::string>{};
+   auto token = std::string{};
+   while (std::getline(sstr, token, delimiter))
+   {
+      if (!token.empty()) tokens.push_back(token);
+   }
+   return tokens;
+}
+inline bool starts_with(std::string_view text, std::string_view part)
+{
+   return text.find(part) == 0;
+}
+inline std::string trim(std::string_view text)
+{
+   auto first{ text.find_first_not_of(' ') };
+   auto last{ text.find_last_not_of(' ') };
+   return text.substr(first, (last - first + 1)).data();
+}
+std::vector<char> load_image(std::string_view filepath)
+{
+   std::vector<char> data;
+   std::ifstream ifile(filepath.data(), std::ios::binary | std::ios::ate);
+   if (ifile.is_open())
+   {
+      auto size = ifile.tellg();
+      ifile.seekg(0, std::ios::beg);
+      data.resize(static_cast<size_t>(size));
+      ifile.read(reinterpret_cast<char*>(data.data()), size);
+   }
+   return data;
+}
+void run_find(std::string_view line, sqlite::database & db)
+{
+   auto title = trim(line.substr(5));
+   auto movies = get_movies(title, db);
+   if(movies.empty())
+      std::cout << "empty" << std::endl;      
+   else
+   {
+      for (auto const m : movies)
+      {
+         std::cout
+            << m.id << " | "
+            << m.title << " | "
+            << m.year << " | "
+            << m.length << "min"
+            << std::endl;
+      }
+   }      
+}
+void run_list(std::string_view line, sqlite::database & db)
+{
+   auto movieid = std::stoi(trim(line.substr(5)));
+   if (movieid > 0)
+   {
+      auto list = get_media(movieid, db);
+      if (list.empty())
+      {
+         std::cout << "empty" << std::endl;
+      }
+      else
+      {
+         for (auto const & m : list)
+         {
+            std::cout
+               << m.id << " | "
+               << m.movie_id << " | "
+               << m.name << " | "
+               << m.text.value_or("(null)") << " | "
+               << m.blob.size() << " bytes"
+               << std::endl;
+         }
+      }
+   }
+   else
+      std::cout << "input error" << std::endl;
+}
+void run_add(std::string_view line, sqlite::database & db)
+{
+   auto parts = split(trim(line.substr(4)), ',');
+   if (parts.size() == 3)
+   {
+      auto movieid = std::stoi(parts[0]);
+      auto path = fs::path{parts[1]};
+      auto desc = parts[2];
+      auto content = load_image(parts[1]);
+      auto name = path.filename().string();
+      auto success = add_media(movieid, name, desc, content, db);
+      if (success)
+         std::cout << "added" << std::endl;
+      else
+         std::cout << "failed" << std::endl;
+   }
+   else
+      std::cout << "input error" << std::endl;
+}
+void run_del(std::string_view line, sqlite::database & db)
+{
+   auto mediaid = std::stoi(trim(line.substr(4)));
+   if (mediaid > 0)
+   {
+      auto success = delete_media(mediaid, db);
+      if (success)
+         std::cout << "deleted" << std::endl;
+      else
+         std::cout << "failed" << std::endl;
+   }
+   else
+      std::cout << "input error" << std::endl;
+}
+void print_commands()
+{
+   std::cout
+      << "find <title>                        finds a movie ID\n"
+      << "list <movieid>                      lists the images of a movie\n"
+      << "add <movieid>,<path>,<description>  adds a new image\n"
+      << "del <imageid>                       delete an image\n"
+      << "help                                shows available commands\n"
+      << "exit                                exists the application\n";
+}
+int main()
+{
+   try
+   {
+      sqlite::database db(R"(cppchallenger87.db)");
+      while (true)
+      {
+         std::string line;
+         std::getline(std::cin, line);
+         if (line == "help") print_commands();
+         else if (line == "exit") break;
+         else
+         {
+            if (starts_with(line, "find"))
+               run_find(line, db);
+            else if (starts_with(line, "list"))
+               run_list(line, db);
+            else if (starts_with(line, "add"))
+               run_add(line, db);
+            else if (starts_with(line, "del"))
+               run_del(line, db);
+            else
+               std::cout << "unknown command" << std::endl;
+         }
+         std::cout << std::endl;
+      }
+   }
+   catch (sqlite::sqlite_exception const & e)
+   {
+      std::cerr << e.get_code() << ": " << e.what() << " during "
+                << e.get_sql() << std::endl;
+   }
+   catch (std::exception const & e)
+   {
+      std::cerr << e.what() << std::endl;
+   }
+}
+```
+
+## Cryptography
+
+### 88. Caesar cipher
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <assert.h>
+std::string caesar_encrypt(std::string_view text, int const shift)
+{
+   std::string str;
+   str.reserve(text.length());
+   for (auto const & c : text)
+   {
+      if (isalpha(c) && isupper(c))
+         str += 'A' + (c - 'A' + shift) % 26;
+      else
+         str += c;
+   }
+   return str;
+}
+std::string caesar_decrypt(std::string_view text, int const shift)
+{
+   std::string str;
+   str.reserve(text.length());
+   for (auto const & c : text)
+   {
+      if (isalpha(c) && isupper(c))
+         str += 'A' + (26 + c - 'A' - shift) % 26;
+      else
+         str += c;
+   }
+   return str;
+}
+int main()
+{
+   auto text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+   for (int i = 1; i <= 26; ++i)
+   {
+      auto enc = caesar_encrypt(text, i);
+      auto dec = caesar_decrypt(enc, i);
+      assert(text == dec);
+   }
+}
+```
+
+### 89. Vigenère cipher
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <assert.h>
+std::string caesar_encrypt(std::string_view text, int const shift)
+{
+   std::string str;
+   str.reserve(text.length());
+   for (auto const & c : text)
+   {
+      if (isalpha(c) && isupper(c))
+         str += 'A' + (c - 'A' + shift) % 26;
+      else
+         str += c;
+   }
+
+   return str;
+}
+std::string caesar_decrypt(std::string_view text, int const shift)
+{
+   std::string str;
+   str.reserve(text.length());
+   for (auto const & c : text)
+   {
+      if (isalpha(c) && isupper(c))
+         str += 'A' + (26 + c - 'A' - shift) % 26;
+      else
+         str += c;
+   }
+
+   return str;
+}
+std::string build_vigenere_table()
+{
+   std::string table;
+   table.reserve(26*26);
+   for (int i = 0; i < 26; ++i)
+      table += caesar_encrypt("ABCDEFGHIJKLMNOPQRSTUVWXYZ", i);
+   return table;
+}
+std::string vigenere_encrypt(std::string_view text, std::string_view key)
+{
+   std::string result;
+   result.reserve(text.length());
+   static auto table = build_vigenere_table();
+   for (size_t i = 0; i < text.length(); ++i)
+   {
+      auto row = key[i%key.length()] - 'A';
+      auto col = text[i] - 'A';
+      result += table[row * 26 + col];
+   }
+   return result;
+}
+std::string vigenere_decrypt(std::string_view text, std::string_view key)
+{
+   std::string result;
+   result.reserve(text.length());
+   static auto table = build_vigenere_table();
+   for (size_t i = 0; i < text.length(); ++i)
+   {
+      auto row = key[i%key.length()] - 'A';
+      for (size_t col = 0; col < 26; col++)
+      {
+         if (table[row * 26 + col] == text[i])
+         {
+            result += 'A' + col;
+            break;
+         }
+      }
+   }
+   return result;
+}
+int main()
+{
+   auto text = "THECPPCHALLENGER";
+   auto enc = vigenere_encrypt(text, "SAMPLE");
+   auto dec = vigenere_decrypt(enc, "SAMPLE");
+   assert(text == dec);
+}
+```
+
+### 90. Base64 encoding and decoding
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <vector>
+#include <assert.h>
+class encoder
+{
+   std::string const table_enc = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+   char const padding_symbol = '=';
+
+   char const table_dec[256] =
+   {
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,64,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,62,-1,-1,-1,63,
+      52,53,54,55,56,57,58,59,60,61,-1,-1,-1,65,-1,-1,
+      -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,
+      15,16,17,18,19,20,21,22,23,24,25,-1,-1,-1,-1,-1,
+      -1,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+      41,42,43,44,45,46,47,48,49,50,51,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,
+      -1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+   };
+   char const invalid_char = -1;
+   char const padding_char = 65;
+public:
+   std::string to_base64(std::vector<unsigned char> const & data)
+   {
+      std::string result;
+      result.resize((data.size() / 3 + ((data.size() % 3 > 0) ? 1 : 0)) * 4);
+      auto result_ptr = &result[0];
+      size_t i = 0;
+      size_t j = 0;
+      while (j++ < data.size() / 3)
+      {
+         unsigned int value = (data[i] << 16) | (data[i+1] << 8) | data[i+2];
+         i += 3;
+
+         *result_ptr++ = table_enc[(value & 0x00fc0000) >> 18];
+         *result_ptr++ = table_enc[(value & 0x0003f000) >> 12];
+         *result_ptr++ = table_enc[(value & 0x00000fc0) >> 6];
+         *result_ptr++ = table_enc[(value & 0x0000003f)];
+      };
+
+      auto rest = data.size() - i;
+      if (rest == 1)
+      {
+         *result_ptr++ = table_enc[(data[i] & 0x000000fc) >> 2];
+         *result_ptr++ = table_enc[(data[i] & 0x00000003) << 4];
+         *result_ptr++ = padding_symbol;
+         *result_ptr++ = padding_symbol;
+      }
+      else if (rest == 2)
+      {
+         unsigned int value = (data[i] << 8) | data[i + 1];
+
+         *result_ptr++ = table_enc[(value & 0x0000fc00) >> 10];
+         *result_ptr++ = table_enc[(value & 0x000003f0) >> 4];
+         *result_ptr++ = table_enc[(value & 0x0000000f) << 2];
+         *result_ptr++ = padding_symbol;
+      }
+
+      return result;
+   }
+
+   std::vector<unsigned char> from_base64(std::string data)
+   {
+      size_t padding = data.size() % 4;
+      if (padding == 0)
+      {
+         if (data[data.size() - 1] == padding_symbol) padding++;
+         if (data[data.size() - 2] == padding_symbol) padding++;
+      }
+      else
+      {
+         data.append(2, padding_symbol);
+      }
+
+      std::vector<unsigned char> result;
+      result.resize((data.length() / 4) * 3 - padding);
+      auto result_ptr = &result[0];
+
+      size_t i = 0;
+      size_t j = 0;
+      while (j++ < data.size() / 4)
+      {
+         unsigned char c1 = table_dec[static_cast<int>(data[i++])];
+         unsigned char c2 = table_dec[static_cast<int>(data[i++])];
+         unsigned char c3 = table_dec[static_cast<int>(data[i++])];
+         unsigned char c4 = table_dec[static_cast<int>(data[i++])];
+
+         if (c1 == invalid_char || c2 == invalid_char ||
+             c3 == invalid_char || c4 == invalid_char)
+            throw std::runtime_error("invalid base64 encoding");
+
+         if (c4 == padding_char && c3 == padding_char)
+         {
+            unsigned int value = (c1 << 6) | c2;
+            *result_ptr++ = (value >> 4) & 0x000000ff;
+         }
+         else if (c4 == padding_char)
+         {
+            unsigned int value = (c1 << 12) | (c2 << 6) | c3;
+            *result_ptr++ = (value >> 10) & 0x000000ff;
+            *result_ptr++ = (value >> 2) & 0x000000ff;
+         }
+         else
+         {
+            unsigned int value = (c1 << 18) | (c2 << 12) | (c3 << 6) | c4;
+
+            *result_ptr++ = (value >> 16) & 0x000000ff;
+            *result_ptr++ = (value >> 8) & 0x000000ff;
+            *result_ptr++ = value & 0x000000ff;
+         }
+      }
+
+      return result;
+   }
+};
+struct converter
+{
+   static std::vector<unsigned char> from_string(std::string_view data)
+   {
+      std::vector<unsigned char> result;
+      std::copy(
+         std::begin(data), std::end(data),
+         std::back_inserter(result));
+      return result;
+   }
+   static std::string from_range(std::vector<unsigned char> const & data)
+   {
+      std::string result;
+      std::copy(
+         std::begin(data), std::end(data),
+         std::back_inserter(result));
+      return result;
+   }
+};
+int main()
+{
+   std::vector<std::vector<unsigned char>> data
+   {
+      { 's' },
+      { 's','a' },
+      { 's','a','m' },
+      { 's','a','m','p' },
+      { 's','a','m','p','l' },
+      { 's','a','m','p','l','e' },
+   };
+   encoder enc;
+   for (auto const & v : data)
+   {
+      auto encv = enc.to_base64(v);
+      auto decv = enc.from_base64(encv);
+      assert(v == decv);
+   }
+   auto text = "cppchallenge";
+   auto textenc = enc.to_base64(converter::from_string(text));
+   auto textdec = converter::from_range(enc.from_base64(textenc));
+   assert(text == textdec);
+}
+```
+
+### 91. Validating user credentials
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <iomanip>
+#include <vector>
+#include "sha.h"
+#include "hex.h"
+struct user
+{
+   int id;
+   std::string username;
+   std::string password;
+   std::string firstname;
+   std::string lastname;
+};
+std::string get_hash(std::string_view password)
+{
+   CryptoPP::SHA512 sha;
+   CryptoPP::byte digest[CryptoPP::SHA512::DIGESTSIZE];
+   sha.CalculateDigest(
+      digest,
+      reinterpret_cast<CryptoPP::byte const*>(password.data()),
+      password.length());
+   CryptoPP::HexEncoder encoder;
+   std::string result;
+   encoder.Attach(new CryptoPP::StringSink(result));
+   encoder.Put(digest, sizeof(digest));
+   encoder.MessageEnd();
+   return result;
+}
+int main()
+{
+   std::vector<user> users
+   {
+      {
+         101, "scarface",
+         "07A8D53ADAB635ADDF39BAEACFB799FD7C5BFDEE365F3AA721B7E25B54A4E87D419ADDEA34BC3073BAC472DCF4657E50C0F6781DDD8FE883653D10F7930E78FF",
+         "Tony", "Montana"
+      },
+      {
+         202, "neo",
+         "C2CC277BCC10888ECEE90F0F09EE9666199C2699922EFB41EA7E88067B2C075F3DD3FBF3CFE9D0EC6173668DD83C111342F91E941A2CADC46A3A814848AA9B05",
+         "Thomas", "Anderson"
+      },
+      {
+         303, "godfather",
+         "0EA7A0306FE00CD22DF1B835796EC32ACC702208E0B052B15F9393BCCF5EE9ECD8BAAF27840D4D3E6BCC3BB3B009259F6F73CC77480C065DDE67CD9BEA14AA4D",
+         "Vito", "Corleone"
+      }
+   };
+   std::string username, password;
+   std::cout << "Username: ";
+   std::cin >> username;
+   std::cout << "Password: ";
+   std::cin >> password;
+   auto hash = get_hash(password);
+   auto pos = std::find_if(
+      std::begin(users), std::end(users),
+      [username, hash](user const & u) {
+      return u.username == username &&
+         u.password == hash; });
+   if (pos != std::end(users))
+      std::cout << "Login successful!" << std::endl;
+   else
+      std::cout << "Invalid username or password" << std::endl;
+}
+```
+
+### 92. Computing file hashes
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <iomanip>
+#define CRYPTOPP_ENABLE_NAMESPACE_WEAK 1
+#include "sha.h"
+#include "md5.h"
+#include "hex.h"
+#include "files.h"
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+template <class Hash>
+std::string compute_hash(fs::path const & filepath)
+{
+   std::ifstream file(filepath.string(), std::ios::binary);
+   if (file.is_open())
+   {
+      Hash hash;
+      CryptoPP::byte digest[Hash::DIGESTSIZE] = { 0 };
+      do
+      {
+         char buffer[4096] = { 0 };
+         file.read(buffer, 4096);
+         auto extracted = static_cast<size_t>(file.gcount());
+         if (extracted > 0)
+         {
+            hash.Update(
+               reinterpret_cast<CryptoPP::byte*>(buffer),
+               extracted);
+         }
+      } while (!file.fail());
+      hash.Final(digest);
+      CryptoPP::HexEncoder encoder;
+      std::string result;
+      encoder.Attach(new CryptoPP::StringSink(result));
+      encoder.Put(digest, sizeof(digest));
+      encoder.MessageEnd();
+      return result;
+   }
+   throw std::runtime_error("Cannot open file!");
+}
+template <class Hash>
+std::string compute_hash_ex(fs::path const & filepath)
+{
+   std::string digest;
+   Hash hash;
+   CryptoPP::FileSource source(
+      filepath.c_str(),
+      true,
+      new CryptoPP::HashFilter(hash,
+         new CryptoPP::HexEncoder(
+            new CryptoPP::StringSink(digest))));
+   return digest;
+}
+int main()
+{
+   std::string path;
+   std::cout << "Path: ";
+   std::cin >> path;
+   try
+   {
+      std::cout << "SHA1: "
+         << compute_hash<CryptoPP::SHA1>(path) << std::endl;
+      std::cout << "SHA256: "
+         << compute_hash<CryptoPP::SHA256>(path) << std::endl;
+      std::cout << "MD5: "
+         << compute_hash<CryptoPP::Weak::MD5>(path) << std::endl;
+      std::cout << "SHA1: "
+         << compute_hash_ex<CryptoPP::SHA1>(path) << std::endl;
+      std::cout << "SHA256: "
+         << compute_hash_ex<CryptoPP::SHA256>(path) << std::endl;
+      std::cout << "MD5: "
+         << compute_hash_ex<CryptoPP::Weak::MD5>(path) << std::endl;
+   }
+   catch (std::exception const & ex)
+   {
+      std::cerr << ex.what() << std::endl;
+   }
+}
+```
+
+### 93. Encrypting and decrypting files
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include "sha.h"
+#include "hex.h"
+#include "files.h"
+#include "default.h"
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+void encrypt_file(
+   fs::path const & sourcefile,
+   fs::path const & destfile,
+   std::string_view password)
+{
+   CryptoPP::FileSource source(
+      sourcefile.c_str(),
+      true,
+      new CryptoPP::DefaultEncryptorWithMAC(
+      (CryptoPP::byte*)password.data(), password.size(),
+         new CryptoPP::FileSink(
+            destfile.c_str())
+      )
+   );
+}
+void encrypt_file(
+   fs::path const & filepath,
+   std::string_view password)
+{
+   auto temppath = fs::temp_directory_path() / filepath.filename();
+   encrypt_file(filepath, temppath, password);
+   fs::remove(filepath);
+   fs::rename(temppath, filepath);
+}
+void decrypt_file(
+   fs::path const & sourcefile,
+   fs::path const & destfile,
+   std::string_view password)
+{
+   CryptoPP::FileSource source(
+      sourcefile.c_str(),
+      true,
+      new CryptoPP::DefaultDecryptorWithMAC(
+      (CryptoPP::byte*)password.data(), password.size(),
+         new CryptoPP::FileSink(
+            destfile.c_str())
+      )
+   );
+}
+void decrypt_file(
+   fs::path const & filepath,
+   std::string_view password)
+{
+   auto temppath = fs::temp_directory_path() / filepath.filename();
+   decrypt_file(filepath, temppath, password);
+   fs::remove(filepath);
+   fs::rename(temppath, filepath);
+}
+int main()
+{
+   encrypt_file("sample.txt", "sample.txt.enc", "cppchallenger");
+   decrypt_file("sample.txt.enc", "sample.txt.dec", "cppchallenger");
+   encrypt_file("sample.txt", "cppchallenger");
+   decrypt_file("sample.txt", "cppchallenger");
+}
+```
+
+### 94. File signing
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <assert.h>
+#include "rsa.h"
+#include "aes.h"
+#include "hex.h"
+#include "files.h"
+#include "osrng.h"
+#ifdef USE_BOOST_FILESYSTEM
+#  include <boost/filesystem/path.hpp>
+#  include <boost/filesystem/operations.hpp>
+namespace fs = boost::filesystem;
+#else
+#  include <filesystem>
+#  ifdef FILESYSTEM_EXPERIMENTAL
+namespace fs = std::experimental::filesystem;
+#  else
+namespace fs = std::filesystem;
+#  endif
+#endif
+void encode(
+   fs::path const & filepath,
+   CryptoPP::BufferedTransformation const & bt)
+{
+   CryptoPP::FileSink file(filepath.c_str());
+   bt.CopyTo(file);
+   file.MessageEnd();
+}
+void encode_private_key(
+   fs::path const & filepath,
+   CryptoPP::RSA::PrivateKey const & key)
+{
+   CryptoPP::ByteQueue queue;
+   key.DEREncodePrivateKey(queue);
+   encode(filepath, queue);
+}
+void encode_public_key(
+   fs::path const & filepath,
+   CryptoPP::RSA::PublicKey const & key)
+{
+   CryptoPP::ByteQueue queue;
+   key.DEREncodePublicKey(queue);
+   encode(filepath, queue);
+}
+void decode(
+   fs::path const & filepath,
+   CryptoPP::BufferedTransformation& bt)
+{
+   CryptoPP::FileSource file(filepath.c_str(), true);
+   file.TransferTo(bt);
+   bt.MessageEnd();
+}
+void decode_private_key(
+   fs::path const & filepath,
+   CryptoPP::RSA::PrivateKey& key)
+{
+   CryptoPP::ByteQueue queue;
+   decode(filepath, queue);
+   key.BERDecodePrivateKey(queue, false, queue.MaxRetrievable());
+}
+void decode_public_key(
+   fs::path const & filepath,
+   CryptoPP::RSA::PublicKey& key)
+{
+   CryptoPP::ByteQueue queue;
+   decode(filepath, queue);
+   key.BERDecodePublicKey(queue, false, queue.MaxRetrievable());
+}
+void rsa_sign_file(
+   fs::path const & filepath,
+   fs::path const & privateKeyPath,
+   fs::path const & signaturePath,
+   CryptoPP::RandomNumberGenerator& rng)
+{
+   CryptoPP::RSA::PrivateKey privateKey;
+   decode_private_key(privateKeyPath, privateKey);
+   CryptoPP::RSASSA_PKCS1v15_SHA_Signer signer(privateKey);
+   CryptoPP::FileSource fileSource(
+      filepath.c_str(),
+      true,
+      new CryptoPP::SignerFilter(
+         rng,
+         signer,
+         new CryptoPP::FileSink(
+            signaturePath.c_str())));
+}
+bool rsa_verify_file(
+   fs::path const & filepath,
+   fs::path const & publicKeyPath,
+   fs::path const & signaturePath)
+{
+   CryptoPP::RSA::PublicKey publicKey;
+   decode_public_key(publicKeyPath.c_str(), publicKey);
+   CryptoPP::RSASSA_PKCS1v15_SHA_Verifier verifier(publicKey);
+   CryptoPP::FileSource signatureFile(
+      signaturePath.c_str(),
+      true);
+   if (signatureFile.MaxRetrievable() != verifier.SignatureLength())
+      return false;
+   CryptoPP::SecByteBlock signature(verifier.SignatureLength());
+   signatureFile.Get(signature, signature.size());
+   auto* verifierFilter = new CryptoPP::SignatureVerificationFilter(verifier);
+   verifierFilter->Put(signature, verifier.SignatureLength());
+   CryptoPP::FileSource fileSource(
+      filepath.c_str(),
+      true,
+      verifierFilter);
+   return verifierFilter->GetLastResult();
+}
+void generate_keys(
+   fs::path const & privateKeyPath,
+   fs::path const & publicKeyPath,
+   CryptoPP::RandomNumberGenerator& rng)
+{
+   try
+   {
+      CryptoPP::RSA::PrivateKey rsaPrivate;
+      rsaPrivate.GenerateRandomWithKeySize(rng, 3072);
+      CryptoPP::RSA::PublicKey rsaPublic(rsaPrivate);
+      encode_private_key(privateKeyPath, rsaPrivate);
+      encode_public_key(publicKeyPath, rsaPublic);
+   }
+   catch (CryptoPP::Exception const & e)
+   {
+      std::cerr << e.what() << std::endl;
+   }
+}
+int main()
+{
+   CryptoPP::AutoSeededRandomPool rng;
+   generate_keys(
+      "rsa-private.key",
+      "rsa-public.key",
+      rng);
+   rsa_sign_file(
+      "sample.txt",
+      "rsa-private.key",
+      "sample.sign",
+      rng);
+   auto success = rsa_verify_file(
+      "sample.txt",
+      "rsa-public.key",
+      "sample.sign");
+   assert(success);
+}
+```
+
+## Networking and Services
+
+### 95. Finding the IP address of a host
+
+```c++
+
+#include <iostream>
+#include <vector>
+#include <string>
+#include <string_view>
+#define ASIO_STANDALONE
+#include "asio.hpp"
+std::vector<std::string> get_ip_address(std::string_view hostname)
+{
+   std::vector<std::string> ips;
+   try
+   {
+      asio::io_context context;
+      asio::ip::tcp::resolver resolver(context);
+      auto endpoints = resolver.resolve(asio::ip::tcp::v4(), hostname.data(), "");
+      for (auto e = endpoints.begin(); e != endpoints.end(); ++e)
+         ips.push_back(((asio::ip::tcp::endpoint)*e).address().to_string());
+   }
+   catch (std::exception const & e)
+   {
+      std::cerr << "exception: " << e.what() << std::endl;
+   }
+   return ips;
+}
+int main()
+{
+   auto ips = get_ip_address("packtpub.com");
+   for (auto const & ip : ips)
+      std::cout << ip << std::endl;
+}
+```
+
+### 96. Client-server Fizz-Buzz
+
+```c++
+#include <iostream>
+#include <string>
+
+#define ASIO_STANDALONE
+#include "asio.hpp"
+
+std::string fizzbuzz(int const number)
+{
+   if (number != 0)
+   {
+      auto m3 = number % 3;
+      auto m5 = number % 5;
+      if (m3 == 0 && m5 == 0) return "fizzbuzz";
+      else if (m5 == 0) return "buzz";
+      else if (m3 == 0) return "fizz";
+   }
+
+   return std::to_string(number);
+}
+
+class session : public std::enable_shared_from_this<session>
+{
+public:
+   session(asio::ip::tcp::socket socket) : 
+      tcp_socket(std::move(socket))
+   {
+   }
+
+   void start()
+   {
+      read();
+   }
+
+private:
+   void read()
+   {
+      auto self(shared_from_this());
+
+      tcp_socket.async_read_some(
+         asio::buffer(data, data.size()),
+         [this, self](std::error_code const ec, std::size_t const length)
+      {
+         if (!ec)
+         {
+            auto number = std::string(data.data(), length);
+            auto result = fizzbuzz(std::atoi(number.c_str()));
+
+            std::cout << number << " -> " << result << std::endl;
+
+            write(result);
+         }
+      });
+   }
+
+   void write(std::string_view response)
+   {
+      auto self(shared_from_this());
+
+      tcp_socket.async_write_some(
+         asio::buffer(response.data(), response.length()),
+         [this, self](std::error_code const ec, std::size_t const)
+      {
+         if (!ec)
+         {
+            read();
+         }
+      });
+   }
+
+   std::array<char, 1024>  data;
+   asio::ip::tcp::socket   tcp_socket;
+};
+
+class server
+{
+public:
+   server(asio::io_context& context, short const port)
+      : tcp_acceptor(context, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port))
+      , tcp_socket(context)
+   {
+      std::cout << "server running on port " << port << std::endl;
+
+      accept();
+   }
+
+private:
+   void accept()
+   {
+      tcp_acceptor.async_accept(tcp_socket, [this](std::error_code ec)
+      {
+         if (!ec)
+         {
+            std::make_shared<session>(std::move(tcp_socket))->start();
+         }
+
+         accept();
+      });
+   }
+
+   asio::ip::tcp::acceptor tcp_acceptor;
+   asio::ip::tcp::socket   tcp_socket;
+};
+
+void run_server(short const port)
+{
+   try
+   {
+      asio::io_context context;
+
+      server srv(context, port);
+
+      context.run();
+   }
+   catch (std::exception const & e)
+   {
+      std::cerr << "exception: " << e.what() << std::endl;
+   }
+}
+
+int main()
+{
+   run_server(11234);
+}
+
+```
+
+```c++
+
+#include <iostream>
+#include <array>
+#define ASIO_STANDALONE
+#include "asio.hpp"
+void run_client(std::string_view host, short const port)
+{
+   try
+   {
+      asio::io_context context;
+      asio::ip::tcp::socket tcp_socket(context);
+      asio::ip::tcp::resolver resolver(context);
+      asio::connect(tcp_socket, 
+                    resolver.resolve({ host.data(), std::to_string(port) }));
+      while (true)
+      {
+         std::cout << "number [1-99]: ";
+         int number;
+         std::cin >> number;
+         if (std::cin.fail() || number < 1 || number > 99)
+            break;
+         auto request = std::to_string(number);
+         tcp_socket.write_some(asio::buffer(request, request.length()));
+         std::array<char, 1024> reply;
+         auto reply_length = tcp_socket.read_some(asio::buffer(reply, reply.size()));
+         std::cout << "reply is: ";
+         std::cout.write(reply.data(), reply_length);
+         std::cout << std::endl;
+      }
+   }
+   catch (std::exception const & e)
+   {
+      std::cerr << "exception: " << e.what() << std::endl;
+   }
+}
+int main()
+{
+   run_client("localhost", 11234);
+}
+```
+
+### 97. Bitcoin exchange rates
+
+```c++
+
+#include <iostream>
+#include <ostream>
+#include <string>
+#include <string_view>
+#include <map>
+#include "curl_easy.h"
+#include "curl_exception.h"
+#include "json.hpp"
+using json = nlohmann::json;
+struct exchange_info
+{
+   double delay_15m_price;
+   double latest_price;
+   double buying_price;
+   double selling_price;
+   std::string symbol;
+};
+using blockchain_rates = std::map<std::string, exchange_info>;
+void from_json(const json& jdata, exchange_info& info)
+{
+   info.delay_15m_price = jdata.at("15m").get<double>();
+   info.latest_price = jdata.at("last").get<double>();
+   info.buying_price = jdata.at("buy").get<double>();
+   info.selling_price = jdata.at("sell").get<double>();
+   info.symbol = jdata.at("symbol").get<std::string>();
+}
+std::stringstream get_json_document(std::string_view url)
+{
+   std::stringstream str;
+   try 
+   {
+      curl::curl_ios<std::stringstream> writer(str);
+      curl::curl_easy easy(writer);
+      easy.add<CURLOPT_URL>(url.data());
+      easy.add<CURLOPT_FOLLOWLOCATION>(1L);
+      easy.perform();
+   }
+   catch (curl::curl_easy_exception const & error) 
+   {
+      auto errors = error.get_traceback();
+      error.print_traceback();
+   }
+
+   return str;
+}
+int main() 
+{
+   auto doc = get_json_document("https://blockchain.info/ticker");
+   json jdata;
+   doc >> jdata;
+   blockchain_rates rates = jdata;
+   for (auto const & kvp : rates)
+   {
+      std::cout << "1BPI = " << kvp.second.latest_price 
+                << " " << kvp.first << std::endl;
+   }
+}
+```
+
+### 98. Fetching emails using IMAP
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include "curl_easy.h"
+#include "curl_exception.h"
+class imap_connection
+{
+public:
+   imap_connection(
+      std::string_view url,
+      unsigned short const port,
+      std::string_view user,
+      std::string_view pass):
+      url(url), port(port), user(user), pass(pass)
+   {
+   }
+   std::string get_folders()
+   {
+      std::stringstream str;
+      try
+      {
+         curl::curl_ios<std::stringstream> writer(str);
+         curl::curl_easy easy(writer);
+         easy.add<CURLOPT_URL>(url.data());
+         setup_easy(easy);
+         easy.perform();
+      }
+      catch (curl::curl_easy_exception const & error)
+      {
+         auto errors = error.get_traceback();
+         error.print_traceback();
+      }
+      return str.str();
+   }
+   std::string examine_folder(std::string_view folder)
+   {
+      std::stringstream str;
+      try
+      {
+         curl::curl_ios<std::stringstream> writer(str);
+         curl::curl_easy easy(writer);
+         easy.add<CURLOPT_URL>(url.data());
+         easy.add<CURLOPT_CUSTOMREQUEST>((std::string("EXAMINE ") + folder.data()).c_str());
+         setup_easy(easy);
+         easy.perform();
+      }
+      catch (curl::curl_easy_exception const & error)
+      {
+         auto errors = error.get_traceback();
+         error.print_traceback();
+      }
+      return str.str();
+   }
+   std::vector<unsigned int> fetch_unread_uids(std::string_view folder)
+   {
+      std::stringstream str;
+      try
+      {
+         curl::curl_ios<std::stringstream> writer(str);
+         curl::curl_easy easy(writer);
+         easy.add<CURLOPT_URL>((url.data() + std::string("/") + folder.data() + std::string("/")).c_str());
+         easy.add<CURLOPT_CUSTOMREQUEST>("SEARCH UNSEEN");
+         setup_easy(easy);
+         easy.perform();
+      }
+      catch (curl::curl_easy_exception const & error)
+      {
+         auto errors = error.get_traceback();
+         error.print_traceback();
+      }
+      std::vector<unsigned int> uids;
+      str.seekg(8, std::ios::beg);
+      unsigned int uid;
+      while (str >> uid)
+         uids.push_back(uid);
+      return uids;
+   }
+   std::string fetch_email(std::string_view folder, unsigned int uid)
+   {
+      std::stringstream str;
+      try
+      {
+         curl::curl_ios<std::stringstream> writer(str);
+         curl::curl_easy easy(writer);
+         easy.add<CURLOPT_URL>((url.data() + std::string("/") + folder.data() + std::string("/;UID=") + std::to_string(uid)).c_str());
+         setup_easy(easy);
+         easy.perform();
+      }
+      catch (curl::curl_easy_exception error)
+      {
+         auto errors = error.get_traceback();
+         error.print_traceback();
+      }
+      return str.str();
+   }
+private:
+   void setup_easy(curl::curl_easy& easy)
+   {
+      easy.add<CURLOPT_PORT>(port);
+      easy.add<CURLOPT_USERNAME>(user.c_str());
+      easy.add<CURLOPT_PASSWORD>(pass.c_str());
+      easy.add<CURLOPT_USE_SSL>(CURLUSESSL_ALL);
+      easy.add<CURLOPT_SSL_VERIFYPEER>(0L);
+      easy.add<CURLOPT_SSL_VERIFYHOST>(0L);
+      easy.add<CURLOPT_USERAGENT>("libcurl-agent/1.0");
+   }
+private:
+   std::string    url;
+   unsigned short port;
+   std::string    user;
+   std::string    pass;
+};
+int main()
+{
+   imap_connection imap(
+      "imaps://imap.gmail.com",
+      993,
+      "...(your username)...",
+      "...(your password)...");
+   auto folders = imap.get_folders();
+   std::cout << folders << std::endl;
+   auto info = imap.examine_folder("inbox");
+   std::cout << info << std::endl;
+   auto uids = imap.fetch_unread_uids("inbox");
+   if (!uids.empty())
+   {
+      auto email = imap.fetch_email("inbox", uids.back());
+      std::cout << email << std::endl;
+   }
+   return 0;
+}
+```
+
+### 99. Translating text to any language
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <regex>
+#include <codecvt>
+#include <iostream>
+#include <locale>
+#include <memory>
+#include <vector>
+#include <tuple>
+#include "curl_easy.h"
+#include "curl_exception.h"
+#include "curl_header.h"
+std::wstring utf8_to_utf16(std::string_view text)
+{
+   std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+   std::wstring wtext = converter.from_bytes(text.data());
+   return wtext;
+}
+std::string utf16_to_utf8(std::wstring_view wtext)
+{
+   std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
+   std::string text = converter.to_bytes(wtext.data());
+   return text;
+}
+class text_translator
+{
+public:
+   text_translator(std::string_view endpoint, 
+                   std::string_view key) 
+      : endpoint(endpoint), app_key(key)
+   {}
+   std::wstring translate_text(
+      std::wstring_view wtext, 
+      std::string_view to,
+      std::string_view from = "en")
+   {
+      try
+      {
+         using namespace std::string_literals;
+         std::stringstream str;
+         std::string text = utf16_to_utf8(wtext);
+         curl::curl_ios<std::stringstream> writer(str);
+         curl::curl_easy easy(writer);
+         curl::curl_header header;
+         header.add("Ocp-Apim-Subscription-Key:" + app_key);
+         easy.escape(text);
+         auto url = endpoint + "/Translate";
+         url += "?from="s + from.data();
+         url += "&to="s + to.data();
+         url += "&text="s + text;
+         easy.add<CURLOPT_URL>(url.c_str());
+         easy.add<CURLOPT_HTTPHEADER>(header.get());
+         easy.perform();
+         auto result = deserialize_result(str.str());
+         return utf8_to_utf16(result);
+      }
+      catch (curl::curl_easy_exception const & error)
+      {
+         auto errors = error.get_traceback();
+         error.print_traceback();
+      }
+      catch (std::exception const & ex)
+      {
+         std::cout << ex.what() << std::endl;
+      }
+      return {};
+   }
+private:
+   std::string deserialize_result(std::string_view text)
+   {
+      std::regex rx(R"(<string.*>(.*)<\/string>)");
+      std::cmatch match;
+      if (std::regex_search(text.data(), match, rx))
+      {
+         return match[1];
+      }
+      return "";
+   }
+   std::string endpoint;
+   std::string app_key;
+};
+void set_utf8_conversion(std::wostream& stream)
+{
+   auto codecvt = std::make_unique<std::codecvt_utf8<wchar_t>>();
+   std::locale utf8locale(std::locale(), codecvt.get());
+   codecvt.release();
+   stream.imbue(utf8locale);
+}
+int main()
+{
+#ifdef _WIN32
+   SetConsoleOutputCP(CP_UTF8);
+#endif
+   set_utf8_conversion(std::wcout);
+   text_translator tt(
+      "https://api.microsofttranslator.com/V2/Http.svc",
+      "...(your api key)...");
+   std::vector<std::tuple<std::wstring, std::string, std::string>> texts
+   {
+      { L"hello world!", "en", "ro"},
+      { L"what time is it?", "en", "es" },
+      { L"ceci est un exemple", "fr", "en" }
+   };
+   for (auto const [text, from, to] : texts)
+   {
+      auto result = tt.translate_text(text, to, from);
+      std::cout << from << ": "; 
+      std::wcout << text << std::endl;
+      std::cout << to << ": ";
+      std::wcout << result << std::endl;
+   }
+}
+```
+
+### 100. Detecting faces in a picture
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <string_view>
+#include <fstream>
+#include "curl_easy.h"
+#include "curl_exception.h"
+#include "curl_header.h"
+#include "json.hpp"
+using json = nlohmann::json;
+std::vector<uint8_t> load_image(std::string_view filepath)
+{
+   std::vector<uint8_t> data;
+   std::ifstream ifile(filepath.data(), std::ios::binary | std::ios::ate);
+   if (ifile.is_open())
+   {
+      auto size = ifile.tellg();
+      ifile.seekg(0, std::ios::beg);
+      data.resize(static_cast<size_t>(size));
+      ifile.read(reinterpret_cast<char*>(data.data()), size);
+   }
+   return data;
+}
+struct face_rectangle
+{
+   int width = 0;
+   int height = 0;
+   int left = 0;
+   int top = 0;
+};
+struct face_point
+{
+   double x = 0;
+   double y = 0;
+};
+struct face_landmarks
+{
+   face_point pupilLeft;
+   face_point pupilRight;
+   face_point noseTip;
+   face_point mouthLeft;
+   face_point mouthRight;
+   face_point eyebrowLeftOuter;
+   face_point eyebrowLeftInner;
+   face_point eyeLeftOuter;
+   face_point eyeLeftTop;
+   face_point eyeLeftBottom;
+   face_point eyeLeftInner;
+   face_point eyebrowRightInner;
+   face_point eyebrowRightOuter;
+   face_point eyeRightInner;
+   face_point eyeRightTop;
+   face_point eyeRightBottom;
+   face_point eyeRightOuter;
+   face_point noseRootLeft;
+   face_point noseRootRight;
+   face_point noseLeftAlarTop;
+   face_point noseRightAlarTop;
+   face_point noseLeftAlarOutTip;
+   face_point noseRightAlarOutTip;
+   face_point upperLipTop;
+   face_point upperLipBottom;
+   face_point underLipTop;
+   face_point underLipBottom;
+};
+struct face_emotion
+{
+   double anger = 0;
+   double contempt = 0;
+   double disgust = 0;
+   double fear = 0;
+   double happiness = 0;
+   double neutral = 0;
+   double sadness = 0;
+   double surprise = 0;
+};
+struct face_attributes
+{
+   std::string  gender;
+   double       age;
+   face_emotion emotion;
+};
+struct face_info
+{
+   std::string     faceId;
+   face_rectangle  rectangle;
+   face_landmarks  landmarks;
+   face_attributes attributes;
+};
+struct face_error
+{
+   std::string code;
+   std::string message;
+};
+struct face_error_response
+{
+   face_error error;
+};
+using face_detect_response = std::vector<face_info>;
+void from_json(const json& jdata, face_rectangle& rect)
+{
+   rect.width = jdata.at("width").get<int>();
+   rect.height = jdata.at("height").get<int>();
+   rect.top = jdata.at("top").get<int>();
+   rect.left = jdata.at("left").get<int>();
+}
+void from_json(const json& jdata, face_point& point)
+{
+   point.x = jdata.at("x").get<double>();
+   point.y = jdata.at("y").get<double>();
+}
+void from_json(const json& jdata, face_landmarks& mark)
+{
+   mark.pupilLeft = jdata.at("pupilLeft");
+   mark.pupilRight = jdata.at("pupilRight");
+   mark.noseTip = jdata.at("noseTip");
+   mark.mouthLeft = jdata.at("mouthLeft");
+   mark.mouthRight = jdata.at("mouthRight");
+   mark.eyebrowLeftOuter = jdata.at("eyebrowLeftOuter");
+   mark.eyebrowLeftInner = jdata.at("eyebrowLeftInner");
+   mark.eyeLeftOuter = jdata.at("eyeLeftOuter");
+   mark.eyeLeftTop = jdata.at("eyeLeftTop");
+   mark.eyeLeftBottom = jdata.at("eyeLeftBottom");
+   mark.eyeLeftInner = jdata.at("eyeLeftInner");
+   mark.eyebrowRightInner = jdata.at("eyebrowRightInner");
+   mark.eyebrowRightOuter = jdata.at("eyebrowRightOuter");
+   mark.eyeRightInner = jdata.at("eyeRightInner");
+   mark.eyeRightTop = jdata.at("eyeRightTop");
+   mark.eyeRightBottom = jdata.at("eyeRightBottom");
+   mark.eyeRightOuter = jdata.at("eyeRightOuter");
+   mark.noseRootLeft = jdata.at("noseRootLeft");
+   mark.noseRootRight = jdata.at("noseRootRight");
+   mark.noseLeftAlarTop = jdata.at("noseLeftAlarTop");
+   mark.noseRightAlarTop = jdata.at("noseRightAlarTop");
+   mark.noseLeftAlarOutTip = jdata.at("noseLeftAlarOutTip");
+   mark.noseRightAlarOutTip = jdata.at("noseRightAlarOutTip");
+   mark.upperLipTop = jdata.at("upperLipTop");
+   mark.upperLipBottom = jdata.at("upperLipBottom");
+   mark.underLipTop = jdata.at("underLipTop");
+   mark.underLipBottom = jdata.at("underLipBottom");
+}
+void from_json(const json& jdata, face_emotion& emo)
+{
+   emo.anger = jdata.at("anger").get<double>();
+   emo.contempt = jdata.at("contempt").get<double>();
+   emo.disgust = jdata.at("disgust").get<double>();
+   emo.fear = jdata.at("fear").get<double>();
+   emo.happiness = jdata.at("happiness").get<double>();
+   emo.neutral = jdata.at("neutral").get<double>();
+   emo.sadness = jdata.at("sadness").get<double>();
+   emo.surprise = jdata.at("surprise").get<double>();
+}
+void from_json(const json& jdata, face_attributes& attr)
+{
+   attr.age = jdata.at("age").get<double>();
+   attr.emotion = jdata.at("emotion");
+   attr.gender = jdata.at("gender").get<std::string>();
+}
+void from_json(const json& jdata, face_info& info)
+{
+   info.faceId = jdata.at("faceId").get<std::string>();
+   info.attributes = jdata.at("faceAttributes");
+   info.landmarks = jdata.at("faceLandmarks");
+   info.rectangle = jdata.at("faceRectangle");
+}
+void from_json(const json& jdata, face_error& error)
+{
+   error.code = jdata.at("code").get<std::string>();
+   error.message = jdata.at("message").get<std::string>();
+}
+void from_json(const json& jdata, face_error_response& response)
+{
+   response.error = jdata.at("error");
+}
+class face_manager
+{
+public:
+   face_manager(std::string_view endpoint, 
+                std::string_view key) 
+      : endpoint(endpoint), app_key(key)
+   {}
+   face_detect_response detect_from_file(std::string_view path)
+   {
+      try
+      {
+         auto data = load_image(path);
+         if (!data.empty())
+         {
+            std::stringstream str;
+            curl::curl_ios<std::stringstream> writer(str);
+            curl::curl_easy easy(writer);
+            curl::curl_header header;
+            header.add("Ocp-Apim-Subscription-Key:" + app_key);
+            header.add("Content-Type:application/octet-stream");
+            auto url = endpoint +
+               "/detect"
+               "?returnFaceId=true"
+               "&returnFaceLandmarks=true"
+               "&returnFaceAttributes=age,gender,emotion";
+            easy.add<CURLOPT_URL>(url.c_str());
+            easy.add<CURLOPT_HTTPHEADER>(header.get());
+            easy.add<CURLOPT_POSTFIELDSIZE>(data.size());
+            easy.add<CURLOPT_POSTFIELDS>(reinterpret_cast<char*>(data.data()));
+            easy.perform();
+            auto status = easy.get_info<CURLINFO_RESPONSE_CODE>();
+            return parse_detect_response(status.get(), str);
+         }
+      }
+      catch (curl::curl_easy_exception const & error)
+      {
+         auto errors = error.get_traceback();
+         error.print_traceback();
+      }
+      catch (std::exception const & ex)
+      {
+         std::cout << ex.what() << std::endl;
+      }
+      return {};
+   }
+private:
+   face_detect_response parse_detect_response(
+      long const status, 
+      std::stringstream & str)
+   {
+      json jdata;
+      str >> jdata;
+      try
+      {
+         if (status == 200)
+         {
+            face_detect_response response = jdata;
+            return response;
+         }
+         else if (status >= 400)
+         {
+            face_error_response response = jdata;
+            std::cout << response.error.code << std::endl
+               << response.error.message << std::endl;
+         }
+      }
+      catch (std::exception const & ex) 
+      {
+         std::cout << ex.what() << std::endl;
+      }
+      return {};
+   }
+   std::string endpoint;
+   std::string app_key;
+};
+int main()
+{
+   face_manager manager(
+      "https://westeurope.api.cognitive.microsoft.com/face/v1.0",
+      "...(your api key)...");
+
+#ifdef _WIN32
+   std::string path = R"(res\albert_and_elsa.jpg)";
+#else
+   std::string path = R"(./res/albert_and_elsa.jpg)";
+#endif
+   auto results = manager.detect_from_file(path);
+   for (auto const & face : results)
+   {
+      std::cout << "faceId: " << face.faceId << std::endl
+                << "age:    " << face.attributes.age << std::endl
+                << "gender: " << face.attributes.gender << std::endl
+                << "rect:   " << "{" << face.rectangle.left 
+                              << "," << face.rectangle.top
+                              << "," << face.rectangle.width
+                              << "," << face.rectangle.height
+                              << "}" << std::endl << std::endl;
+   }
+}
+```
