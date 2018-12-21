@@ -49,7 +49,7 @@ int main() {
 ### 2. Greatest common divisor
 
 
-```
+```c++
 
 #include <iostream>
 unsigned int gcd(unsigned int const a, unsigned int const b) {
@@ -75,7 +75,7 @@ int main() {
 ### 3. Least common multiple
 
 
-```
+```c++
 
 #include <iostream>
 #include <numeric>
@@ -106,7 +106,7 @@ int main() {
 ### 4. Largest prime smaller than given number
 
 
-```
+```c++
 
 #include <iostream>
 bool is_prime(int const num) {
@@ -139,7 +139,7 @@ int main() {
 ### 5. Sexy prime pairs
 
 
-```
+```c++
 
 #include <iostream>
 bool is_prime(int const num) {
@@ -171,7 +171,7 @@ int main() {
 ### 6. Abundant numbers
 
 
-```
+```c++
 
 #include <iostream>
 #include <cmath>
@@ -203,7 +203,7 @@ int main() {
 ### 7. Amicable numbers
 
 
-```
+```c++
 
 #include <iostream>
 #include <set>
@@ -253,7 +253,7 @@ int main() {
 ### 8. Armstrong numbers
 
 
-```
+```c++
 
 #include <iostream>
 #include <vector>
@@ -348,7 +348,7 @@ int main() {
 ### 9. Prime factors of a number
 
 
-```
+```c++
 
 #include <iostream>
 #include <cmath>
@@ -383,7 +383,7 @@ int main() {
 ### 10. Gray code
 
 
-```
+```c++
 
 #include <iostream>
 #include <bitset>
@@ -414,7 +414,7 @@ int main() {
 ### 11. Converting numerical values to Roman
 
 
-```
+```c++
 
 #include <iostream>
 #include <string>
@@ -447,7 +447,7 @@ int main() {
 ### 12. Largest Collatz sequence
 
 
-```
+```c++
 
 #include <iostream>
 #include <vector>
@@ -524,7 +524,7 @@ int main() {
 ### 13. Computing the value of Pi
 
 
-```
+```c++
 
 #include <iostream>
 #include <random>
@@ -559,7 +559,7 @@ int main() {
 ### 14. Validating ISBNs
 
 
-```
+```c++
 
 #include <iostream>
 #include <string>
@@ -595,7 +595,7 @@ int main() {
 ### 15. IPv4 data type
 
 
-```
+```c++
 
 #include <iostream>
 #include <array>
@@ -664,7 +664,7 @@ int main() {
 ### 16. Enumerating IPv4 addresses in a range
 
 
-```
+```c++
 
 #include <iostream>
 #include <array>
@@ -774,7 +774,7 @@ int main() {
 ### 17. Creating a 2D array with basic operations
 
 
-```
+```c++
 
 #include <iostream>
 #include <vector>
@@ -887,7 +887,7 @@ int main() {
 ### 18. Minimum function with any number of arguments
 
 
-```
+```c++
 
 #include <iostream>
 #include <functional>
@@ -914,7 +914,7 @@ int main() {
 ### 19. Adding a range of values to a container
 
 
-```
+```c++
 
 #include <iostream>
 #include <cstdlib>
@@ -939,7 +939,7 @@ int main() {
 ### 20. Container any, all, none
 
 
-```
+```c++
 
 #include <iostream>
 #include <vector>
@@ -993,7 +993,7 @@ int main() {
 ### 21. System handle wrapper
 
 
-```
+```c++
 
 #ifdef _WIN32
 #include <windows.h>
@@ -1163,7 +1163,7 @@ int main() {
 ### 22. Literals of various temperature scales
 
 
-```
+```c++
 
 #include <cmath>
 #include <assert.h>
@@ -1288,6 +1288,7 @@ int main() {
   }
 }
 ```
+
 
 
 
