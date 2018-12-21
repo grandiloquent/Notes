@@ -2,8 +2,8 @@
 
 ## Android
 
-- [Android Packages](/Android%20Packages.md)
-- [Head First Android Development](/Head%20First%20Android%20Development.md)
+- [Android Packages](/android/Android%20Packages.md)
+- [Head First Android Development](/android/Head%20First%20Android%20Development.md)
 
 ## Java
 
@@ -14,4 +14,4 @@
 
 ## C++
 
-- [The Modern C++ Challenge](/The%20Modern%20C%2B%2B%20Challenge.md)
+- [The Modern C++ Challenge](/cpp/The%20Modern%20C%2B%2B%20Challenge.md)
