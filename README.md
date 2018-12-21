@@ -9,6 +9,8 @@
 
 - Sample
 
+	- [stdio](/c/C%20stdio.md)
+	- [stdlib](/c/C%20stdlib.md)
 	- [string](/c/C%20string.md)
 
 ## C#
