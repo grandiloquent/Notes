@@ -1,11 +1,5 @@
 # Command Line
 
-## gcc
-
-```
-gcc main.c -o m && m
-```
-
 ## clang-format
 
 
@@ -20,7 +14,13 @@ clang-format -sort-includes=false -style=Google -i fuzzy_match.h
 ```
 for /r %i in (*.epub) do "C:\Calibre Portable\Calibre\ebook-convert.exe" "%i" "%~ni.azw3"
 ```
- 
+
+## gcc
+
+```
+gcc main.c -o m && m
+```
+
 ## git
 
 ```
