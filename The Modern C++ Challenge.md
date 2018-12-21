@@ -30,7 +30,7 @@
 ### 1. Sum of naturals divisible by 3 and 5
 
 
-```
+```c++
 
 #include <iostream>
 int main() {
