@@ -1,24 +1,24 @@
 # Head First Android Development
 
-- [Chapter 1. Getting Started: Diving In](#section-1)
-- [Chapter 2. Building Interactive Apps: Apps That Do Something](#section-2)
-- [Chapter 3. Multiple Activities and Intents: State Your Intent](#section-3)
-- [Chapter 4. The Activity Lifecycle: Being an Activity](#section-4)
-- [Chapter 5. Views and View Groups: Enjoy the View](#section-5)
-- [Chapter 6. Constraint Layouts: Put Things in Their Place](#section-6)
-- [Chapter 7. List Views and Adapters: Getting Organized](#section-7)
-- [Chapter 8. Support Libraries and App Bars: Taking Shortcuts](#section-8)
-- [Chapter 9. Fragments: Make It Modular](#section-9)
-- [Chapter 10. Fragments for Larger Interfaces: Different Size, Different Interface](#section-10)
-- [Chapter 11. Dynamic Fragments: Nesting Fragments](#section-11)
-- [Chapter 12. Design Support Library: Swipe Right](#section-12)
-- [Chapter 13. Recycler Views and Card Views: Get Recycling](#section-13)
-- [Chapter 14. Navigation Drawers: Going Places](#section-14)
-- [Chapter 15. SQLite Databases: Fire Up the Database](#section-15)
-- [Chapter 16. Basic Cursors: Getting Data Out](#section-16)
-- [Chapter 17. Cursors and Asynctasks: Staying in the Background](#section-17)
-- [Chapter 18. Started Services: At Your Service](#section-18)
-- [Chapter 19. Bound Services and Permissions: Bound Together](#section-19)
+- [Chapter 1. Getting Started: Diving In](#chapter-1-getting-started-diving-in)
+- [Chapter 2. Building Interactive Apps: Apps That Do Something](#chapter-2-building-interactive-apps-apps-that-do-something)
+- [Chapter 3. Multiple Activities and Intents: State Your Intent](#chapter-3-multiple-activities-and-intents-state-your-intent)
+- [Chapter 4. The Activity Lifecycle: Being an Activity](#chapter-4-the-activity-lifecycle-being-an-activity)
+- [Chapter 5. Views and View Groups: Enjoy the View](#chapter-5-views-and-view-groups-enjoy-the-view)
+- [Chapter 6. Constraint Layouts: Put Things in Their Place](#chapter-6-constraint-layouts-put-things-in-their-place)
+- [Chapter 7. List Views and Adapters: Getting Organized](#chapter-7-list-views-and-adapters-getting-organized)
+- [Chapter 8. Support Libraries and App Bars: Taking Shortcuts](#chapter-8-support-libraries-and-app-bars-taking-shortcuts)
+- [Chapter 9. Fragments: Make It Modular](#chapter-9-fragments-make-it-modular)
+- [Chapter 10. Fragments for Larger Interfaces: Different Size, Different Interface](#chapter-10-fragments-for-larger-interfaces-different-size-different-interface)
+- [Chapter 11. Dynamic Fragments: Nesting Fragments](#chapter-11-dynamic-fragments-nesting-fragments)
+- [Chapter 12. Design Support Library: Swipe Right](#chapter-12-design-support-library-swipe-right)
+- [Chapter 13. Recycler Views and Card Views: Get Recycling](#chapter-13-recycler-views-and-card-views-get-recycling)
+- [Chapter 14. Navigation Drawers: Going Places](#chapter-14-navigation-drawers-going-places)
+- [Chapter 15. SQLite Databases: Fire Up the Database](#chapter-15-sqlite-databases-fire-up-the-database)
+- [Chapter 16. Basic Cursors: Getting Data Out](#chapter-16-basic-cursors-getting-data-out)
+- [Chapter 17. Cursors and Asynctasks: Staying in the Background](#chapter-17-cursors-and-asynctasks-staying-in-the-background)
+- [Chapter 18. Started Services: At Your Service](#chapter-18-started-services-at-your-service)
+- [Chapter 19. Bound Services and Permissions: Bound Together](#chapter-19-bound-services-and-permissions-bound-together)
 
 ## Chapter 1. Getting Started: Diving In
 
@@ -284,3 +284,5 @@
 - If your target SDK is API level 23 or above, check at runtime whether your app has been granted a permission using the  `ContextCompat.checkSelfPermission()`  method.
 - Request permissions at runtime using  `ActivityCompat.requestPermissions()` .
 - Check the user’s response to a permission request by implementing the activity’s  `onRequestPermissionsResult()`  method.
+
+
