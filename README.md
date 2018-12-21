@@ -15,6 +15,8 @@
 
 - [C# Utilities](/csharp/C%23%20Utilities.md)
 - [C# Packages](/csharp/C%23%20Packages.md)
+- Sample
+	- [Compile C++ File](/csharp/C%23%20Compile%20C%2B%2B%20File.md)
 
 ## C++
 
