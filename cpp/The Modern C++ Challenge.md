@@ -23,14 +23,23 @@
 	- [19. Adding a range of values to a container](#19-adding-a-range-of-values-to-a-container)
 	- [20. Container any, all, none](#20-container-any-all-none)
 	- [21. System handle wrapper](#21-system-handle-wrapper)
-	- [22. Literals of various temperature scales](#22-literals-of-various-temperature-scales) 
+	- [22. Literals of various temperature scales](#22-literals-of-various-temperature-scales)
+- [Strings and Regular Expressions](#strings-and-regular-expressions)
+	- [23. Binary to string conversion](#23-binary-to-string-conversion)
+	- [24. String to binary conversion](#24-string-to-binary-conversion)
+	- [25. Capitalizing an article title](#25-capitalizing-an-article-title)
+	- [26. Joining strings together separated by a delimiter](#26-joining-strings-together-separated-by-a-delimiter)
+	- [27. Splitting a string into tokens with a list of possible delimiters](#27-splitting-a-string-into-tokens-with-a-list-of-possible-delimiters)
+	- [28. Longest palindromic substring](#28-longest-palindromic-substring)
+	- [29. License plate validation](#29-license-plate-validation)
+	- [30. Extracting URL parts](#30-extracting-url-parts)
+	- [31. Transforming dates in strings](#31-transforming-dates-in-strings)
 
 ## Math Problems
 
 ### 1. Sum of naturals divisible by 3 and 5
 
 
-```c++
 
 #include <iostream>
 int main() {
@@ -49,7 +58,6 @@ int main() {
 ### 2. Greatest common divisor
 
 
-```c++
 
 #include <iostream>
 unsigned int gcd(unsigned int const a, unsigned int const b) {
@@ -75,7 +83,6 @@ int main() {
 ### 3. Least common multiple
 
 
-```c++
 
 #include <iostream>
 #include <numeric>
@@ -106,7 +113,6 @@ int main() {
 ### 4. Largest prime smaller than given number
 
 
-```c++
 
 #include <iostream>
 bool is_prime(int const num) {
@@ -139,7 +145,6 @@ int main() {
 ### 5. Sexy prime pairs
 
 
-```c++
 
 #include <iostream>
 bool is_prime(int const num) {
@@ -171,7 +176,6 @@ int main() {
 ### 6. Abundant numbers
 
 
-```c++
 
 #include <iostream>
 #include <cmath>
@@ -203,7 +207,6 @@ int main() {
 ### 7. Amicable numbers
 
 
-```c++
 
 #include <iostream>
 #include <set>
@@ -253,7 +256,6 @@ int main() {
 ### 8. Armstrong numbers
 
 
-```c++
 
 #include <iostream>
 #include <vector>
@@ -348,7 +350,6 @@ int main() {
 ### 9. Prime factors of a number
 
 
-```c++
 
 #include <iostream>
 #include <cmath>
@@ -383,7 +384,6 @@ int main() {
 ### 10. Gray code
 
 
-```c++
 
 #include <iostream>
 #include <bitset>
@@ -414,7 +414,6 @@ int main() {
 ### 11. Converting numerical values to Roman
 
 
-```c++
 
 #include <iostream>
 #include <string>
@@ -447,7 +446,6 @@ int main() {
 ### 12. Largest Collatz sequence
 
 
-```c++
 
 #include <iostream>
 #include <vector>
@@ -524,7 +522,6 @@ int main() {
 ### 13. Computing the value of Pi
 
 
-```c++
 
 #include <iostream>
 #include <random>
@@ -559,7 +556,6 @@ int main() {
 ### 14. Validating ISBNs
 
 
-```c++
 
 #include <iostream>
 #include <string>
@@ -595,7 +591,6 @@ int main() {
 ### 15. IPv4 data type
 
 
-```c++
 
 #include <iostream>
 #include <array>
@@ -664,7 +659,6 @@ int main() {
 ### 16. Enumerating IPv4 addresses in a range
 
 
-```c++
 
 #include <iostream>
 #include <array>
@@ -774,7 +768,6 @@ int main() {
 ### 17. Creating a 2D array with basic operations
 
 
-```c++
 
 #include <iostream>
 #include <vector>
@@ -887,7 +880,6 @@ int main() {
 ### 18. Minimum function with any number of arguments
 
 
-```c++
 
 #include <iostream>
 #include <functional>
@@ -914,7 +906,6 @@ int main() {
 ### 19. Adding a range of values to a container
 
 
-```c++
 
 #include <iostream>
 #include <cstdlib>
@@ -939,7 +930,6 @@ int main() {
 ### 20. Container any, all, none
 
 
-```c++
 
 #include <iostream>
 #include <vector>
@@ -993,7 +983,6 @@ int main() {
 ### 21. System handle wrapper
 
 
-```c++
 
 #ifdef _WIN32
 #include <windows.h>
@@ -1163,7 +1152,6 @@ int main() {
 ### 22. Literals of various temperature scales
 
 
-```c++
 
 #include <cmath>
 #include <assert.h>
@@ -1288,6 +1276,387 @@ int main() {
   }
 }
 ```
+
+## Strings and Regular Expressions
+
+### 23. Binary to string conversion
+
+
+```c++
+
+#include <string>
+#include <sstream>
+#include <iomanip>
+#include <vector>
+#include <array>
+#include <assert.h>
+template <typename Iter>
+std::string bytes_to_hexstr(Iter begin, Iter end,
+                            bool const uppercase = false) {
+  std::ostringstream oss;
+  if (uppercase)
+    oss.setf(std::ios_base::uppercase);
+  for (; begin != end; ++begin)
+    oss << std::hex << std::setw(2) << std::setfill('0')
+        << static_cast<int>(*begin);
+  return oss.str();
+}
+template <typename C>
+std::string bytes_to_hexstr(C const &c, bool const uppercase = false) {
+  return bytes_to_hexstr(std::cbegin(c), std::cend(c), uppercase);
+}
+int main() {
+  std::vector<unsigned char> v{0xBA, 0xAD, 0xF0, 0x0D};
+  std::array<unsigned char, 6> a{{1, 2, 3, 4, 5, 6}};
+  unsigned char buf[5] = {0x11, 0x22, 0x33, 0x44, 0x55};
+  assert(bytes_to_hexstr(v, true) == "BAADF00D");
+  assert(bytes_to_hexstr(a, true) == "010203040506");
+  assert(bytes_to_hexstr(buf, true) == "1122334455");
+  assert(bytes_to_hexstr(v) == "baadf00d");
+  assert(bytes_to_hexstr(a) == "010203040506");
+  assert(bytes_to_hexstr(buf) == "1122334455");
+}
+```
+
+### 24. String to binary conversion
+
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <sstream>
+#include <vector>
+#include <array>
+#include <assert.h>
+unsigned char hexchar_to_int(char const ch) {
+  if (ch >= '0' && ch <= '9')
+    return ch - '0';
+  if (ch >= 'A' && ch <= 'F')
+    return ch - 'A' + 10;
+  if (ch >= 'a' && ch <= 'f')
+    return ch - 'a' + 10;
+  throw std::invalid_argument("Invalid hexadecimal character");
+}
+std::vector<unsigned char> hexstr_to_bytes(std::string_view str) {
+  std::vector<unsigned char> result;
+  for (size_t i = 0; i < str.size(); i += 2) {
+    result.push_back((hexchar_to_int(str[i]) << 4) |
+                     hexchar_to_int(str[i + 1]));
+  }
+  return result;
+}
+int main() {
+  std::vector<unsigned char> expected{0xBA, 0xAD, 0xF0, 0x0D, 0x42};
+  assert(hexstr_to_bytes("BAADF00D42") == expected);
+  assert(hexstr_to_bytes("BaaDf00d42") == expected);
+}
+```
+
+### 25. Capitalizing an article title
+
+
+```c++
+
+#include <string>
+#include <sstream>
+#include <cctype>
+#include <assert.h>
+template <class Elem>
+using tstring =
+    std::basic_string<Elem, std::char_traits<Elem>, std::allocator<Elem>>;
+template <class Elem>
+using tstringstream =
+    std::basic_stringstream<Elem, std::char_traits<Elem>, std::allocator<Elem>>;
+template <class Elem> tstring<Elem> capitalize(tstring<Elem> const &text) {
+  tstringstream<Elem> result;
+  bool newWord = true;
+  for (auto const ch : text) {
+    newWord = newWord || std::ispunct(ch) || std::isspace(ch);
+    if (std::isalpha(ch)) {
+      if (newWord) {
+        result << static_cast<Elem>(std::toupper(ch));
+        newWord = false;
+      } else
+        result << static_cast<Elem>(std::tolower(ch));
+    } else
+      result << ch;
+  }
+  return result.str();
+}
+int main() {
+  using namespace std::string_literals;
+  std::string text = "THIS IS an ExamplE, should wORk!";
+  std::string expected = "This Is An Example, Should Work!";
+  assert(expected == capitalize(text));
+  assert(L"The C++ Challenger"s == capitalize(L"the c++ challenger"s));
+  assert(L"This Is An Example, Should Work!"s ==
+         capitalize(L"THIS IS an ExamplE, should wORk!"s));
+}
+```
+
+### 26. Joining strings together separated by a delimiter
+
+
+```c++
+
+#include <string>
+#include <iterator>
+#include <sstream>
+#include <vector>
+#include <array>
+#include <list>
+#include <assert.h>
+template <typename Iter>
+std::string join_strings(Iter begin, Iter end, char const *const separator) {
+  std::ostringstream os;
+  std::copy(begin, end - 1, std::ostream_iterator<std::string>(os, separator));
+  os << *(end - 1);
+  return os.str();
+}
+template <typename C>
+std::string join_strings(C const &c, char const *const separator) {
+  if (c.size() == 0)
+    return std::string{};
+  return join_strings(std::begin(c), std::end(c), separator);
+}
+int main() {
+  using namespace std::string_literals;
+  std::vector<std::string> v1{"this", "is", "an", "example"};
+  std::vector<std::string> v2{"example"};
+  std::vector<std::string> v3{};
+  assert(join_strings(v1, " ") == "this is an example"s);
+  assert(join_strings(v2, " ") == "example"s);
+  assert(join_strings(v3, " ") == ""s);
+  std::array<std::string, 4> a1{{"this", "is", "an", "example"}};
+  std::array<std::string, 1> a2{{"example"}};
+  std::array<std::string, 0> a3{};
+  assert(join_strings(a1, " ") == "this is an example"s);
+  assert(join_strings(a2, " ") == "example"s);
+  assert(join_strings(a3, " ") == ""s);
+}
+```
+
+### 27. Splitting a string into tokens with a list of possible delimiters
+
+
+```c++
+
+#include <string>
+#include <sstream>
+#include <vector>
+#include <assert.h>
+template <class Elem>
+using tstring =
+    std::basic_string<Elem, std::char_traits<Elem>, std::allocator<Elem>>;
+template <class Elem>
+using tstringstream =
+    std::basic_stringstream<Elem, std::char_traits<Elem>, std::allocator<Elem>>;
+template <typename Elem>
+inline std::vector<tstring<Elem>> split(tstring<Elem> text,
+                                        Elem const delimiter) {
+  auto sstr = tstringstream<Elem>{text};
+  auto tokens = std::vector<tstring<Elem>>{};
+  auto token = tstring<Elem>{};
+  while (std::getline(sstr, token, delimiter)) {
+    if (!token.empty())
+      tokens.push_back(token);
+  }
+  return tokens;
+}
+template <typename Elem>
+inline std::vector<tstring<Elem>> split(tstring<Elem> text,
+                                        tstring<Elem> const &delimiters) {
+  auto tokens = std::vector<tstring<Elem>>{};
+  size_t pos, prev_pos = 0;
+  while ((pos = text.find_first_of(delimiters, prev_pos)) !=
+         std::string::npos) {
+    if (pos > prev_pos)
+      tokens.push_back(text.substr(prev_pos, pos - prev_pos));
+    prev_pos = pos + 1;
+  }
+  if (prev_pos < text.length())
+    tokens.push_back(text.substr(prev_pos, std::string::npos));
+  return tokens;
+}
+int main() {
+  using namespace std::string_literals;
+  std::vector<std::string> expected{"this", "is", "a", "sample"};
+  assert(expected == split("this is a sample"s, ' '));
+  assert(expected == split("this,is a.sample!!"s, ",.! "s));
+}
+```
+
+### 28. Longest palindromic substring
+
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <vector>
+#include <assert.h>
+std::string longest_palindrome(std::string_view str) {
+  size_t const len = str.size();
+  size_t longestBegin = 0;
+  size_t maxLen = 1;
+  std::vector<bool> table(len * len, false);
+  for (size_t i = 0; i < len; i++) {
+    table[i * len + i] = true;
+  }
+  for (size_t i = 0; i < len - 1; i++) {
+    if (str[i] == str[i + 1]) {
+      table[i * len + i + 1] = true;
+      if (maxLen < 2) {
+        longestBegin = i;
+        maxLen = 2;
+      }
+    }
+  }
+  for (size_t k = 3; k <= len; k++) {
+    for (size_t i = 0; i < len - k + 1; i++) {
+      size_t j = i + k - 1;
+      if (str[i] == str[j] && table[(i + 1) * len + j - 1]) {
+        table[i * len + j] = true;
+        if (maxLen < k) {
+          longestBegin = i;
+          maxLen = k;
+        }
+      }
+    }
+  }
+  return std::string(str.substr(longestBegin, maxLen));
+}
+int main() {
+  using namespace std::string_literals;
+  assert(longest_palindrome("sahararahnide") == "hararah");
+  assert(longest_palindrome("level") == "level");
+  assert(longest_palindrome("s") == "s");
+  assert(longest_palindrome("aabbcc") == "aa");
+  assert(longest_palindrome("abab") == "aba");
+}
+```
+
+### 29. License plate validation
+
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <regex>
+#include <assert.h>
+bool validate_license_plate_format(std::string_view str) {
+  std::regex rx(R"([A-Z]{3}-[A-Z]{2} \d{3,4})");
+  return std::regex_match(str.data(), rx);
+}
+std::vector<std::string> extract_license_plate_numbers(std::string const &str) {
+  std::regex rx(R"(([A-Z]{3}-[A-Z]{2} \d{3,4})*)");
+  std::smatch match;
+  std::vector<std::string> results;
+  for (auto i = std::sregex_iterator(std::cbegin(str), std::cend(str), rx);
+       i != std::sregex_iterator(); ++i) {
+    if ((*i)[1].matched)
+      results.push_back(i->str());
+  }
+  return results;
+}
+int main() {
+  assert(validate_license_plate_format("ABC-DE 123"));
+  assert(validate_license_plate_format("ABC-DE 1234"));
+  assert(!validate_license_plate_format("ABC-DE 12345"));
+  assert(!validate_license_plate_format("abc-de 1234"));
+  std::vector<std::string> expected{"AAA-AA 123", "ABC-DE 1234", "XYZ-WW 0001"};
+  std::string text("AAA-AA 123qwe-ty 1234  ABC-DE 123456..XYZ-WW 0001");
+  assert(expected == extract_license_plate_numbers(text));
+}
+```
+
+### 30. Extracting URL parts
+
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <regex>
+#include <assert.h>
+#ifdef USE_BOOST_OPTIONAL
+#include <boost/optional.hpp>
+using boost::optional;
+#else
+#include <optional>
+using std::optional;
+#endif
+struct uri_parts {
+  std::string protocol;
+  std::string domain;
+  optional<int> port;
+  optional<std::string> path;
+  optional<std::string> query;
+  optional<std::string> fragment;
+};
+optional<uri_parts> parse_uri(std::string uri) {
+  std::regex rx(
+      R"(^(\w+):\/\/([\w.-]+)(:(\d+))?([\w\/\.]+)?(\?([\w=&]*)(#?(\w+))?)?$)");
+  auto matches = std::smatch{};
+  if (std::regex_match(uri, matches, rx)) {
+    if (matches[1].matched && matches[2].matched) {
+      uri_parts parts;
+      parts.protocol = matches[1].str();
+      parts.domain = matches[2].str();
+      if (matches[4].matched)
+        parts.port = std::stoi(matches[4]);
+      if (matches[5].matched)
+        parts.path = matches[5];
+      if (matches[7].matched)
+        parts.query = matches[7];
+      if (matches[9].matched)
+        parts.fragment = matches[9];
+      return parts;
+    }
+  }
+  return {};
+}
+int main() {
+  auto p1 = parse_uri("https://packt.com");
+  assert(p1);
+  assert(p1->protocol == "https");
+  assert(p1->domain == "packt.com");
+  assert(!p1->port);
+  assert(!p1->path);
+  assert(!p1->query);
+  assert(!p1->fragment);
+  auto p2 = parse_uri("https://bbc.com:80/en/index.html?lite=true#ui");
+  assert(p2);
+  assert(p2->protocol == "https");
+  assert(p2->domain == "bbc.com");
+  assert(p2->port == 80);
+  assert(p2->path.value() == "/en/index.html");
+  assert(p2->query.value() == "lite=true");
+  assert(p2->fragment.value() == "ui");
+}
+```
+
+### 31. Transforming dates in strings
+
+
+```c++
+
+#include <string>
+#include <string_view>
+#include <regex>
+#include <assert.h>
+std::string transform_date(std::string_view text) {
+  auto rx = std::regex{R"((\d{1,2})(\.|-|/)(\d{1,2})(\.|-|/)(\d{4}))"};
+  return std::regex_replace(text.data(), rx, R"($5-$3-$1)");
+}
+int main() {
+  using namespace std::string_literals;
+  assert(transform_date("today is 01.12.2017!"s) == "today is 2017-12-01!"s);
+}
+```
+
 
 
 
