@@ -52,7 +52,7 @@
  
 ## memchr
 
-```
+```c
 
 #include <string.h>
 void *
@@ -72,7 +72,7 @@ DEF_STRONG(memchr);
 
 ## memrchr
 
-```
+```c
 
 #include <string.h>
 /*
@@ -97,7 +97,7 @@ DEF_WEAK(memrchr);
 
 ## stpcpy
 
-```
+```c
 
 #include <string.h>
 #if defined(APIWARN)
@@ -114,7 +114,7 @@ stpcpy(char *to, const char *from)
 
 ## stpncpy
 
-```
+```c
 
 #include <string.h>
 char *
@@ -141,7 +141,7 @@ DEF_WEAK(stpncpy);
 
 ## strcasecmp
 
-```
+```c
 
 #include <string.h>
 typedef unsigned char u_char;
@@ -217,7 +217,7 @@ DEF_WEAK(strncasecmp);
 
 ## strcat
 
-```
+```c
 
 #include <string.h>
 #if defined(APIWARN)
@@ -236,7 +236,7 @@ strcat(char *s, const char *append)
 
 ## strcmp
 
-```
+```c
 
 #include <string.h>
 /*
@@ -255,7 +255,7 @@ DEF_STRONG(strcmp);
 
 ## strcpy
 
-```
+```c
 
 #include <string.h>
 #if defined(APIWARN)
@@ -273,7 +273,7 @@ strcpy(char *to, const char *from)
 
 ## strcspn
 
-```
+```c
 
 #include <string.h>
 /*
@@ -303,7 +303,7 @@ DEF_STRONG(strcspn);
 
 ## strdup
 
-```
+```c
 
 #include <sys/types.h>
 #include <stddef.h>
@@ -325,7 +325,7 @@ DEF_WEAK(strdup);
 
 ## strlcat
 
-```
+```c
 
 #include <sys/types.h>
 #include <string.h>
@@ -365,7 +365,7 @@ DEF_WEAK(strlcat);
 
 ## strlcpy
 
-```
+```c
 
 #include <sys/types.h>
 #include <string.h>
@@ -400,7 +400,7 @@ DEF_WEAK(strlcpy);
 
 ## strncat
 
-```
+```c
 
 #include <string.h>
 /*
@@ -429,7 +429,7 @@ DEF_STRONG(strncat);
 
 ## strncmp
 
-```
+```c
 
 #include <string.h>
 int
@@ -450,7 +450,7 @@ DEF_STRONG(strncmp);
 
 ## strncpy
 
-```
+```c
 
 #include <string.h>
 /*
@@ -479,7 +479,7 @@ DEF_STRONG(strncpy);
 
 ## strndup
 
-```
+```c
 
 #include <sys/types.h>
 #include <stddef.h>
@@ -503,7 +503,7 @@ DEF_WEAK(strndup);
 
 ## strpbrk
 
-```
+```c
 
 #include <string.h>
 /*
@@ -526,7 +526,7 @@ DEF_STRONG(strpbrk);
 
 ## strsep
 
-```
+```c
 
 #include <string.h>
 /*
@@ -570,7 +570,7 @@ DEF_WEAK(strsep);
 
 ## strspn
 
-```
+```c
 
 #include <string.h>
 /*
@@ -596,7 +596,7 @@ DEF_STRONG(strspn);
 
 ## strstr
 
-```
+```c
 
 #include <string.h>
 /*
@@ -623,7 +623,7 @@ strstr(const char *s, const char *find)
 
 ## strtok
 
-```
+```c
 
 #include <string.h>
 char *
@@ -681,7 +681,7 @@ DEF_WEAK(strtok_r);
 ## wcpy
 
 
-```
+```c
 
 #if defined(LIBC_SCCS) && !defined(lint)
 static char sccsid[] = "@(#)strcpy.c	8.1 (Berkeley) 6/4/93";
@@ -700,7 +700,7 @@ wcpcpy(wchar_t * __restrict to, const wchar_t * __restrict from)
 ## wcppy
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -723,7 +723,7 @@ wcpncpy(wchar_t * __restrict dst, const wchar_t * __restrict src, size_t n)
 ## wcscasmp
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -746,7 +746,7 @@ wcscasecmp(const wchar_t *s1, const wchar_t *s2)
 ## wcat
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -772,7 +772,7 @@ wcscat(wchar_t * __restrict s1, const wchar_t * __restrict s2)
 ## wchr
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -791,7 +791,7 @@ wcschr(const wchar_t *s, wchar_t c)
 ## wcmp
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if defined(LIBC_SCCS) && !defined(lint)
@@ -819,7 +819,7 @@ wcscmp(const wchar_t *s1, const wchar_t *s2)
 ## wcpy
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -843,7 +843,7 @@ wcscpy(wchar_t * __restrict s1, const wchar_t * __restrict s2)
 ## wcspn
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -876,7 +876,7 @@ done:
 ## wcsdup
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -897,7 +897,7 @@ wcsdup(const wchar_t *s)
 ## wcsat
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -943,7 +943,7 @@ wcslcat(wchar_t *dst, const wchar_t *src, size_t siz)
 
 ## wcslcpy
 
-```
+```c
 
 #include <sys/types.h>
 #include <wchar.h>
@@ -979,7 +979,7 @@ DEF_WEAK(wcslcpy);
 ## wcslen
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1003,7 +1003,7 @@ wcslen(const wchar_t *s)
 ## wcsncasmp
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -1030,7 +1030,7 @@ wcsncasecmp(const wchar_t *s1, const wchar_t *s2, size_t n)
 ## wcsat
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1063,7 +1063,7 @@ wcsncat(wchar_t * __restrict s1, const wchar_t * __restrict s2, size_t n)
 ## wcsmp
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1095,7 +1095,7 @@ wcsncmp(const wchar_t *s1, const wchar_t *s2, size_t n)
 ## wcspy
 
 
-```
+```c
 
 #if 0
 #if defined(LIBC_SCCS) && !defined(lint)
@@ -1131,7 +1131,7 @@ wcsncpy(wchar_t * __restrict dst, const wchar_t * __restrict src, size_t n)
 ## wcsnlen
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -1151,7 +1151,7 @@ wcsnlen(const wchar_t *s, size_t maxlen)
 ## wcspbrk
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1185,7 +1185,7 @@ wcspbrk(const wchar_t *s, const wchar_t *set)
 ## wcshr
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -1209,7 +1209,7 @@ wcsrchr(const wchar_t *s, wchar_t c)
 ## wcsspn
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1244,7 +1244,7 @@ done:
 ## wcsstr
 
 
-```
+```c
 
 #if 0
 #if defined(LIBC_SCCS) && !defined(lint)
@@ -1279,7 +1279,7 @@ wcsstr(const wchar_t * __restrict s, const wchar_t * __restrict find)
 ## wcstok
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 __FBSDID("$FreeBSD$");
@@ -1331,7 +1331,7 @@ cont:
 
 ## wcswidth
 
-```
+```c
 
 #include <wchar.h>
 int
@@ -1354,7 +1354,7 @@ DEF_WEAK(wcswidth);
 ## wmehr
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1382,7 +1382,7 @@ wmemchr(const wchar_t *s, wchar_t c, size_t n)
 ## wmemp
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1411,7 +1411,7 @@ wmemcmp(const wchar_t *s1, const wchar_t *s2, size_t n)
 ## wmepy
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1432,7 +1432,7 @@ wmemcpy(wchar_t * __restrict d, const wchar_t * __restrict s, size_t n)
 ## wmemmove
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1453,7 +1453,7 @@ wmemmove(wchar_t *d, const wchar_t *s, size_t n)
 ## wmemset
 
 
-```
+```c
 
 #include <sys/cdefs.h>
 #if 0
@@ -1476,3 +1476,4 @@ wmemset(wchar_t *s, wchar_t c, size_t n)
 	return s;
 }
 ```
+
