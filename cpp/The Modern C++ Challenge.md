@@ -2,6 +2,11 @@
 
 - [Math Problems](#math-problems)
 	- [1. Sum of naturals divisible by 3 and 5](#1-sum-of-naturals-divisible-by-3-and-5)
+	- [10. Gray code](#10-gray-code)
+	- [11. Converting numerical values to Roman](#11-converting-numerical-values-to-roman)
+	- [12. Largest Collatz sequence](#12-largest-collatz-sequence)
+	- [13. Computing the value of Pi](#13-computing-the-value-of-pi)
+	- [14. Validating ISBNs](#14-validating-isbns)
 	- [2. Greatest common divisor](#2-greatest-common-divisor)
 	- [3. Least common multiple](#3-least-common-multiple)
 	- [4. Largest prime smaller than given number](#4-largest-prime-smaller-than-given-number)
@@ -10,11 +15,6 @@
 	- [7. Amicable numbers](#7-amicable-numbers)
 	- [8. Armstrong numbers](#8-armstrong-numbers)
 	- [9. Prime factors of a number](#9-prime-factors-of-a-number)
-	- [10. Gray code](#10-gray-code)
-	- [11. Converting numerical values to Roman](#11-converting-numerical-values-to-roman)
-	- [12. Largest Collatz sequence](#12-largest-collatz-sequence)
-	- [13. Computing the value of Pi](#13-computing-the-value-of-pi)
-	- [14. Validating ISBNs](#14-validating-isbns)
 - [Language Features](#language-features)
 	- [15. IPv4 data type](#15-ipv4-data-type)
 	- [16. Enumerating IPv4 addresses in a range](#16-enumerating-ipv4-addresses-in-a-range)
@@ -35,11 +35,13 @@
 	- [30. Extracting URL parts](#30-extracting-url-parts)
 	- [31. Transforming dates in strings](#31-transforming-dates-in-strings)
 
+
 ## Math Problems
 
 ### 1. Sum of naturals divisible by 3 and 5
 
 
+```c++
 
 #include <iostream>
 int main() {
@@ -55,9 +57,220 @@ int main() {
 }
 ```
 
+### 10. Gray code
+
+
+```c++
+
+#include <iostream>
+#include <bitset>
+#include <string>
+unsigned int gray_encode(unsigned int const num) { return num ^ (num >> 1); }
+unsigned int gray_decode(unsigned int gray) {
+  for (unsigned int bit = 1U << 31; bit > 1; bit >>= 1) {
+    if (gray & bit)
+      gray ^= bit >> 1;
+  }
+  return gray;
+}
+std::string to_binary(unsigned int value, int const digits) {
+  return std::bitset<32>(value).to_string().substr(32 - digits, digits);
+}
+int main() {
+  std::cout << "Number\tBinary\tGray\tDecoded\n";
+  std::cout << "------\t------\t----\t-------\n";
+  for (unsigned int n = 0; n < 32; ++n) {
+    auto encg = gray_encode(n);
+    auto decg = gray_decode(encg);
+    std::cout << n << "\t" << to_binary(n, 5) << "\t" << to_binary(encg, 5)
+              << "\t" << decg << "\n";
+  }
+}
+```
+
+### 11. Converting numerical values to Roman
+
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <vector>
+std::string to_roman(unsigned int value) {
+  std::vector<std::pair<unsigned int, char const *>> roman{
+      {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
+      {90, "XC"},  {50, "L"},   {40, "XL"}, {10, "X"},   {9, "IX"},
+      {5, "V"},    {4, "IV"},   {1, "I"}};
+  std::string result;
+  for (auto const &kvp : roman) {
+    while (value >= kvp.first) {
+      result += kvp.second;
+      value -= kvp.first;
+    }
+  }
+  return result;
+}
+int main() {
+  for (int i = 1; i <= 100; ++i) {
+    std::cout << i << "\t" << to_roman(i) << std::endl;
+  }
+  int number = 0;
+  std::cout << "number:";
+  std::cin >> number;
+  std::cout << to_roman(number) << std::endl;
+}
+```
+
+### 12. Largest Collatz sequence
+
+
+```c++
+
+#include <iostream>
+#include <vector>
+std::pair<unsigned long long, long>
+longest_collatz_uncached(unsigned long long const limit) {
+  long length = 0;
+  unsigned long long number = 0;
+  for (unsigned long long i = 2; i <= limit; i++) {
+    auto n = i;
+    long steps = 0;
+    while (n != 1) {
+      if ((n % 2) == 0)
+        n = n / 2;
+      else
+        n = n * 3 + 1;
+      steps++;
+    }
+    if (steps > length) {
+      length = steps;
+      number = i;
+    }
+  }
+  return std::make_pair(number, length);
+}
+std::pair<unsigned long long, long>
+longest_collatz(unsigned long long const limit) {
+  long length = 0;
+  unsigned long long number = 0;
+  std::vector<int> cache(limit + 1, 0);
+  for (unsigned long long i = 2; i <= limit; i++) {
+    auto n = i;
+    long steps = 0;
+    while (n != 1 && n >= i) {
+      if ((n % 2) == 0)
+        n = n / 2;
+      else
+        n = n * 3 + 1;
+      steps++;
+    }
+    cache[i] = steps + cache[n];
+    if (cache[i] > length) {
+      length = cache[i];
+      number = i;
+    }
+  }
+  return std::make_pair(number, length);
+}
+int main() {
+  struct test_data {
+    unsigned long long limit;
+    unsigned long long start;
+    long steps;
+  };
+  std::vector<test_data> data{{10ULL, 9ULL, 19},
+                              {100ULL, 97ULL, 118},
+                              {1000ULL, 871ULL, 178},
+                              {10000ULL, 6171ULL, 263},
+                              {100000ULL, 77031ULL, 350},
+                              {1000000ULL, 837799ULL, 524},
+                              {10000000ULL, 8400511ULL, 685},
+                              {100000000ULL, 63728127ULL, 949}};
+  for (auto const &d : data) {
+    auto result = longest_collatz(d.limit);
+    if (result.first != d.start || result.second != d.steps)
+      std::cout << "error on limit " << d.limit << std::endl;
+    else
+      std::cout << "less than      : " << d.limit << std::endl
+                << "starting number: " << result.first << std::endl
+                << "sequence length: " << result.second << std::endl;
+  }
+}
+```
+
+### 13. Computing the value of Pi
+
+
+```c++
+
+#include <iostream>
+#include <random>
+#include <algorithm>
+#include <array>
+#include <functional>
+template <typename E = std::mt19937,
+          typename D = std::uniform_real_distribution<>>
+double compute_pi(E &engine, D &dist, int const samples = 1000000) {
+  auto hit = 0;
+  for (auto i = 0; i < samples; i++) {
+    auto x = dist(engine);
+    auto y = dist(engine);
+    if (y <= std::sqrt(1 - std::pow(x, 2)))
+      hit += 1;
+  }
+  return 4.0 * hit / samples;
+}
+int main() {
+  std::random_device rd;
+  auto seed_data = std::array<int, std::mt19937::state_size>{};
+  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
+  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
+  auto eng = std::mt19937{seq};
+  auto dist = std::uniform_real_distribution<>{0, 1};
+  for (auto j = 0; j < 10; j++) {
+    std::cout << compute_pi(eng, dist) << std::endl;
+  }
+}
+```
+
+### 14. Validating ISBNs
+
+
+```c++
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <numeric>
+#include <string_view>
+#include <assert.h>
+bool validate_isbn_10(std::string_view isbn) {
+  auto valid = false;
+  if (isbn.size() == 10 &&
+      std::count_if(std::begin(isbn), std::end(isbn), isdigit) == 10) {
+    auto w = 10;
+    auto sum = std::accumulate(std::begin(isbn), std::end(isbn), 0,
+                               [&w](int const total, char const c) {
+                                 return total + w-- * (c - '0');
+                               });
+    valid = !(sum % 11);
+  }
+  return valid;
+}
+int main() {
+  assert(validate_isbn_10("0306406152"));
+  assert(!validate_isbn_10("0306406151"));
+  std::string isbn;
+  std::cout << "isbn:";
+  std::cin >> isbn;
+  std::cout << "valid: " << validate_isbn_10(isbn) << std::endl;
+}
+```
+
 ### 2. Greatest common divisor
 
 
+```c++
 
 #include <iostream>
 unsigned int gcd(unsigned int const a, unsigned int const b) {
@@ -83,6 +296,7 @@ int main() {
 ### 3. Least common multiple
 
 
+```c++
 
 #include <iostream>
 #include <numeric>
@@ -113,6 +327,7 @@ int main() {
 ### 4. Largest prime smaller than given number
 
 
+```c++
 
 #include <iostream>
 bool is_prime(int const num) {
@@ -145,6 +360,7 @@ int main() {
 ### 5. Sexy prime pairs
 
 
+```c++
 
 #include <iostream>
 bool is_prime(int const num) {
@@ -176,6 +392,7 @@ int main() {
 ### 6. Abundant numbers
 
 
+```c++
 
 #include <iostream>
 #include <cmath>
@@ -207,6 +424,7 @@ int main() {
 ### 7. Amicable numbers
 
 
+```c++
 
 #include <iostream>
 #include <set>
@@ -256,6 +474,7 @@ int main() {
 ### 8. Armstrong numbers
 
 
+```c++
 
 #include <iostream>
 #include <vector>
@@ -350,6 +569,7 @@ int main() {
 ### 9. Prime factors of a number
 
 
+```c++
 
 #include <iostream>
 #include <cmath>
@@ -381,216 +601,13 @@ int main() {
             std::ostream_iterator<unsigned long long>(std::cout, " "));
 }
 ```
-### 10. Gray code
-
-
-
-#include <iostream>
-#include <bitset>
-#include <string>
-unsigned int gray_encode(unsigned int const num) { return num ^ (num >> 1); }
-unsigned int gray_decode(unsigned int gray) {
-  for (unsigned int bit = 1U << 31; bit > 1; bit >>= 1) {
-    if (gray & bit)
-      gray ^= bit >> 1;
-  }
-  return gray;
-}
-std::string to_binary(unsigned int value, int const digits) {
-  return std::bitset<32>(value).to_string().substr(32 - digits, digits);
-}
-int main() {
-  std::cout << "Number\tBinary\tGray\tDecoded\n";
-  std::cout << "------\t------\t----\t-------\n";
-  for (unsigned int n = 0; n < 32; ++n) {
-    auto encg = gray_encode(n);
-    auto decg = gray_decode(encg);
-    std::cout << n << "\t" << to_binary(n, 5) << "\t" << to_binary(encg, 5)
-              << "\t" << decg << "\n";
-  }
-}
-```
-
-### 11. Converting numerical values to Roman
-
-
-
-#include <iostream>
-#include <string>
-#include <vector>
-std::string to_roman(unsigned int value) {
-  std::vector<std::pair<unsigned int, char const *>> roman{
-      {1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
-      {90, "XC"},  {50, "L"},   {40, "XL"}, {10, "X"},   {9, "IX"},
-      {5, "V"},    {4, "IV"},   {1, "I"}};
-  std::string result;
-  for (auto const &kvp : roman) {
-    while (value >= kvp.first) {
-      result += kvp.second;
-      value -= kvp.first;
-    }
-  }
-  return result;
-}
-int main() {
-  for (int i = 1; i <= 100; ++i) {
-    std::cout << i << "\t" << to_roman(i) << std::endl;
-  }
-  int number = 0;
-  std::cout << "number:";
-  std::cin >> number;
-  std::cout << to_roman(number) << std::endl;
-}
-```
-
-### 12. Largest Collatz sequence
-
-
-
-#include <iostream>
-#include <vector>
-std::pair<unsigned long long, long>
-longest_collatz_uncached(unsigned long long const limit) {
-  long length = 0;
-  unsigned long long number = 0;
-  for (unsigned long long i = 2; i <= limit; i++) {
-    auto n = i;
-    long steps = 0;
-    while (n != 1) {
-      if ((n % 2) == 0)
-        n = n / 2;
-      else
-        n = n * 3 + 1;
-      steps++;
-    }
-    if (steps > length) {
-      length = steps;
-      number = i;
-    }
-  }
-  return std::make_pair(number, length);
-}
-std::pair<unsigned long long, long>
-longest_collatz(unsigned long long const limit) {
-  long length = 0;
-  unsigned long long number = 0;
-  std::vector<int> cache(limit + 1, 0);
-  for (unsigned long long i = 2; i <= limit; i++) {
-    auto n = i;
-    long steps = 0;
-    while (n != 1 && n >= i) {
-      if ((n % 2) == 0)
-        n = n / 2;
-      else
-        n = n * 3 + 1;
-      steps++;
-    }
-    cache[i] = steps + cache[n];
-    if (cache[i] > length) {
-      length = cache[i];
-      number = i;
-    }
-  }
-  return std::make_pair(number, length);
-}
-int main() {
-  struct test_data {
-    unsigned long long limit;
-    unsigned long long start;
-    long steps;
-  };
-  std::vector<test_data> data{{10ULL, 9ULL, 19},
-                              {100ULL, 97ULL, 118},
-                              {1000ULL, 871ULL, 178},
-                              {10000ULL, 6171ULL, 263},
-                              {100000ULL, 77031ULL, 350},
-                              {1000000ULL, 837799ULL, 524},
-                              {10000000ULL, 8400511ULL, 685},
-                              {100000000ULL, 63728127ULL, 949}};
-  for (auto const &d : data) {
-    auto result = longest_collatz(d.limit);
-    if (result.first != d.start || result.second != d.steps)
-      std::cout << "error on limit " << d.limit << std::endl;
-    else
-      std::cout << "less than      : " << d.limit << std::endl
-                << "starting number: " << result.first << std::endl
-                << "sequence length: " << result.second << std::endl;
-  }
-}
-```
-
-### 13. Computing the value of Pi
-
-
-
-#include <iostream>
-#include <random>
-#include <algorithm>
-#include <array>
-#include <functional>
-template <typename E = std::mt19937,
-          typename D = std::uniform_real_distribution<>>
-double compute_pi(E &engine, D &dist, int const samples = 1000000) {
-  auto hit = 0;
-  for (auto i = 0; i < samples; i++) {
-    auto x = dist(engine);
-    auto y = dist(engine);
-    if (y <= std::sqrt(1 - std::pow(x, 2)))
-      hit += 1;
-  }
-  return 4.0 * hit / samples;
-}
-int main() {
-  std::random_device rd;
-  auto seed_data = std::array<int, std::mt19937::state_size>{};
-  std::generate(std::begin(seed_data), std::end(seed_data), std::ref(rd));
-  std::seed_seq seq(std::begin(seed_data), std::end(seed_data));
-  auto eng = std::mt19937{seq};
-  auto dist = std::uniform_real_distribution<>{0, 1};
-  for (auto j = 0; j < 10; j++) {
-    std::cout << compute_pi(eng, dist) << std::endl;
-  }
-}
-```
-
-### 14. Validating ISBNs
-
-
-
-#include <iostream>
-#include <string>
-#include <algorithm>
-#include <numeric>
-#include <string_view>
-#include <assert.h>
-bool validate_isbn_10(std::string_view isbn) {
-  auto valid = false;
-  if (isbn.size() == 10 &&
-      std::count_if(std::begin(isbn), std::end(isbn), isdigit) == 10) {
-    auto w = 10;
-    auto sum = std::accumulate(std::begin(isbn), std::end(isbn), 0,
-                               [&w](int const total, char const c) {
-                                 return total + w-- * (c - '0');
-                               });
-    valid = !(sum % 11);
-  }
-  return valid;
-}
-int main() {
-  assert(validate_isbn_10("0306406152"));
-  assert(!validate_isbn_10("0306406151"));
-  std::string isbn;
-  std::cout << "isbn:";
-  std::cin >> isbn;
-  std::cout << "valid: " << validate_isbn_10(isbn) << std::endl;
-}
-```
 
 ## Language Features
 
 ### 15. IPv4 data type
 
 
+```c++
 
 #include <iostream>
 #include <array>
@@ -659,6 +676,7 @@ int main() {
 ### 16. Enumerating IPv4 addresses in a range
 
 
+```c++
 
 #include <iostream>
 #include <array>
@@ -768,6 +786,7 @@ int main() {
 ### 17. Creating a 2D array with basic operations
 
 
+```c++
 
 #include <iostream>
 #include <vector>
@@ -880,6 +899,7 @@ int main() {
 ### 18. Minimum function with any number of arguments
 
 
+```c++
 
 #include <iostream>
 #include <functional>
@@ -906,6 +926,7 @@ int main() {
 ### 19. Adding a range of values to a container
 
 
+```c++
 
 #include <iostream>
 #include <cstdlib>
@@ -930,6 +951,7 @@ int main() {
 ### 20. Container any, all, none
 
 
+```c++
 
 #include <iostream>
 #include <vector>
@@ -983,6 +1005,7 @@ int main() {
 ### 21. System handle wrapper
 
 
+```c++
 
 #ifdef _WIN32
 #include <windows.h>
@@ -1152,6 +1175,7 @@ int main() {
 ### 22. Literals of various temperature scales
 
 
+```c++
 
 #include <cmath>
 #include <assert.h>
@@ -1656,6 +1680,7 @@ int main() {
   assert(transform_date("today is 01.12.2017!"s) == "today is 2017-12-01!"s);
 }
 ```
+
 
 
 
