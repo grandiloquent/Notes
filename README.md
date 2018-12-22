@@ -7,11 +7,14 @@
 
 ## C
 
-- C Recipes
+- [C Recipes](https://www.apress.com/us/book/9781484229668)
 
 	- [Data Files](/c/C%20Data%20Files.md)	
 	- [Self-Referential Structures](/c/C%20Self-Referential%20Structures.md)
 	- [Stacks and Queues](/c/C%20Stacks%20and%20Queues.md)
+	- [Searching and Sorting](/c/C%20Searching%20and%20Sorting.md)
+	- [Cryptographic Systems](/c/C%20Cryptographic%20Systems.md)
+	- [Numerical Methods](/c/C%20Numerical%20Methods.md)
 - Sample
 
 	- [stdio](/c/C%20stdio.md)
