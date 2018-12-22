@@ -11,6 +11,7 @@
 
 	- [Data Files](/c/C%20Data%20Files.md)	
 	- [Self-Referential Structures](/c/C%20Self-Referential%20Structures.md)
+	- [Stacks and Queues](/c/C%20Stacks%20and%20Queues.md)
 - Sample
 
 	- [stdio](/c/C%20stdio.md)
