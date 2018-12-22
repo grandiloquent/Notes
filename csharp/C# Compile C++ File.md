@@ -67,11 +67,15 @@ namespace CompileCpp
 			} catch (Exception e) {
 				Console.WriteLine("ERROR:" + e.Message);
 			}
-			// -finput-charset=UTF-8 -fexec-charset=GBK -lstdc++fs 
+			// -finput-charset=UTF-8 -fexec-charset=GBK -lstdc++fs  -std=c++17  
 			//var cmd = string.Format("/K gcc -Wall -g -finput-charset=GBK -fexec-charset=GBK \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
-			var cmd = string.Format("/K g++ -Wall -g -std=c++17 \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
+			var cmd = string.Format("/K gcc -Wall -g \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
 		
-			Process.Start("cmd", cmd);
+			Process.Start(new ProcessStartInfo() {
+				FileName = "cmd",
+				Arguments = cmd,
+				WorkingDirectory = dir
+			});
 				
 			
 		}
@@ -122,4 +126,5 @@ namespace CompileCpp
 	}
 }
 ```
+
 
