@@ -7,6 +7,7 @@
 
 ## C
 
+- [Data Files](/c/C%20Data%20Files.md)
 - Sample
 
 	- [stdio](/c/C%20stdio.md)
