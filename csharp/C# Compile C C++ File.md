@@ -1,6 +1,6 @@
-# C# Compile C++ File
+# C# Compile C/C++ File
 
-```csharp
+```
 namespace CompileCpp
 {
 	using System;
@@ -69,8 +69,15 @@ namespace CompileCpp
 			}
 			// -finput-charset=UTF-8 -fexec-charset=GBK -lstdc++fs  -std=c++17  
 			//var cmd = string.Format("/K gcc -Wall -g -finput-charset=GBK -fexec-charset=GBK \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
-			var cmd = string.Format("/K gcc -Wall -g \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
-		
+			var cmd = "";
+
+			var extension = Path.GetExtension(f).ToLower();
+			if (extension == ".c") {
+				cmd =	string.Format("/K gcc -Wall -g \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
+			} else if (extension == ".cpp") {
+				cmd =	string.Format("/K g++ -Wall -g \"{0}\" -o \"{1}\\{3}\" {2} && \"{1}\\{3}\" ", f, dir, arg, exe);
+			}
+			
 			Process.Start(new ProcessStartInfo() {
 				FileName = "cmd",
 				Arguments = cmd,
