@@ -9,6 +9,8 @@
 
 - [C Recipes](https://www.apress.com/us/book/9781484229668)
 
+	- [Pointers and Arrays](/c/C%20Pointers%20and%20Arrays.md)
+	- [Functions and Structures with Pointers](/c/C%20Functions%20and%20Structures%20with%20Pointers.md)
 	- [Data Files](/c/C%20Data%20Files.md)	
 	- [Self-Referential Structures](/c/C%20Self-Referential%20Structures.md)
 	- [Stacks and Queues](/c/C%20Stacks%20and%20Queues.md)
