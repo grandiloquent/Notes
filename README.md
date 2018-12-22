@@ -9,6 +9,8 @@
 
 - [C Recipes](https://www.apress.com/us/book/9781484229668)
 
+	- [Control Statements](/c/C%20Control%20Statements.md)
+	- [Functions and Arrays](/c/C%20Functions%20and%20Arrays.md)
 	- [Pointers and Arrays](/c/C%20Pointers%20and%20Arrays.md)
 	- [Functions and Structures with Pointers](/c/C%20Functions%20and%20Structures%20with%20Pointers.md)
 	- [Data Files](/c/C%20Data%20Files.md)	
