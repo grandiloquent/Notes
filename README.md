@@ -43,5 +43,6 @@
 
 ## Others
 
+- [Coding Interviews](/others/Coding%20Interviews.md)
 - [Command Line](/others/Command%20Line.md)
 
