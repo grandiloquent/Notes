@@ -7,7 +7,10 @@
 
 ## C
 
-- [Data Files](/c/C%20Data%20Files.md)
+- C Recipes
+
+	- [Data Files](/c/C%20Data%20Files.md)	
+	- [Self-Referential Structures](/c/C%20Self-Referential%20Structures.md)
 - Sample
 
 	- [stdio](/c/C%20stdio.md)
