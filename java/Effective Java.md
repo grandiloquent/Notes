@@ -1,5 +1,5 @@
 # Effective Java
 
-- [Effective Java (上)](/Effective%20Java%20(上).md)
-- [Effective Java (中)](/Effective%20Java%20(中).md)
-- [Effective Java (下)](/Effective%20Java%20(下).md)
+- [Effective Java (上)](https://github.com/grandiloquent/Notes/blob/master/java/Effective%20Java%20(%E4%B8%8A).md)
+- [Effective Java (中)](https://github.com/grandiloquent/Notes/blob/master/java/Effective%20Java%20(%E4%B8%AD).md)
+- [Effective Java (下)](https://github.com/grandiloquent/Notes/blob/master/java/Effective%20Java%20(%E4%B8%8B).md)
