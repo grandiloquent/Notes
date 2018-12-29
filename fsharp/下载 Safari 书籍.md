@@ -13,10 +13,10 @@ open System.Text
 open FSharp.Data
 open FSharp.Data.JsonExtensions
 open System.Diagnostics
+open System.Threading
 
 module Log =
-     open System
-     open System.Threading
+
 
      let report =
          let lockObj = obj()
@@ -52,21 +52,12 @@ let fetchSearchJson=
                    body=TextRequest """ {"query":"*","extended_publisher_data":"true","highlight":"true","is_academic_institution_account":"false","source":"user","include_assessments":"false","include_case_studies":"true","include_courses":"true","include_orioles":"true","include_playlists":"true","formats":["book"],"topics":[],"publishers":[],"languages":[],"sort":"date_added","field":"title"} """)
     }|>Async.Catch
 
+#load "Utils.fsx"
 
-// substring before last
-let inline (--|) (s:string)(c:char)=
-    let i=s.LastIndexOf(c)
-    if (-1=i) then
-        s
-    else
-        s.Substring(0,i)
-// substring after
-let inline (|-) (s:string)(c:string)=
-    let i=s.IndexOf(c)
-    if (-1=i) then
-        s
-    else
-        s.Substring(i+c.Length)
+open Utils.Operators
+
+
+
 let stripInvalidFileNameChars(fileName:string)=
     Regex.Replace(fileName,@"[:*?/\""<>|\0\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\u000a\u000b\u000c\u000d\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f]"," ")
 
