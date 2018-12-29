@@ -14,22 +14,11 @@ open FSharp.Data
 open FSharp.Data.JsonExtensions
 open System.Diagnostics
 open System.Threading
+#load "Utils.fsx"
 
-module Log =
+open Utils.Operators
+open Utils
 
-
-     let report =
-         let lockObj = obj()
-         fun (color : ConsoleColor) (message : string) ->
-             lock lockObj (fun _ ->
-                 Console.ForegroundColor <- color
-                 printfn "%s (thread ID: %i)"
-                     message Thread.CurrentThread.ManagedThreadId
-                 Console.ResetColor())
-     let red = report ConsoleColor.Red
-     let green = report ConsoleColor.Green
-     let yellow = report ConsoleColor.Yellow
-     let cyan = report ConsoleColor.Cyan
 
 
 
@@ -52,14 +41,10 @@ let fetchSearchJson=
                    body=TextRequest """ {"query":"*","extended_publisher_data":"true","highlight":"true","is_academic_institution_account":"false","source":"user","include_assessments":"false","include_case_studies":"true","include_courses":"true","include_orioles":"true","include_playlists":"true","formats":["book"],"topics":[],"publishers":[],"languages":[],"sort":"date_added","field":"title"} """)
     }|>Async.Catch
 
-#load "Utils.fsx"
-
-open Utils.Operators
 
 
 
-let stripInvalidFileNameChars(fileName:string)=
-    Regex.Replace(fileName,@"[:*?/\""<>|\0\u0001\u0002\u0003\u0004\u0005\u0006\u0007\u0008\u0009\u000a\u000b\u000c\u000d\u000e\u000f\u0010\u0011\u0012\u0013\u0014\u0015\u0016\u0017\u0018\u0019\u001a\u001b\u001c\u001d\u001e\u001f]"," ")
+
 
 let createDirectoryIfNotExists(dir:string)=
     if not(Directory.Exists(dir)) then
@@ -77,7 +62,7 @@ let createDirectory(node:HtmlDocument)=
         null
     else
         let t=title.Head.InnerText()
-        let n=Path.Combine(dir,t--|'['|>stripInvalidFileNameChars).TrimEnd()
+        let n=Path.Combine(dir,(t--|'['>|<" ").TrimEnd())
         Log.green ("The book's title is: " + n)
         createDirectoryIfNotExists(n)
         n
