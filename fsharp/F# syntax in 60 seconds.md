@@ -1,6 +1,6 @@
 # F#: F# syntax in 60 seconds
 
-```
+```fsharp
 // single line comments use a double slash
 (* multi line comments use (* . . . *) pair -end of multi line comment- *)
 
@@ -116,5 +116,5 @@ printfn "twoTuple=%A,\nPerson=%A,\nTemp=%A,\nEmployee=%A"
 // into a string, similar to String.Format.
 
 
-```fsharp
+```
 

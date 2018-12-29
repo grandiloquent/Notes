@@ -1,7 +1,7 @@
 # F#: 下载 Safari 书籍
 
 
-```
+```fsharp
 
 // nuget install FSharp.Data -Version 3.0.0
 
@@ -147,6 +147,6 @@ fetchBook "https://www.oreilly.com/library/view/arduino-applied-comprehensive/97
 // match books with
 //     |Some x-> x|>Array.iter(printfn "%A")
 //     |None -> ()
-```fsharp
+```
 
 

@@ -1,7 +1,7 @@
 # F#: Throttling the Level of Concurrency in F#
 
 
-```
+```fsharp
 open System.Collections.Concurrent
 
 type JobRequest<'T> =
@@ -62,5 +62,5 @@ let inline doParallelWithThrottle<'a, 'b> limit f items =
     resultMap
     |> Seq.iter (fun kv -> results.[kv.Key] <- kv.Value)
     results
-```fsharp
+```
 

@@ -1,6 +1,6 @@
 # F#: HttpClient & HtmlAgilityPack
 
-```
+```fsharp
 open System.Windows.Forms
 open System
 #r "System.Net.Http.4.3.4/lib/net46/System.Net.Http.dll"
@@ -48,5 +48,5 @@ printfn "%s"(strip chars title)
 Console.ReadKey()
 
 
-```fsharp
+```
 

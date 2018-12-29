@@ -1,6 +1,6 @@
 # F#: Compress Directory
 
-```
+```fsharp
 #r"DotNetZip.1.13.0/lib/net40/DotNetZip.dll"
 open System.IO
 open Ionic.Zip
@@ -23,5 +23,5 @@ let dir="""C:\Users\psycho\Desktop\Books\其他"""
 
 FolderUnder dir
 |>Seq.iter(CompressDirectory)
-```fsharp
+```
 

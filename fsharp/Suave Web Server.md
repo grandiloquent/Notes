@@ -1,7 +1,7 @@
 # F#: Suave Web Server
 
 
-```
+```fsharp
 open System
 open System.Net
 open Suave
@@ -63,5 +63,5 @@ let main argv =
         app
     0 // return an integer exit code
 
-```fsharp
+```
 

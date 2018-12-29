@@ -2,7 +2,7 @@
 
 https://stackoverflow.com/questions/31148101/how-to-use-nuget-install-package-for-f-script-without-a-solution
 
-```
+```fsharp
 // Step 0. Boilerplate to get the paket.exe tool
 open System
 open System.IO
@@ -24,5 +24,5 @@ nuget Suave
 nuget FSharp.Data
 nuget FSharp.Charting
 """;;
-```fsharp
+```
 

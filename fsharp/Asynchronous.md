@@ -1,6 +1,6 @@
 # F#: Asynchronous
 
-```
+```fsharp
 open System.IO
 open System.Net
 
@@ -51,5 +51,5 @@ type MyEvent(v : string) =
 
         runAwaitEventTest()
 
-```fsharp
+```
 

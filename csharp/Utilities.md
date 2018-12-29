@@ -1,7 +1,7 @@
 # C#: Utilities
 
 
-```
+```csharp
 
 namespace Common
 {
@@ -238,7 +238,7 @@ namespace Common
 }
 
 
-```csharp
+```
 
 
 

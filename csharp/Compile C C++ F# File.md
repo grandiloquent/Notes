@@ -1,6 +1,6 @@
 # C#: Compile C/C++/F# File
 
-```
+```csharp
 namespace CompileCpp
 {
 	using System;
@@ -141,7 +141,7 @@ namespace CompileCpp
 		}
 	}
 }
-```csharp
+```
 
 
 

@@ -1,7 +1,7 @@
 # F#: Download Files
 
 
-```
+```fsharp
 
 module Log =
     open System
@@ -115,5 +115,5 @@ let main _ =
             downloaded.Length sw.Elapsed.TotalSeconds failed.Length)
     Console.ReadKey() |> ignore
     0
-```fsharp
+```
 

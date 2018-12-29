@@ -1,6 +1,6 @@
 # F#: Records
 
-```
+```fsharp
 let http url=
     ""
 type DiscreteEventCounter=
@@ -28,5 +28,5 @@ let fetch url=
 fetch "http://www.bing.com/"|>ignore
 
 reportStatus longPageCounter
-```fsharp
+```
 

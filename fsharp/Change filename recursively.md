@@ -1,6 +1,6 @@
 # F#: Change filename recursively
 
-```
+```fsharp
 open System.IO
 
 let rec allFilesUnder baseFolder=
@@ -26,5 +26,5 @@ allFilesUnder dir
                -> true
             |_ -> false)
 |>Seq.iter(changeFileName)
-```fsharp
+```
 

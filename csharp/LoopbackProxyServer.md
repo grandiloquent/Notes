@@ -2,7 +2,7 @@
 
 https://github.com/dotnet/corefx/tree/master/src/System.Net.Http/tests/FunctionalTests
 
-```
+```csharp
 
 using System;
 using System.Collections.Generic;
@@ -320,5 +320,5 @@ namespace System.Net.Http.Functional.Tests
         }
     }
 }
-```csharp
+```
 

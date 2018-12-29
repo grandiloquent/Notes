@@ -1,7 +1,7 @@
 # F#: Loops
 
 
-```
+```fsharp
 let http url=
     ""
 let repeatFetch url n=
@@ -24,5 +24,5 @@ open System.Text.RegularExpressions
 
 for m in Regex.Matches("All the Pretty Horses","[a-zA-Z]+") do
     printfn "res = %s" m.Value
-```fsharp
+```
 
