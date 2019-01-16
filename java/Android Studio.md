@@ -1,7 +1,12 @@
 #Java: Android Studio
 
-加载历史项目时删除.idea目录
+移动静态方法
 
+鼠标放在方法中
+F6
+
+加载历史项目时删除.idea目录
+https://stackoverflow.com/questions/12486846/intellij-generate-switch-case
 ## adb
 
 ```java
@@ -16,6 +21,8 @@ Log\.e\(TAG,\s*\"===>[^\"]*\"\);\n
 System.out.println\("===> \[[^\]]*\]"\);\n
 (?<= +)(private)
 Log\.e\(TAG,[^\)]*\);\n
+(?<!// )Log\.[e|d]\([^\(]*\);\n
+// $0
 ```
 
 ## 快捷键
