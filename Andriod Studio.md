@@ -33,6 +33,48 @@
 
 ## 模板
 
+* `braces`: Surround with {}
+* `callable`: Surround with Callable
+* `geti`: Inserts singleton method getInstance
+* `htmlorjsp`: Surround with <tag></tag> in HTML/JSP
+* `inst`: Checks object type with instanceof and down-casts it
+* `itar`: Iterate elements of array
+* `itco`: Iterate elements of java.util.Collection
+* `iten`: Iterate java.util.Enumeration
+* `iter`: Iterate Iterable | Array in J2SDK 5.0 syntax
+* `itit`: Iterate java.util.Iterator
+* `itli`: Iterate elements of java.util.List
+* `itover`: Iterate over an Iterable or Array selection in J2SDK 5.0 syntax
+* `ittok`: Iterate tokens from String
+* `itve`: Iterate elements of java.util.Vector
+* `lazy`: Performs lazy initialization
+* `lock`: Surround with ReadWriteLock.readLock
+* `lock`: Surround with ReadWriteLock.writeLock
+* `lst`: Fetches last element of an array
+* `mn`: Sets lesser value to a variable
+* `mx`: Sets greater value to a variable
+* `null`: Inserts ''if not null'' statement
+* `null`: Inserts ''if null'' statement
+* `pair`: Tag pair
+* `parens`: Surround with ()
+* `psf`: public static final
+* `psfi`: public static final int
+* `psfs`: public static final String
+* `psvm`: main() method declaration
+* `ritar`: Iterate elements of array in reverse order
+* `serr`: Prints a string to System.err
+* `souf`: Prints a formatted string to System.out
+* `sout`: Prints a string to System.out
+* `soutm`: Prints current class and method names to System.out
+* `soutp`: Prints method parameter names and values to System.out
+* `soutv`: Prints a value to System.out
+* `st`: String
+* `tag`: Surround with <tag></tag>
+* `thr`: throw new
+* `toar`: Stores elements of java.util.Collection into array
+* `xmlorhtmlorjsp`: Surround with CDATA section
+
+
 ### Android
 
 * `c`
@@ -289,3 +331,10 @@
 ## 扩展
 
 * https://romannurik.github.io/AndroidAssetStudio
+
+## 源代码
+
+* https://github.com/JetBrains/intellij-community
+* https://android.googlesource.com/platform/tools/idea/
+
+
