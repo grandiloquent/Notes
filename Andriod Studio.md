@@ -36,7 +36,7 @@
 * `braces`: Surround with {}
 * `callable`: Surround with Callable
 * `geti`: Inserts singleton method getInstance
-* `htmlorjsp`: Surround with <tag></tag> in HTML/JSP
+* `htmlorjsp`: Surround with &lt;tag&gt;&lt;/tag&gt; in HTML/JSP
 * `inst`: Checks object type with instanceof and down-casts it
 * `itar`: Iterate elements of array
 * `itco`: Iterate elements of java.util.Collection
@@ -53,8 +53,8 @@
 * `lst`: Fetches last element of an array
 * `mn`: Sets lesser value to a variable
 * `mx`: Sets greater value to a variable
-* `null`: Inserts ''if not null'' statement
-* `null`: Inserts ''if null'' statement
+* `null`: Inserts &#39;&#39;if not null&#39;&#39; statement
+* `null`: Inserts &#39;&#39;if null&#39;&#39; statement
 * `pair`: Tag pair
 * `parens`: Surround with ()
 * `psf`: public static final
@@ -69,10 +69,11 @@
 * `soutp`: Prints method parameter names and values to System.out
 * `soutv`: Prints a value to System.out
 * `st`: String
-* `tag`: Surround with <tag></tag>
+* `tag`: Surround with &lt;tag&gt;&lt;/tag&gt;
 * `thr`: throw new
 * `toar`: Stores elements of java.util.Collection into array
 * `xmlorhtmlorjsp`: Surround with CDATA section
+
 
 
 ### Android
