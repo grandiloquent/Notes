@@ -43,6 +43,14 @@
 
 		private static final String $name$ = "$value$";
 
+* `d`
+
+		Log.d(TAG,"$method$: ");
+
+* `dp`
+
+		Log.d(TAG,"$method$: "+$value$);
+
 * `t`
 
 		try {
@@ -51,21 +59,13 @@
 		    Log.e(TAG, e.getMessage());
 		}
 
-* `dp`
-
-		Log.d(TAG,"$method$: "+$value$);
-
-* `use`
-
-		[Left,Top,Right,Bottom];
-
 * `tag`
 
 		private static final String TAG = "TAG/"+$className$.class.getCanonicalName();
 
-* `d`
+* `use`
 
-		Log.d(TAG,"$method$: ");
+		[Left,Top,Right,Bottom];
 
 ### AndroidComments
 
@@ -115,18 +115,6 @@
 
 		android.util.Log.i(TAG, "$METHOD_NAME$: $content$");
 
-* `logw`
-
-		android.util.Log.w(TAG, "$METHOD_NAME$: $content$", $exception$);
-
-* `wtf`
-
-		android.util.Log.wtf(TAG, "$METHOD_NAME$: $content$", $exception$);
-
-* `logt`
-
-		private static final String TAG = "$className$";
-
 * `logm`
 
 		android.util.Log.d(TAG, $content$);
@@ -134,6 +122,18 @@
 * `logr`
 
 		android.util.Log.d(TAG, "$METHOD_NAME$() returned: " +  $result$);
+
+* `logt`
+
+		private static final String TAG = "$className$";
+
+* `logw`
+
+		android.util.Log.w(TAG, "$METHOD_NAME$: $content$", $exception$);
+
+* `wtf`
+
+		android.util.Log.wtf(TAG, "$METHOD_NAME$: $content$", $exception$);
 
 ### AndroidParcelable
 
@@ -235,13 +235,17 @@
 
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 
-* `toolsNs`
+* `lh`
 
-		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_height="$height$"
 
-* `lww`
+* `lhm`
 
-		android:layout_width="wrap_content"
+		android:layout_height="match_parent"
+
+* `lhw`
+
+		android:layout_height="wrap_content"
 
 * `lw`
 
@@ -251,17 +255,13 @@
 
 		android:layout_width="match_parent"
 
-* `lhw`
+* `lww`
 
-		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
 
-* `lhm`
+* `toolsNs`
 
-		android:layout_height="match_parent"
-
-* `lh`
-
-		android:layout_height="$height$"
+		xmlns:tools="http://schemas.android.com/tools"
 
 ### iterations
 
