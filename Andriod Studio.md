@@ -1,5 +1,18 @@
 # Andriod Studio
 
+- [快捷键](#快捷键)
+- [配置](#配置)
+- [模板](#模板)
+	- [Android](#android)
+	- [AndroidComments](#androidcomments)
+	- [AndroidLog](#androidlog)
+	- [AndroidParcelable](#androidparcelable)
+	- [AndroidXML](#androidxml)
+	- [iterations](#iterations)
+	- [other](#other)
+	- [plain](#plain)
+- [扩展](#扩展)
+
 ## 快捷键
 
 |快捷键|菜单|
@@ -33,7 +46,7 @@
 * `t`
 
 		try {
-		
+
 		} catch (Exception e) {
 		    Log.e(TAG, e.getMessage());
 		}
@@ -127,25 +140,25 @@
 * `Parcelable`
 
 		protected $className$(android.os.Parcel in) {
-		
+
 		}
-		
+
 		@Override
 		public int describeContents() {
 		  return 0;
 		}
-		
+
 		@Override
 		public void writeToParcel(@android.support.annotation.NonNull android.os.Parcel dest, int flags) {
-		
+
 		}
-		
+
 		public static final android.os.Parcelable.Creator<$className$> CREATOR = new Parcelable.Creator<$className$>() {
 		  @Override
 		  public $className$ createFromParcel(Parcel in) {
 		    return new $className$(in);
 		  }
-		
+
 		  @Override
 		  public $className$[] newArray(int size) {
 		    return new $className$[size];
@@ -158,18 +171,18 @@
 		public int describeContents() {
 		  return 0;
 		}
-		
+
 		@Override
 		public void writeToParcel(android.os.Parcel dest, int flags) {
 		  dest.writeInt(this.ordinal());
 		}
-		
+
 		public static final android.os.Parcelable.Creator<$className$> CREATOR = new Parcelable.Creator<$className$>() {
 		  @Override
 		  public $className$ createFromParcel(Parcel in) {
 		    return $className$.values()[in.readInt()];
 		  }
-		
+
 		  @Override
 		  public $className$[] newArray(int size) {
 		    return new $className$[size];
@@ -184,22 +197,22 @@
 		    assertEquals(0, value.describeContents());
 		  }
 		}
-		
+
 		@Test
 		public void testWriteToParcel() throws Exception {
 		  Parcel parcel;
 		  for ($className$ value : $className$.values()) {
 		    parcel = Parcel.obtain();
-		
+
 		    Parcel parceled$className$ = ParcelableHelper.writeToParcelAndResetDataPosition(value, 0);
 		    value.writeToParcel(parcel, 0);
 		    parcel.setDataPosition(0);
-		
+
 		    $className$ unparceled$className$ = $className$.CREATOR.createFromParcel(parceled$className$);
 		    assertEquals(value, unparceled$className$);
 		  }
 		}
-		
+
 		@Test
 		public void testArrayParcelable() throws Exception {
 		  $className$[] values = $className$.CREATOR.newArray($className$.values().length);
